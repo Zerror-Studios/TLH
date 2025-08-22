@@ -1,110 +1,75 @@
 import { RiArrowRightUpLine } from '@remixicon/react';
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 
 const Services = [
     {
         title: "Garment Care",
         desc: "Professional dry cleaning and wet cleaning for all your precious garments.",
         Tags: ["Dry Cleaning", "Wet Cleaning"],
+        img: "/images/services/1_Garment Care.jpg"
     },
     {
         title: "Shoe & Bags",
         desc: "Premium cleaning and restoration services for shoes and bags.",
         Tags: ["Shoe Cleaning", "Bag Cleaning"],
+        img: "/images/services/2_Shoe & Bags.jpg"
     },
     {
         title: "Home & Auto Fabrics",
         desc: "Deep cleaning for sofas, curtains, and carpets including auto upholstery.",
         Tags: ["Sofa Cleaning", "Curtain Cleaning", "Carpet Cleaning"],
+        img: "/images/services/3_Home & Auto Fabrics.jpg"
     },
     {
         title: "Wedding Couture",
         desc: "Specialized cleaning and finishing of wedding gowns and couture dresses.",
         Tags: ["Dry Cleaning", "Steam Ironing"],
+        img: "/images/services/4_Wedding Couturer.jpg"
     },
     {
         title: "Laundry Essentials",
         desc: "Everyday laundry service with wet cleaning and steam ironing.",
         Tags: ["Wet Cleaning", "Steam Ironing"],
+        img: "/images/services/1_Garment Care.jpg"
     },
     {
         title: "Curtains & Drapes",
         desc: "On-site and off-site curtain cleaning to remove dust and pollutants.",
         Tags: ["Curtain Cleaning"],
+        img: "/images/services/2_Shoe & Bags.jpg"
     },
     {
         title: "Carpet & Rugs",
         desc: "Professional carpet and rug cleaning with stain removal and deodorizing.",
         Tags: ["Carpet Cleaning"],
+        img: "/images/services/3_Home & Auto Fabrics.jpg"
     },
     {
         title: "Luxury Leather Bags",
         desc: "Restoration, polishing, and deep cleaning for luxury leather bags.",
         Tags: ["Bag Cleaning"],
+        img: "/images/services/1_Garment Care.jpg"
     },
     {
         title: "Silk & Satin Wear",
         desc: "Gentle hand-finishing and dry cleaning for silk and satin fabrics.",
         Tags: ["Dry Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Blankets & Quilts",
-        desc: "Cleaning for heavy bedding like blankets and quilts.",
-        Tags: ["Wet Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Corporate Uniforms",
-        desc: "Bulk dry cleaning and steam ironing services for office uniforms.",
-        Tags: ["Dry Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Denim Care",
-        desc: "Special treatment to preserve denim’s original look.",
-        Tags: ["Wet Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Stain Removal Experts",
-        desc: "Targeted stain removal for wine, oil, and ink stains.",
-        Tags: ["Dry Cleaning", "Wet Cleaning"],
-    },
-    {
-        title: "Sports Gear",
-        desc: "Cleaning and deodorizing of sports shoes and gym bags.",
-        Tags: ["Shoe Cleaning", "Bag Cleaning"],
-    },
-    {
-        title: "Suit & Blazers",
-        desc: "Dry cleaning and crisp steam ironing for formal suits and blazers.",
-        Tags: ["Dry Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Kids Wear",
-        desc: "Safe cleaning for children’s clothes with steam ironing.",
-        Tags: ["Wet Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Travel Essentials",
-        desc: "Cleaning for travel bags, trolley covers, and backpacks.",
-        Tags: ["Bag Cleaning"],
-    },
-    {
-        title: "Vintage Care",
-        desc: "Preservation and dry cleaning of vintage garments.",
-        Tags: ["Dry Cleaning", "Steam Ironing"],
-    },
-    {
-        title: "Outdoor Gear",
-        desc: "Cleaning for camping tents, fabric bags, and sports shoes.",
-        Tags: ["Bag Cleaning", "Shoe Cleaning"],
-    },
-    {
-        title: "Office Furnishing",
-        desc: "Cleaning for office sofas, carpets, and curtains.",
-        Tags: ["Sofa Cleaning", "Carpet Cleaning", "Curtain Cleaning"],
+        img: "/images/services/1_Garment Care.jpg"
     },
 ];
 
+
 const index = () => {
+    const [activeTag, setactiveTag] = useState("All");
+
+    const changeTag = (tag) => {
+        setactiveTag(tag);
+    };
+
+    const filteredServices = useMemo(() => {
+        if (activeTag === "All") return Services;
+        return Services.filter(service => service.Tags.includes(activeTag));
+    }, [activeTag]);
 
     const uniqueTags = useMemo(() => {
         const allTags = Services.flatMap(service => service.Tags);
@@ -119,80 +84,33 @@ const index = () => {
             </div>
             <div className="tags w-full mt-16 px-24 h-10 border-b scroller_none border-black/20  flex items-center justify-between">
                 {uniqueTags.map(tag => (
-                    <div key={tag} className="relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer">
+                    <div onClick={() => changeTag(tag)} key={tag} className={`relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer transition duration-300 ${activeTag === tag ? " " : "text-black/40"}`}>
                         <p>{tag}</p>
-                        {
-                            tag==="All" && (
-                                <div className="absolute -bottom-[1.5px] z-[9] w-full bg-black rounded-full h-[2px]"></div>
-                            )
-                        }
+                        <div className={`absolute -bottom-[1.5px] z-[9] w-full bg-black rounded-full h-[2px] transition duration-300 ${activeTag === tag ? "opacity-100" : "opacity-0"}`}></div>
                     </div>
                 ))}
             </div>
-            <div className="w-full mb-20  flex justify-between gap-10 p-10 ">
-                <div className="w-[25%] h-[75vh] flex flex-col justify-between gap-5">
-                    <div className="w-full h-[70%] ">
-                        <img className=' w-full h-full object-cover' src="/images/services/1_Garment Care.jpg" alt="" />
-                    </div>
-                    <div className="w-full h-[30%] flex flex-col  justify-between ">
-                        <p className='text-3xl '>Shoe & Bags</p>
-                        <p>Professional dry cleaning and wet cleaning for all your precious garments</p>
-                        <div className="">
-
-                            <button className=' flex gap-2  uppercase px-4 py-2 bg-black/5 rounded-full'>
-                                <p className='text-base fixy1_5'>Book Now</p>
-                                <RiArrowRightUpLine size={24} />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-[25%] h-[75vh] flex flex-col justify-between gap-5">
-                    <div className="w-full h-[70%] ">
-                        <img className=' w-full h-full object-cover' src="/images/services/2_Shoe & Bags.jpg" alt="" />
-                    </div>
-                    <div className="w-full h-[30%] flex flex-col  justify-between ">
-                        <p className='text-3xl '>Home & Auto Fabrics</p>
-                        <p>Professional dry cleaning and wet cleaning for all your precious garments</p>
-                        <div className="">
-
-                            <button className=' flex gap-2  uppercase px-4 py-2 bg-black/5 rounded-full'>
-                                <p className='text-base fixy1_5'>Book Now</p>
-                                <RiArrowRightUpLine size={24} />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-[25%] h-[75vh] flex flex-col justify-between gap-5">
-                    <div className="w-full h-[70%] ">
-                        <img className=' w-full h-full object-cover' src="/images/services/3_Home & Auto Fabrics.jpg" alt="" />
-                    </div>
-                    <div className="w-full h-[30%] flex flex-col  justify-between ">
-                        <p className='text-3xl '>Wedding Couture</p>
-                        <p>Professional dry cleaning and wet cleaning for all your precious garments</p>
-                        <div className="">
-
-                            <button className=' flex gap-2  uppercase px-4 py-2 bg-black/5 rounded-full'>
-                                <p className='text-base fixy1_5'>Book Now</p>
-                                <RiArrowRightUpLine size={24} />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-[25%] h-[75vh] flex flex-col justify-between gap-5">
-                    <div className="w-full h-[70%] ">
-                        <img className=' w-full h-full object-cover' src="/images/services/4_Wedding Couturer.jpg" alt="" />
-                    </div>
-                    <div className="w-full h-[30%] flex flex-col  justify-between ">
-                        <p className='text-3xl '>Garment Care</p>
-                        <p>Professional dry cleaning and wet cleaning for all your precious garments</p>
-                        <div className="">
-
-                            <button className=' flex gap-2  uppercase px-4 py-2 bg-black/5 rounded-full'>
-                                <p className='text-base fixy1_5'>Book Now</p>
-                                <RiArrowRightUpLine size={24} />
-                            </button>
-                        </div>
-                    </div>
+            <div className=" mb-20 p-10 w-full ">
+                <div className="w-full pb-10 overflow-x-auto custom_scroller flex  gap-10 ">
+                    {
+                        filteredServices.map((service, index) => (
+                            <div key={index} className="w-[25%] h-[75vh] shrink-0 flex flex-col justify-between gap-5">
+                                <div className="w-full h-[70%] ">
+                                    <img className=' w-full h-full object-cover' src={service.img} alt="" />
+                                </div>
+                                <div className="w-full h-[30%] flex flex-col  justify-between ">
+                                    <p className='text-3xl '>{service.title}</p>
+                                    <p>{service.desc}</p>
+                                    <div className="">
+                                        <button className=' flex gap-2  uppercase px-4 py-2 bg-black/5 rounded-full'>
+                                            <p className='text-base fixy1_5'>Book Now</p>
+                                            <RiArrowRightUpLine size={24} />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

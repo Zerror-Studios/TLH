@@ -18,6 +18,14 @@ body{
 p {
   font-family: Suisse_Intl_regular;
 }
+.custom_scroller::-webkit-scrollbar{
+  background-color: rgba(128, 128, 128, 0.388);
+  height: 3px;
+}
+.custom_scroller::-webkit-scrollbar-thumb {
+  background-color: #0e1111;
+  border-radius: 10px;
+}
 .scroller_none::-webkit-scrollbar{
   display: none;
 }
