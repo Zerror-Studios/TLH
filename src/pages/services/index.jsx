@@ -1,6 +1,41 @@
 import { RiArrowDownSLine, RiArrowRightUpLine, RiCloseLine } from '@remixicon/react';
-import React, { useMemo, useRef, useState } from 'react'
-import { gsap } from 'gsap';
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import SplitText from 'gsap/dist/SplitText';
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+import { motion, AnimatePresence } from "framer-motion";
+
+const cardVariants = {
+    hidden: {
+        opacity: 0,
+        y: 20,
+        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        filter: "blur(5px)"
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        filter: "blur(0px)",
+        transition: {
+            duration: 0.6,
+            ease: "easeInOut"
+        }
+    },
+    exit: {
+        opacity: 0,
+        y: -20,
+        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        filter: "blur(5px)",
+        transition: {
+            duration: 0.4,
+            ease: "easeInOut"
+        }
+    }
+};
 
 const Services = [
     {
@@ -114,6 +149,29 @@ const index = () => {
         });
     };
 
+    useEffect(() => {
+        gsap.fromTo(".serv_txt_a", { y: 20, opacity: 0 }, { y: 0, opacity: 1, delay: 0.3, duration: 0.5, stagger: 0.05 });
+
+        gsap.fromTo(
+            ".serv_clip",
+            {
+                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+                filter: "blur(5px)"
+            },
+            {
+                delay: 0.1,
+                stagger: 0.2,
+                ease: "power2.inOut",
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                filter: "blur(0px)",
+                duration: 0.6,
+            }, "parallel");
+
+        gsap.fromTo(".serv_txt_b", { y: 20, opacity: 0 }, { y: 0, opacity: 1, delay: 1.5, duration: 0.5, stagger: 0.05 });
+        gsap.fromTo(".serv_line", { opacity: 0 }, { opacity: 1, delay: 0.5, duration: 0.5, });
+    }, [])
+
+
     return (
         <div>
 
@@ -152,38 +210,54 @@ const index = () => {
             </div>
 
             <div className="w-full center flex-col pt-32">
-                <p className='text-6xl'>Our Services</p>
-                <p className='text-xl'>Explore the range of services we offer to care for your garments.</p>
+                <p className=' serv_txt_a  text-6xl'>Our Services</p>
+                <p className='serv_txt_a text-xl'>Explore the range of services we offer to care for your garments.</p>
             </div>
             <div className="tags w-full mt-16 px-24 h-10 border-b scroller_none border-black/20  flex items-center justify-between">
                 {uniqueTags.map(tag => (
                     <div onClick={() => changeTag(tag)} key={tag} className={`relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer transition duration-300 ${activeTag === tag ? " " : "text-black/40"}`}>
-                        <p>{tag}</p>
-                        <div className={`absolute -bottom-[1.5px] z-[9] w-full bg-black rounded-full h-[2px] transition duration-300 ${activeTag === tag ? "opacity-100" : "opacity-0"}`}></div>
+                        <p className='serv_txt_a'>{tag}</p>
+                        <div className={` serv_line opacity-100 absolute -bottom-[1.5px] z-[9]  bg-black rounded-full h-[2px] transition-all origin-center duration-300 ${activeTag === tag ? "w-full" : "w-0"}`}></div>
                     </div>
                 ))}
             </div>
             <div className=" mb-20 p-10 w-full ">
                 <div className="w-full pb-10 overflow-x-auto custom_scroller flex  gap-10 ">
-                    {
-                        filteredServices.map((service, index) => (
-                            <div key={index} className="w-[25%] h-[75vh] shrink-0 flex flex-col justify-between gap-5">
-                                <div className="w-full h-[70%] ">
-                                    <img className=' w-full h-full object-cover' src={service.img} alt="" />
-                                </div>
-                                <div className="w-full h-[30%] flex flex-col  justify-between ">
-                                    <p className='text-3xl '>{service.title}</p>
-                                    <p>{service.desc}</p>
-                                    <div className="">
-                                        <button onClick={() => openService(service)} className=' flex gap-2  uppercase px-4 py-2 bg-black/5 rounded-full'>
-                                            <p className='text-base fixy1_5'>Book Now</p>
+                    <AnimatePresence mode="popLayout">
+                        {filteredServices.map((service, index) => (
+                            <motion.div
+                                key={service.title} // stable key
+                                variants={cardVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                transition={{ delay: index * 0.15 }} // stagger effect
+                                className="w-[25%]  shrink-0 flex flex-col justify-between gap-5"
+                            >
+                                <motion.div className="serv_clip aspect-square w-full  overflow-hidden">
+                                    <img
+                                        className="w-full h-full object-cover"
+                                        src={service.img}
+                                        alt={service.title}
+                                    />
+                                </motion.div>
+                                <div className="w-full h-[30%] flex flex-col justify-between">
+                                    <p className="text-3xl serv_txt_b">{service.title}</p>
+                                    <p className="serv_txt_b">{service.desc}</p>
+                                    <div>
+                                        <button
+                                            onClick={() => openService(service)}
+                                            className="serv_txt_b flex gap-2 uppercase px-4 py-2 bg-black/5 rounded-full"
+                                        >
+                                            <p className="text-base fixy1_5">Book Now</p>
                                             <RiArrowRightUpLine size={24} />
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        ))
-                    }
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+
                 </div>
             </div>
         </div>

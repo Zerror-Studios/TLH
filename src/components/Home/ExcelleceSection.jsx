@@ -1,5 +1,8 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import SplitText from 'gsap/dist/SplitText';
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const excellenceData = [{
     img: "/logos/atom.svg",
@@ -16,25 +19,107 @@ const excellenceData = [{
 }]
 
 const ExcelleceSection = () => {
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const split1 = new SplitText(".ex_animate_txt_a", { type: "words" });
+            const split2 = new SplitText(".ex_animate_txt_b", { type: "words" });
+            const split3 = new SplitText(".ex_animate_txt_c", { type: "words" });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".excellence_parent",
+                    start: "top 60%",
+                    // markers: true,
+                    toggleActions: "play none none reverse",
+                }
+            })
+
+            tl.fromTo(
+                [split1.words, split2.words],
+                { y: 20, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    stagger: 0.05,
+                }, "parallel");
+
+            tl.fromTo(
+                [split3.words],
+                { y: 10, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    stagger: 0.005,
+                }, "parallel");
+
+            tl.fromTo(
+                ".ex_anim_title",
+                { y: 10, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    delay: 0.3,
+                    duration: 0.5,
+                    stagger: 0.1,
+                }, "parallel");
+            tl.fromTo(
+                ".ex_anim_para",
+                { y: 10, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                    stagger: 0.05,
+                }, "parallel");
+
+            tl.fromTo(
+                ".ex_anim_img",
+                { scale: 0, },
+                {
+                    scale: 1,
+                    ease: "circ.inOut",
+                    delay: 0.5,
+                    duration: 0.5,
+                    stagger: 0.05,
+                }, "parallel");
+
+            tl.fromTo(
+                ".ex_anim_line",
+                { width: 0 },
+                {
+                    width: "100%",
+                    delay: 0.3,
+                    duration: 0.5,
+                    stagger: 0.1,
+                }, "parallel");
+        });
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <div>
-            <div className="w-full py-24 center">
+        <div className='excellence_parent'>
+            <div className="w-full pb-24 px-24 center">
                 <div className="w-full  flex flex-col items-center justify-center gap-20">
                     <div className="w-full text-center">
                         <div className='text-6xl uppercase font-semibold'>
-                            <p>Excellence</p>
-                            <p>in Every Detail</p>
+                            <p className='ex_animate_txt_a'>Excellence</p>
+                            <p className='ex_animate_txt_b'>in Every Detail</p>
                         </div>
-                        <p  className='text-xl'>State-of-the-art equipment and eco-friendly processes for superior results</p>
+                        <p className='text-xl ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
                     </div>
                     <div className="w-full   flex items-center justify-center gap-10">
                         {excellenceData.map((item, index) => (
                             <div className="h-full w-[20%] gap-5 flex flex-col text-center items-center justify-between">
-                                <p className='text-xl font-semibold'>{item.title}</p>
-                                <div className="w-full h-[1px] black"></div>
-                                <p>{item.para}</p>
+                                <p className=' ex_anim_title text-xl font-semibold'>{item.title}</p>
+                                <div className=" ex_anim_line origin-left  w-full h-[1px] black"></div>
+                                <p className='ex_anim_para'>{item.para}</p>
                                 <div className="w-full center">
-                                    <img className='size-14' src={item.img} alt="" />
+                                    <img className=' ex_anim_img size-14' src={item.img} alt="" />
                                 </div>
                             </div>
                         ))}
