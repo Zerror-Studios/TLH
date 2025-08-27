@@ -55,15 +55,15 @@ const Index = () => {
             {/* Header Section */}
             <div className="w-full flex lg:items-center justify-center flex-col p-5 pt-20 lg:pt-32">
                 <div className="block overflow-hidden">
-                    <p className=' store_txt_head text-3xl lg:text-6xl font-semibold '>Our Stores</p>
+                    <p className=' store_txt_head text-2xl lg:text-6xl font-semibold '>Our Stores</p>
                 </div>
                 <div className="block overflow-hidden">
-                    <p className=' store_txt_head lg:text-xl '>Find a store near you to experience our services firsthand.</p>
+                    <p className='  text-sm store_txt_head lg:text-xl '>Find a store near you to experience our services firsthand.</p>
                 </div>
             </div>
 
             {/* City Tabs */}
-            <div className=" tags w-full  lg:mt-16 px-5 lg:px-24 h-10 border-b scroller_none border-black/20 flex items-center gap-5 lg:gap-10">
+            <div className=" tags w-full  lg:mt-10 px-5 lg:px-24 h-10 border-b scroller_none border-black/20 flex items-center gap-5 lg:gap-10">
                 {uniqueCity.map(city => (
                     <div
                         key={city}
@@ -78,7 +78,7 @@ const Index = () => {
 
             <div className="w-full flex flex-col lg:flex-row justify-between p-5 lg:p-10 mb-20">
                 {/* Left Side (Shops List) */}
-                <div data className=" w-full lg:w-[40%] h-[60vh] lg:h-[35vw] overflow-y-scroll custom_scrollbar">
+                <div  className=" w-full lg:w-[40%] h-[60vh] lg:h-[35vw] overflow-y-scroll custom_scrollbar">
                     {allStoresData.find(store => store.cityName === activeCity)?.shopNames?.map((shop, index) => (
                         <div
                             key={index}
@@ -105,7 +105,7 @@ const Index = () => {
                                         rel="noopener noreferrer"
                                         className="fixy1 underline"
                                     >
-                                        <AnimatedText uniqueKey={shop.location} className="fixy1">Get Direction</AnimatedText>
+                                        <AnimatedText uniqueKey={shop.location} className="fixy1">Location</AnimatedText>
                                     </a>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ const Index = () => {
                     <div className="chnge_cat_tble w-full relative overflow-hidden rounded-xl border border-black/20">
                         <div className="table_ver_line w-[1.5px] h-full opacity-50 black absolute left-[33%]"></div>
                         <div className="table_ver_line w-[1.5px] h-full opacity-50 black absolute right-[33%]"></div>
-                        <table className=" text-sm md:text-base text-center w-full h-full">
+                        <table className=" text-xs md:text-base text-center w-full h-full">
                             <thead className="w-full">
                                 <tr className="chnge_cat_tble table_border w-full flex h-12 bg-black/5 border-[#0e11117e] border-b-2 justify-between">
                                     <th className="w-[33%] center h-10"><p className="font-thin store_txt_b translate-y-[4px]">Garments/ Accessories</p></th>
@@ -158,13 +158,13 @@ const Index = () => {
                                             className={` ${index % 2 === 0 ? "bg-black/2 " : "bg-black/5"} chnge_cat_tble w-full flex justify-between h-10 lg:h-12 items-center`}
                                         >
                                             <td className="w-[32%] center">
-                                                <AnimatedText uniqueKey={service.serviceName} className="store_txt_c">{service.serviceName}</AnimatedText>
+                                                <AnimatedText uniqueKey={service.serviceName} className="store_txt_c text-xs lg:text-base">{service.serviceName}</AnimatedText>
                                             </td>
                                             <td className="w-[32%] center">
-                                                <AnimatedText uniqueKey={service.premiumPrice} className="store_txt_c">₹ {service.premiumPrice}</AnimatedText>
+                                                <AnimatedText uniqueKey={service.premiumPrice} className="store_txt_c text-xs lg:text-base">₹ {service.premiumPrice}</AnimatedText>
                                             </td>
                                             <td className="w-[32%] center">
-                                                <AnimatedText uniqueKey={service.steamPrice} className="store_txt_c">₹ {service.steamPrice}</AnimatedText>
+                                                <AnimatedText uniqueKey={service.steamPrice} className="store_txt_c text-xs lg:text-base">₹ {service.steamPrice}</AnimatedText>
                                             </td>
                                         </tr>
                                     ))}

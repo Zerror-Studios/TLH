@@ -51,7 +51,7 @@ const MobileServiceSection = () => {
     return (
         <div className=' lg:hidden  w-full my-16 '>
             <div className="w-full px-5">
-                <p className='service_animate_txt_a text-3xl font-semibold'>Our Services</p>
+                <p className='service_animate_txt_a text-2xl font-semibold'>Our Services</p>
             </div>
             <Swiper
                 modules={[Navigation, A11y, Autoplay, Pagination]}
@@ -90,7 +90,7 @@ const MobileServiceSection = () => {
                                                 </div>
                                                 <p
                                                     onClick={() => setExpanded(!expanded)}
-                                                    className={`text-xs lg:text-base service_animate_txt_c relative transition-all duration-300 ${expanded ? "" : "line-clamp-3"
+                                                    className={`text-xs  lg:text-base service_animate_txt_c relative transition-all duration-300 ${expanded ? "" : "line-clamp-3"
                                                         }`}
                                                 >
                                                     {item.desc}

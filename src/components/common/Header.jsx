@@ -122,7 +122,7 @@ const Header = () => {
         transition-colors duration-500 ease-in-out 
         ${isScrolled ? "bg-black text-white" : "bg-transparent text-white"}`}
     >
-        <div className=" w-[45%] md:w-[20%]">
+        <div className=" w-[55%] md:w-[20%]">
           <Link href="/" className='w-full'>
             <img className='w-[100%] lg:w-[12vw]' src="/logos/Logo_White.svg" alt="" />
           </Link>

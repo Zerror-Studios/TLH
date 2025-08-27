@@ -129,7 +129,7 @@ const Responsibility = () => {
         <div className='resp_parent'>
             <div className="w-full p-5 py-16 lg:p-24">
                 <div className="w-full center">
-                    <p className=" resp_anim_txt text-3xl lg:text-6xl font-semibold">Sharing the Responsibilities</p>
+                    <p className=" resp_anim_txt text-2xl lg:text-6xl font-semibold">Sharing the Responsibilities</p>
                 </div>
                 <div className="w-full mt-5 lg:mt-0 grid grid-cols-1 md:grid-cols-2 gap-10  lg:p-20">
                     {cardData.map((card, index) => (
@@ -144,10 +144,16 @@ const Responsibility = () => {
                             <div className="flex flex-col gap-3">
                                 {card?.services.map((service, idx) => (
                                     <div key={idx}>
-                                        <p className=" resp_card_txt text-xs lg:text-base font-semibold">• &nbsp; {service.title}</p>
-                                        {service.description && (
-                                            <p className=" resp_card_txt text-xs lg:text-base pl-5">{service.description}</p>
-                                        )}
+                                        <div className="flex  gap-2 ">
+                                            <div className="size-1 mt-[8px] bg-black rounded-full shrink-0"></div>
+                                            <div className="">
+
+                                            <p className=" resp_card_txt text-sm lg:text-base font-semibold">{service.title}</p>
+                                            {service.description && (
+                                                <p className=" resp_card_txt text-sm lg:text-base">{service.description}</p>
+                                            )}
+                                            </div>
+                                        </div>
                                     </div>
                                 ))}
                             </div>

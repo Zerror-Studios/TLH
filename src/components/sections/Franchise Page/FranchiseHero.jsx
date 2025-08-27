@@ -60,10 +60,10 @@ const FranchiseHero = () => {
       {/* Content */}
       <div className="absolute w-[90%] lg:w-[70%] flex flex-col gap-5 items-center top-[50%] left-[50%] text-center translate-y-[-50%] translate-x-[-50%]">
         <div className="block overflow-hidden">
-          <p className="fr_hr_anim_head text-sm lg:text-xl">Become a Franchise</p>
+          <p className=" fr_hr_anim_head text-sm lg:text-xl">Become a Franchise</p>
         </div>
         <div className="block overflow-hidden">
-          <p className="fr_hr_anim_head text-3xl lg:text-6xl font-semibold">
+          <p className="fr_hr_anim_head text-2xl leading-none lg:text-6xl font-semibold">
             Join the Leader in Garment Care
           </p>
         </div>
@@ -82,7 +82,7 @@ const FranchiseHero = () => {
         </p>
 
         {/* Button */}
-        <button className="fr_hr_anim_btn text-xs w-[40%] md:w-[20%]  lg:text-base service_btn relative overflow-hidden group border-white hover:text-black rounded-full text-white border-2 hover:border-white  px-4 center font-bold py-1 lg:py-1.5">
+        <button className="fr_hr_anim_btn whitespace-nowrap text-xs w-[40%] md:w-[20%]  lg:text-base service_btn relative overflow-hidden group border-white hover:text-black rounded-full text-white border-2 hover:border-white  px-4 center font-bold py-1 lg:py-1.5">
           <p className="flex items-center justify-between w-full gap-4 font_light opacity-0">
             Join Now <RiArrowRightUpLine size={20} />
           </p>

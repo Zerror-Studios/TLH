@@ -75,6 +75,7 @@ const HeroSwiper = () => {
       duration: 2,
       ease: "expo.out"
     })
+    if(window.innerWidth < 1024) return
     gsap.fromTo(".chng_sl", {
       y: -300
     }, {

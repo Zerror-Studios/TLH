@@ -71,7 +71,7 @@ const FranchiseForm = () => {
             <div className="w-full px-5 lg:px-44 mb-20 ">
                 <div className="form_bg w-full h-full p-5 md:p-10  lg:p-20 bg-black/5 justify-between rounded-xl flex flex-col md:flex-row">
                     <div className=" w-full md:w-1/2 h-full flex gap-5 flex-col ">
-                        <p className=' form_anim_txt_a text-3xl lg:text-6xl font-semibold'>Let’s work <br /> together</p>
+                        <p className=' form_anim_txt_a text-2xl leading-none  lg:text-6xl font-semibold'>Let’s work <br /> together</p>
                         <p className=' form_anim_txt_b text-sm lg:text-xl end-full lg:w-[70%] '>Fill the form and we will contact you shortly or reach out to us at</p>
                         <p className=' form_anim_txt_c font-semibold'>info@tlhindia.in</p>
                     </div>

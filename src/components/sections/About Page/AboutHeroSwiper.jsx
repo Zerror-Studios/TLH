@@ -42,6 +42,7 @@ const HeroSwiper = () => {
   useEffect(() => {
 
    
+    if(window.innerWidth < 1024) return
 
     gsap.to(
       parallexContainerRef.current,

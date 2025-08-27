@@ -1,5 +1,5 @@
 import { RiStarFill } from '@remixicon/react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay, Pagination } from "swiper/modules";
@@ -13,25 +13,34 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from 'gsap/dist/SplitText';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const Reviews = [{
-    name: "Ravi Gupta",
-    img: "https://images.unsplash.com/photo-1722322426803-101270837197?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
-    rating: 5,
-    comment: "TLH has genuinely excellent services. I no longer worry about stains on my clothes because I'm confident they will be removed. It is my preferred laundry place, and we've been very satisfied since they opened."
-}, {
-    name: "Sita Sharma",
-    img: 'https://images.unsplash.com/photo-1731500573044-3551bfa73c4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww',
-    rating: 4,
-    comment: "The service is good, but I think they could improve on delivery times. Overall, I'm happy with the results."
-}, {
-    name: "John Doe",
-    img: "https://plus.unsplash.com/premium_photo-1690407617686-d449aa2aad3c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
-    rating: 5,
-    comment: "I had a great experience with TLH. The staff was friendly and the service was quick."
-}]
+const Reviews = [
+    {
+        name: "Ravi Gupta",
+        img: "https://images.unsplash.com/photo-1722322426803-101270837197?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
+        rating: 5,
+        comment:
+            "TLH has genuinely excellent services. I no longer worry about stains on my clothes because I’m confident they will be removed. The quality of washing is consistent, and the fabrics always feel fresh. "
+    },
+    {
+        name: "Sita Sharma",
+        img: "https://images.unsplash.com/photo-1731500573044-3551bfa73c4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
+        rating: 4,
+        comment:
+            "The service is very good, and the clothes are always returned neat and well cared for. However, I feel the delivery times could be a little faster, especially during busy days. "
+    },
+    {
+        name: "John Doe",
+        img: "https://plus.unsplash.com/premium_photo-1690407617686-d449aa2aad3c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
+        rating: 5,
+        comment:
+            "I had a wonderful experience with TLH. The staff was extremely polite and helpful, and the service itself was quick and efficient. My clothes came back spotless, neatly folded, and smelling fresh. "
+    }
+];
 
 const FeedbackSection = () => {
     const [expanded, setExpanded] = useState(false);
+    const [maxHeight, setMaxHeight] = useState(0);
+    const cardRefs = useRef([]);
 
 
     useEffect(() => {
@@ -114,20 +123,37 @@ const FeedbackSection = () => {
         return () => ctx.revert();
     }, []);
 
+    useEffect(() => {
+        // Find tallest card
+        if (cardRefs.current.length > 0) {
+            const heights = cardRefs.current.map((ref) => ref?.offsetHeight || 0);
+            setMaxHeight(Math.max(...heights));
+        }
+
+        // Update on resize
+        const handleResize = () => {
+            if (cardRefs.current.length > 0) {
+                const heights = cardRefs.current.map((ref) => ref?.offsetHeight || 0);
+                setMaxHeight(Math.max(...heights));
+            }
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [Reviews]);
 
     return (
         <div className='feed_parent'>
             <div className="w-full py-16 lg:py-24  p-5 lg:p-24">
-                <div className="w-full center lg:text-center">
+                <div className="w-full flex items-center lg:justify-center lg:text-center">
                     <div className="">
-                        <p className=' text-3xl lg:text-6xl animate_txt_a font-semibold  '>What Our Customers Say</p>
-                        <p className='  leading-none lg:text-xl animate_txt_a'>Garment care for important people, by people who care.</p>
+                        <p className=' text-2xl leading-none lg:text-6xl animate_txt_a font-semibold  '>What Our Customers Say</p>
+                        <p className='  mt-1 text-sm  lg:text-xl animate_txt_a'>Garment care for important people, by people who care.</p>
                     </div>
                 </div>
                 <div className="w-full mt-10 lg:mt-20 ">
                     <Swiper
                         modules={[Navigation, A11y, Autoplay, Pagination]}
-                        spaceBetween={0}
+                        spaceBetween={50}
                         speed={600}
                         loop
                         className=" swiper_elem_2 w-full h-full"
@@ -148,18 +174,21 @@ const FeedbackSection = () => {
                     >
                         {Reviews?.map((review, index) => (
                             <SwiperSlide key={index}>
-                                <div key={index} className="w-[100%] mb-5 lg:mb-0   p-5 flex flex-col relative gap-4 min-h-[15vw] ">
-                                    <div className=" feed_line absolute h-[70%] top-[50%] translate-y-[-50%] left-0 w-[1.5px] opacity-20 black"></div>
+                                <div
+                                    ref={(el) => (cardRefs.current[index] = el)}
+                                    style={{ height: maxHeight ? `${maxHeight}px` : "auto" }}
+                                    className="w-[100%] bg-white/20 border border-gray-300 rounded-xl mb-10 lg:mb-0 p-5 flex flex-col relative gap-4"
+                                >                                    {/* <div className=" feed_line absolute h-[70%] top-[50%] translate-y-[-50%] left-0 w-[1.5px] opacity-20 black"></div> */}
                                     <div className="flex gap-2 items-center">
-                                        <div className="size-12  overflow-hidden rounded-full">
+                                        <div className=" size-10  lg:size-12  overflow-hidden rounded-full">
                                             <img className=' feed_pic rounded-full  w-full h-full object-cover' src={review.img} alt={review.name} />
                                         </div>
                                         <div className="">
-                                            <p className=' animate_txt_b text-xl fixy1_5'>{review.name}</p>
+                                            <p className=' animate_txt_b text-base lg:text-xl fixy1_5'>{review.name}</p>
                                             <div className="flex gap-0.5">
                                                 {
                                                     Array.from({ length: review.rating }, (_, i) => (
-                                                        <RiStarFill key={i} size={14} className=' feed_star text-yellow-400' />
+                                                        <RiStarFill key={i} size={14} className=' feed_star text-yellow-500' />
                                                     ))
                                                 }
                                             </div>
@@ -167,7 +196,8 @@ const FeedbackSection = () => {
                                     </div>
 
                                     <p
-                                    onClick={() => setExpanded(!expanded)} className={` animate_txt_c relative transition-all duration-300 ${expanded ? "" : "line-clamp-3"}`}>{review.comment}</p>
+                                        // onClick={() => setExpanded(!expanded)}
+                                        className={` w-full animate_txt_c text-sm lg:text-base relative transition-all duration-300 ${expanded ? "" : ""}`}>{review.comment}</p>
                                 </div>
                             </SwiperSlide>
                         ))}

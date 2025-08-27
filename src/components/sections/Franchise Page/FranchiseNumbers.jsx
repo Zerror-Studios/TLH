@@ -93,7 +93,7 @@ const FranchiseNumbers = () => {
                         <p className="numb_animate_txt_a text-[3vw] leading-none md:text-xs lg:text-sm uppercase">
                             {item.title}
                         </p>
-                        <div className="numb_line w-full h-[2px] black rounded-full mt-2 mb-5 md:mb-8"></div>
+                        <div className="numb_line w-full h-[2px] black rounded-full mt-1 mb-5 md:mb-8"></div>
                         <div className="flex items-end gap-2">
                             {/* Animate this number */}
                             <p
