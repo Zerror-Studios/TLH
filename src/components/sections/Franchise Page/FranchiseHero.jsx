@@ -82,7 +82,7 @@ const FranchiseHero = () => {
         </p>
 
         {/* Button */}
-        <button className="fr_hr_anim_btn whitespace-nowrap text-xs w-[40%] md:w-[18%]  lg:text-base service_btn relative overflow-hidden group border-white hover:text-black rounded-full text-white border-1 hover:border-white  px-4 center   py-1 lg:py-1.5">
+        <button className="fr_hr_anim_btn whitespace-nowrap text-xs w-[40%] md:w-[18%]  lg:text-base service_btn bg-[#fffaf0] lg:bg-transparent relative overflow-hidden group border-white text-black hover:text-black rounded-full lg:text-white border-1 hover:border-white  px-4 center   py-1 lg:py-1.5">
           <p className="flex items-center justify-between w-full gap-4 font-normal opacity-0">
             Join Now <RiArrowRightUpLine size={20} />
           </p>

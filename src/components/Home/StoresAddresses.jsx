@@ -94,7 +94,7 @@ const StoresAddresses = () => {
                             <div className="w-full  group-hover:scale-110 origin-center group-hover:top-0 transition-all duration-300 h-full black left-0 top-[100%] absolute rounded-full"></div>
                             <p className='fixy1  translate-y-[10px] z-[99] text-white group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Load More</p>
                         </button> */}
-                        <div className="w-full h-12  bg-black/6 border border-black/50 center">
+                        <div className="w-full h-10 lg:h-12  bg-black/6 border border-black/50 center">
                             <h1 className='text-sm '>Load More +</h1>
                         </div>
                     </div>

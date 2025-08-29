@@ -89,15 +89,8 @@ const FranchiseSection = () => {
                         {expanded ? "Read Less" : "Read More"}
                     </p>
                     <div className="lg:hidden">
-                        <button className="  fr_hr_anim_btn mt-5 whitespace-nowrap text-xs   lg:text-base service_btn relative overflow-hidden group border-white hover:text-black rounded-full text-white border-1 hover:border-white  center   py-1 lg:py-1.5">
-                            <p className="px-4 flex items-center justify-between w-full gap-4 font-normal opacity-0">
-                                Join Now
-                            </p>
-                            <p className="group-hover px-4 flex items-center w-full  justify-between gap-4 hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute">
-                                Join Now
-                            </p>
-                            <div className="w-full origin-center group-hover:top-0 transition-all duration-300 h-full bg-white left-0 top-[100%] absolute rounded-full"></div>
-                            <p className=" px-4 flex items-center w-full justify-between  gap-4 translate-y-[10px] z-[99] text-black  group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute">
+                        <button className="  fr_hr_anim_btn mt-5 whitespace-nowrap text-xs   lg:text-base service_btn relative overflow-hidden group bg-[#fffaf0] text-black  rounded-full  border-1   center   py-1 lg:py-1.5">
+                            <p className="px-4 flex items-center justify-between w-full gap-4 font-normal ">
                                 Join Now
                             </p>
                         </button>
