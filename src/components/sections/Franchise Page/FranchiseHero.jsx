@@ -50,7 +50,7 @@ const FranchiseHero = () => {
   }, []);
 
   return (
-    <div className="w-full relative h-[85vh] lg:h-screen text-white">
+    <div className="w-full relative h-[87vh] lg:h-screen text-white">
       {/* Background Image */}
       <img
         className="fr_hr_anim_img w-full h-full object-cover brightness-[.3]"
@@ -59,7 +59,7 @@ const FranchiseHero = () => {
       />
 
       {/* Content */}
-      <div className="absolute px-5 w-[100%] lg:w-[70%] flex flex-col gap-5 lg:items-center top-[70%] lg:top-[53%] left-[50%] lg:text-center translate-y-[-50%] translate-x-[-50%]">
+      <div className="absolute px-5 w-[100%] lg:w-[70%] flex flex-col gap-5 lg:items-center top-[53%] left-[50%] lg:text-center translate-y-[-50%] translate-x-[-50%]">
         <div className="block overflow-hidden">
           <h2 className=" fr_hr_anim_head text-sm lg:text-base">Become a Franchise</h2>
         </div>

@@ -124,7 +124,7 @@ const Header = () => {
     >
         <div className=" w-[55%] md:w-[20%]">
           <Link href="/" className='w-full'>
-            <img className='w-[100%] lg:w-[12vw]' src="/logos/Logo_White.svg" alt="" />
+            <img className='w-[100%] lg:w-[15vw]' src="/logos/Logo_White.svg" alt="" />
           </Link>
         </div>
         <RiMenu3Line size={28} className='lg:hidden' onClick={openMenu} />

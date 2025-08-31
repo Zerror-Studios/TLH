@@ -215,7 +215,7 @@ const HeroSwiper = () => {
     <>
       <div
         ref={swiperParentRef}
-        className="relative w-full h-[85vh] lg:h-screen overflow-hidden">
+        className="relative w-full h-[87vh] lg:h-screen overflow-hidden">
 
         <div className="lg:flex h-10 hidden    items-center z-[9] text-white absolute bottom-[10%] right-[2%]">
           <button

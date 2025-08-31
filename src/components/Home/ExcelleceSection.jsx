@@ -118,15 +118,18 @@ const ExcelleceSection = () => {
                     </div>
                     <div className="w-full  flex flex-col lg:flex-row lg:text-center lg:justify-center gap-10  ">
                         {excellenceData.map((item, index) => (
-                            <div key={index} className=" lg:w-[25%] flex lg:flex-col gap-5 items-start lg:items-center justify-between">
-                                <div className=" lg:w-full w-[65%] space-y-2">
-                                    <h1 className=' ex_anim_title text-sm lg:text-xl '>{item.title}</h1>
-                                    <div className=" ex_anim_line origin-left  w-full h-[1px] black"></div>
-                                    <p className=' text-sm lg:text-base ex_anim_para'>{item.para}</p>
+                            <div key={index} className=" lg:w-[25%] ">
+                                <div className="flex lg:flex-col gap-5 items-start lg:items-center justify-between">
+                                    <div className=" lg:w-full w-[65%] lg:space-y-2">
+                                        <h1 className=' ex_anim_title text-sm lg:text-xl '>{item.title}</h1>
+                                        <div className=" hidden lg:block ex_anim_line origin-left  w-full h-[1px] black"></div>
+                                        <p className=' text-sm lg:text-base ex_anim_para'>{item.para}</p>
+                                    </div>
+                                    <div className=" lg:w-full w-[20%] h-full flex items-center justify-center">
+                                        <img className=' ex_anim_img size-16' src={item.img} alt="" />
+                                    </div>
                                 </div>
-                                <div className=" lg:w-full w-[20%] h-full flex items-center justify-center">
-                                    <img className=' ex_anim_img size-14 lg:size-16' src={item.img} alt="" />
-                                </div>
+                                <div className=" lg:hidden w-full mt-2 h-[1px] bg-black"></div>
                             </div>
                         ))}
                     </div>

@@ -260,7 +260,7 @@ const HeroSwiper = () => {
         style={{
           clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)"
         }}
-        className="relative w-full h-[85vh] lg:h-screen overflow-hidden">
+        className="relative w-full h-[87vh] lg:h-screen overflow-hidden">
 
         <div className="lg:flex h-10 hidden    items-center z-[9] text-white absolute bottom-[10%] right-[2%]">
           <button
@@ -364,7 +364,7 @@ const HeroSwiper = () => {
 
 
       <div className=" fixed_paren  fixed z-[99] top-0 left-0 h-screen pointer-events-none w-full center">
-        <h2 className=" anim_ttxt opacity-0">THE LAUNDRY HOUSE</h2>
+        <h2 className=" anim_ttxt text-xl opacity-0">THE LAUNDRY HOUSE</h2>
       </div>
     </>
 

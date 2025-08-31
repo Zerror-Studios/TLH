@@ -62,7 +62,7 @@ const AboutSection = () => {
             the life and beauty of your most cherished items. We combine state-of-the-art technology with eco-friendly practices to deliver a service that is as kind to your clothes as it is to the planet.</p> <br />
           <p className='hero_animate_txt_d text-sm lg:text-base'>Our pioneering "Live Laundry Studios" offer complete transparency, allowing
             you to witness the meticulous care your garments receive</p> <br />
-          <button className=' text-sm lg:text-base learn_btn relative overflow-hidden group  text-white lg:text-black   bg-black lg:bg-transparent  rounded-full border-1 border-[#0e1111] px-0 py-1 lg:px-6 center lg:  lg:py-2'>
+          <button className=' text-sm lg:text-base learn_btn relative overflow-hidden group  text-white lg:text-black   bg-black lg:bg-transparent  rounded-full border-1 border-[#0e1111] px-0 py-2 lg:px-6 center lg:py-2'>
             <p className='fixy1 font-normal opacity-0'>About Our Process</p>
             <p className='lg:fixy1 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute'>Learn More </p>
             <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full black top-0 left-[-100%] absolute "></div>
