@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from 'gsap/dist/SplitText';
-import ServiceBtn from '../Buttons/ServiceBtn';
+import ServiceBtn from './../../components/Buttons/ServiceBtn';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const services = [
@@ -49,109 +49,40 @@ const ServicesSection = () => {
     };
 
     useEffect(() => {
-        if (window.innerWidth < 1024) return
-        const ctx = gsap.context(() => {
-            const split1 = new SplitText(".service_animate_txt_a", { type: "words" });
-            const split2 = new SplitText(".service_animate_txt_b", { type: "words" });
-            const split3 = new SplitText(".service_animate_txt_c", { type: "words" });
-            const split4 = new SplitText(".service_animate_txt_d", { type: "words" });
-            const split5 = new SplitText(".service_animate_txt_e", { type: "words" });
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".services_parent",
-                    start: "top 60%",
-                    // markers: true,
-                    toggleActions: "play none none reverse",
-                }
-            })
-
-            // tl.fromTo(
-            //     [split1.words, split2.words],
-            //     { y: 20, opacity: 0 },
-            //     {
-            //         y: 0,
-            //         opacity: 1,
-            //         duration: 0.5,
-            //         stagger: 0.05,
-            //     }, "parallel");
-
-            // tl.fromTo(
-            //     ".border_anim",
-            //     { width: 0 },
-            //     {
-            //         width: "100%",
-            //         duration: 1,
-            //     }, "parallel");
-            // tl.fromTo(
-            //     ".slide_bg",
-            //     { backgroundColor: "transparent" },
-            //     {
-            //         backgroundColor: "#9494941f",
-            //         opacity: 1,
-            //         duration: 1,
-            //     }, "parallel");
-            tl.fromTo(
-                ".service_clip_img",
-                {
-                    clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-                    // filter: "blur(5px)"
-                },
-                {
-                    delay: 0.2,
-                    ease: "power2.inOut",
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                    // filter: "blur(0px)",
-                    duration: 1,
-                }, "parallel");
-
-            // tl.fromTo(
-            //     [split3.words, split4.words, split5.words, ".service_icon", ".service_btn"],
-            //     { y: 10, opacity: 0 },
-            //     {
-            //         y: 0,
-            //         opacity: 1,
-            //         delay: 0.2,
-            //         duration: 0.5,
-            //         stagger: 0.005,
-            //     }, "parallel");
-
-            if (window.innerWidth < 1024) return
-
-        var tl2 = gsap.timeline({
+        var tl = gsap.timeline({
             scrollTrigger: {
                 trigger: '.services_parent',
                 pin:true,
                 scrub:true,
                 start:"top top",
-                // markers:true,
+                markers:true,
                 end:window.innerHeight*4
             }
         })
-        tl2.to(".slide_bg_0",{
+        tl.to(".slide_bg_0",{
             scale:0.8,
         },"par")
-        tl2.to(".slide_bg_1",{
+        tl.to(".slide_bg_1",{
             top:0,
         },"par")
-        tl2.to(".slide_bg_1",{
+        tl.to(".slide_bg_1",{
             scale:0.8,
         },"par2")
-        tl2.to(".slide_bg_2",{
+        tl.to(".slide_bg_2",{
             top:0,
         },"par2")
-        tl2.to(".slide_bg_2",{
+        tl.to(".slide_bg_2",{
             scale:0.8,
         },"par3")
-        tl2.to(".slide_bg_3",{
+        tl.to(".slide_bg_3",{
             top:0,
             zIndex:10,
         },"par3")
 
-        });
-
-        return () => ctx.revert();
-    }, []);
+      
+    }, [])
+    
 
 
     return (
@@ -162,7 +93,7 @@ const ServicesSection = () => {
                         const showAll = showAllCities[index] || false;
                         const visibleCities = showAll ? item?.cities : item?.cities.slice(0, 4);
                         return (
-                            <div key={index} className={` slide_bg_${index}  ${index === 0 ? "top-0" : "top-[100%]"}  mt-10 lg:mt-0 z-[${index}] blur-[0px]  w-full h-full px-5 lg:px-10 bg-[#FFFAF0] lg:absolute  left-0 overflow-hidden`}>
+                            <div key={index} className={` slide_bg_${index} ${index === 0 ? "top-0" : "top-[100%]"} mt-10 lg:mt-0 z-[${index}] blur-[0px]  w-full h-full px-5 lg:px-10 bg-[#FFFAF0] lg:absolute  left-0 overflow-hidden`}>
                                 <div className={` slide_inn_${index}  slide_bg  w-full h-full p-5 lg:p-14 flex flex-col-reverse md:flex-row items-center justify-between bg-[#9494941f] rounded-xl`}>
                                     <div className=" w-full mt-5 md:mt-0 md:w-[45%] h-full flex flex-col justify-between">
                                         <p className='service_animate_txt_a  md:mb-5 opacity-80'>Our Services</p>

@@ -41,8 +41,8 @@ const HeroSwiper = () => {
 
   useEffect(() => {
 
-   
-    if(window.innerWidth < 1024) return
+
+    if (window.innerWidth < 1024) return
 
     gsap.to(
       parallexContainerRef.current,
@@ -277,41 +277,44 @@ const HeroSwiper = () => {
           </button>
         </div> */}
 
-        <Swiper
-          modules={[Navigation, A11y, Autoplay, Pagination]}
-          spaceBetween={0}
-          slidesPerView={1}
-          speed={600}
-          loop
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = ".custom-prev";
-            swiper.params.navigation.nextEl = ".custom-next";
-          }}
-          navigation={{ clickable: true }}
-          className="swiper_elem w-full h-full"
-        >
-          {swiperData?.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full h-full center overflow-hidden relative">
-                <img
-                  className="w-full h-full object-cover brightness-[.8]"
-                  src={image.img}
-                  alt={image.title}
-                />
-                {/* Progress Line */}
-                <div className="absolute  gap-1 flex flex-col left-5 bottom-10 z-[9]">
-                  <p className="text-base leading-none capitalize text-white">
-                    {image.title}
-                  </p>
-                  <div className="w-full h-[1.5px] relative bg-white/20 rounded-full overflow-hidden">
-                    <div className="anim_line_2 w-[0%] h-[1.5px] rounded-full opacity-80 bg-white"></div>
+        <div className="w-full h-full lg:hidden">
+          <Swiper
+            modules={[Navigation, A11y, Autoplay, Pagination]}
+            spaceBetween={0}
+            slidesPerView={1}
+            speed={600}
+            loop
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = ".custom-prev";
+              swiper.params.navigation.nextEl = ".custom-next";
+            }}
+            navigation={{ clickable: true }}
+            className="swiper_elem w-full h-full"
+          >
+            {swiperData?.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-full center overflow-hidden relative">
+                  <img
+                    className="w-full h-full object-cover brightness-[.8]"
+                    src={image.img}
+                    alt={image.title}
+                  />
+                  {/* Progress Line */}
+                  <div className="absolute  gap-1 flex flex-col left-5 bottom-10 z-[9]">
+                    <p className="text-base leading-none capitalize text-white">
+                      {image.title}
+                    </p>
+                    <div className="w-full h-[1.5px] relative bg-white/20 rounded-full overflow-hidden">
+                      <div className="anim_line_2 w-[0%] h-[1.5px] rounded-full opacity-80 bg-white"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
 
         <div ref={parallexContainerRef} className=" z-[9] w-full absolute bottom-[-15vh] h-[15vh] bg-[#FFFAF0]"></div>
       </div>
