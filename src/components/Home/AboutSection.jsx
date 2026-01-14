@@ -51,7 +51,7 @@ const AboutSection = () => {
 
   return (
     <div className='about_parent'>
-      <div className="w-full  flex flex-col lg:flex-row   justify-between pt-16 lg:pt-0 lg:p-0 p-5 lg:px-24 ">
+      <div className="w-full  flex flex-col lg:flex-row   justify-between pt-16 lg:pt-24 lg:p-0 p-5 lg:px-24 ">
         <div className="  w-full lg:w-[40%] ">
           <h2 className=' hero_animate_txt_a text-sm lg:text-base block overflow-hidden mb-2 lg:mb-5 opacity-80'>About Us</h2>
           <h1 className=' hero_animate_txt_b leading-none text-2xl lg:text-6xl   '>Garment care for important people.</h1>

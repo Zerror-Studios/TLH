@@ -87,14 +87,14 @@ const HeroSwiper = () => {
       ease: "expo.out"
     })
 
-    gsap.to(
-      parallexContainerRef.current,
+    gsap.to(".hero_inner_paren",
       {
-        bottom: 0,
-        duration: 1,
+        y: 200,
+        ease: "linear",
         scrollTrigger: {
-          trigger: swiperParentRef.current,
+          trigger: ".hero_sec",
           start: "top top",
+          end: "bottom top",
           // markers: true,
           scrub: true,
         },
@@ -294,15 +294,16 @@ const HeroSwiper = () => {
           </button>
         </div> */}
 
-        <div className="chng_sl hidden lg:block w-full h-full relative">
+        <div className=" hero_inner_paren w-full h-full">
+          <div className="chng_sl hidden lg:block w-full h-full relative">
 
-          {swiperData?.map((image, index) => (
-            <div
-              key={index}
-              ref={(el) => (slidesRef.current[index] = el)}
-              className={`change_slide_${index}  scale-[1.105] absolute top-0 left-0 w-full h-full`}
-            >
-              {/* <div className="absolute w-[35%] md:w-[20%] lg:w-[10%] gap-2 flex flex-col right-[20%] md:right-[10%] bottom-[13.6%] z-[9]">
+            {swiperData?.map((image, index) => (
+              <div
+                key={index}
+                ref={(el) => (slidesRef.current[index] = el)}
+                className={`change_slide_${index}  scale-[1.105] absolute top-0 left-0 w-full h-full`}
+              >
+                {/* <div className="absolute w-[35%] md:w-[20%] lg:w-[10%] gap-2 flex flex-col right-[20%] md:right-[10%] bottom-[13.6%] z-[9]">
                 <p className="text-sm leading-none capitalize text-white">{image.title}</p>
                 <div className="w-full h-[1.5px] relative bg-white/20 rounded-full overflow-hidden">
                   <div
@@ -311,14 +312,15 @@ const HeroSwiper = () => {
                   ></div>
                 </div>
               </div> */}
-              <img
-                className="w-full h-full object-cover brightness-75"
-                src={image.img}
-                alt={image.title}
-              />
-            </div>
-          ))}
+                <img
+                  className="w-full h-full object-cover brightness-75"
+                  src={image.img}
+                  alt={image.title}
+                />
+              </div>
+            ))}
 
+          </div>
         </div>
 
         {/* mobile swipe btns */}
@@ -373,7 +375,7 @@ const HeroSwiper = () => {
           </Swiper>
         </div>
 
-        <div ref={parallexContainerRef} className=" z-[50] w-full absolute bottom-[-20vh] h-[20vh] bg-[#FFFAF0]"></div>
+        {/* <div ref={parallexContainerRef} className=" z-[50] w-full absolute bottom-[-20vh] h-[20vh] bg-[#FFFAF0]"></div> */}
       </div>
 
 
