@@ -65,26 +65,19 @@ const FranchiseHero = () => {
         </div>
         <div className="block overflow-hidden">
           <h1 className="fr_hr_anim_head text-2xl leading-none lg:text-6xl  ">
-            Join the Leader in Garment Care
+            Partner with TLH: India’s Leading Premium Garment Care Franchise.
+
           </h1>
         </div>
         
         <p className="fr_hr_anim_txt fr_hr_anim_txt_a text-sm lg:text-base w-full lg:w-[70%]">
-          The Laundry House offers a proven business model, comprehensive support,
-          and the opportunity to be a part of India's garment care revolution.
-          With over 60,000 satisfied customers and a rapidly expanding network,
-          we provide our franchise partners with established SOPs, cutting-edge
-          technology, and powerful marketing strategies.
+          A high-margin, process-driven model with ~6 month operational break-even and no outside dependencies.
         </p>
 
-        <p className="fr_hr_anim_txt fr_hr_anim_txt_b text-sm lg:text-base w-full lg:w-[70%]">
-          Partner with us and bring a new level of trust and transparency to the
-          cleaning industry in your city.
-        </p>
 
         {/* Button */}
         <div className=" w-[50vw] scale-100  lg:w-[20vw]">
-          <ArrowButton variant="light" label="Join Now" />
+          <ArrowButton variant="light" label="Apply for Partnership" />
         </div>
       </div>
     </div>
