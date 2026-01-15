@@ -21,6 +21,9 @@
 
 @import "tailwindcss";
 
+*{
+  user-select: none;
+}
 @media (min-width: 1024px) {
   :root {
     font-size: 1vw;
@@ -121,4 +124,10 @@ button {
 }
 .swiper-button-prev {
   opacity: 0 !important;
+}
+
+.cover{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

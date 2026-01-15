@@ -43,9 +43,9 @@ const index = () => {
     <ServicesSection/>
     <MobileServiceSection/>
     <ExcelleceSection/>
-    <div className=" hidden lg:block w-full  px-10">
+    {/* <div className=" hidden lg:block w-full  px-10">
       <div className=" diff_line w-full bg-black h-[1px]"></div>
-    </div>
+    </div> */}
     <StoresAddresses/>
     <FranchiseSection/>
     <FeedbackSection/>

@@ -95,7 +95,7 @@ const MobileServiceSection = () => {
                                                 >
                                                     {item.desc}
                                                 </p>
-                                                <div className="stores">
+                                                {/* <div className="stores">
                                                     <div className="flex flex-col lg:flex-row  lg:items-center gap-2">
                                                         <div className="flex items-center gap-2">
                                                             <RiMapPinFill size={12} className='service_icon translate-y-[-2px]' />
@@ -131,7 +131,7 @@ const MobileServiceSection = () => {
                                                             </button>
                                                         )}
                                                     </div>
-                                                </div>
+                                                </div> */}
 
                                                 <div className="w-full mt-4 ">
                                                     <button className='  group relative text-xs lg:text-base service_btn  w-full hover:bg-transparent bg-black hover:border-black border-transparent overflow-hidden hover:text-black transition-all duration-300 hover:  border-2 text-white py-2 lg:py-4 px-4 lg:px-8 uppercase  rounded-full flex items-center justify-between'>

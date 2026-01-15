@@ -113,17 +113,13 @@ const ExcelleceSection = () => {
 
     return (
         <div className='excellence_parent'>
-            <div className="w-full pb-5 lg:pb-20 lg:py-0 px-5 lg:px-24 center">
+            <div className="w-full p-28 center">
                 <div className="w-full  flex flex-col items-center justify-center gap-10 lg:gap-20">
                     <div className="w-full lg:text-center">
-                        <div className=' hidden lg:block text-2xl leading-none lg:text-6xl uppercase '>
-                            <h1 className='ex_animate_txt_a'>Excellence</h1>
-                            <h1 className='ex_animate_txt_b'>in Every Detail</h1>
-                        </div>
-                        <div className=' lg:hidden text-2xl leading-none lg:text-6xl uppercase '>
+                        <div className='text-2xl leading-none lg:text-6xl '>
                             <h1 className='ex_animate_txt_a'>Excellence in Every Detail</h1>
                         </div>
-                        <p className=' text-sm  lg:text-xl  mt-1  ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
+                        <p className=' text-sm  lg:text-xl leading-tight  mt-4  ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
                     </div>
                     <div className="w-full  flex flex-col lg:flex-row lg:text-center lg:justify-center gap-10  ">
                         {excellenceData.map((item, index) => (

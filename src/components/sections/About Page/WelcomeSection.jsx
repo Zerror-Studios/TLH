@@ -46,12 +46,12 @@ const WelcomeSection = () => {
 
     return (
         <div className='welc_parent'>
-            <div className="w-full flex flex-col lg:flex-row items-start lg:items-center  justify-between px-5 lg:px-24 pt-16 lg:pt-0 lg:pb-24">
+            <div className="w-full flex flex-col lg:flex-row items-start  justify-between pt-0 py-10 px-24">
                 <div className=" w-full lg:w-[40%] ">
                     <h1 className=' text-2xl lg:text-6xl leading-none welc_animate_txt   '>Welcome to The Laundry House</h1>
                     <p className=' text-sm lg:text-xl leading-none mt-1   welc_animate_txt'>India's Fastest Growing Garment Care Service</p>
                 </div>
-                <div className=" w-full mt-10 lg:mt-0 lg:w-1/2 ">
+                <div className=" w-full  lg:w-1/2 ">
                     <p className='text-sm lg:text-base welc_animate_txt_a'>You love your clothes. They're not just fabrics; they're expressions of your style, your memories, and your identity. That designer shirt, that precious lehenga - they deserve the best care. But can you trust your expensive, cherished garments to just anyone? At The Laundry House, we understand your concerns. </p> <br />
                     <p className='text-sm lg:text-base welc_animate_txt_b'>Just like you wouldn't entrust your luxury car to an ordinary mechanic, your high-end clothes need specialised care. We're not just another laundry service; we're your garment care experts.</p> <br />
                 </div>

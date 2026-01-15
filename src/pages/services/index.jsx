@@ -224,10 +224,10 @@ const index = () => {
                     <h1 className=' serv_txt_a  text-2xl lg:text-6xl  '>Our Services</h1>
                 </div>
                 <div className="block overflow-hidden">
-                    <p className=' text-sm mt-1 serv_txt_a lg:text-xl'>Explore the range of services we offer to care for your garments.</p>
+                    <p className=' text-sm mt-1 serv_txt_a leading-tight lg:text-xl'>Explore the range of services we offer to care for your garments.</p>
                 </div>
             </div>
-            <div className="tags w-full  lg:mt-10 px-5 lg:px-24 h-10 border-b scroller_none overflow-x-scroll gap-5 border-black/20  flex items-center justify-between">
+            <div className="tags w-full  lg:mt-10 px-5 lg:px-10 h-10 border-b scroller_none overflow-x-scroll gap-5 border-black/20  flex items-center justify-between">
                 {uniqueTags.map(tag => (
                     <div onClick={() => changeTag(tag)} key={tag} className={`relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer transition duration-300 ${activeTag === tag ? " " : "text-black/40"}`}>
                         <p className=' text-sm lg:text-base'>{tag}</p>
@@ -236,7 +236,7 @@ const index = () => {
                 ))}
             </div>
             <div className=" mb-5 lg:mb-20 p-5 lg:p-10 w-full overflow-hidden ">
-                <div className="w-full pb-10 overflow-x-auto custom_scroller flex  gap-5 lg:gap-10 ">
+                <div className="w-full pb-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-y-20 ">
                     <AnimatePresence mode="wait">
                         {filteredServices.map((service, index) => (
                             <motion.div
@@ -246,9 +246,9 @@ const index = () => {
                                 animate="visible"
                                 exit="exit"
                                 transition={{ delay: index * 0.15 }} // stagger effect
-                                className=" w-[70%] md:w-[40%] lg:w-[25%]  shrink-0 flex flex-col  "
+                                className="w-full shrink-0 flex flex-col  "
                             >
-                                <motion.div className="serv_clip aspect-square w-full  overflow-hidden">
+                                <motion.div className="serv_clip aspect-square rounded-md w-full  overflow-hidden">
                                     <img
                                         className="w-full h-full object-cover"
                                         src={service.img}

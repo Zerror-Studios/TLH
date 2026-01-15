@@ -95,10 +95,7 @@ const Footer = () => {
                 >
                   {group.links.map((link, i) => (
                     <Link scroll={false} key={i} href={link.href}>
-                      {/* mobile */}
-                      
-                      {/* desktop */}
-                      <p className=" fot_anim_txt font-light text-sm lg:text-base opacity-50 mb-1 hover:opacity-100 transition">
+                      <p className=" fot_anim_txt font-light text-sm lg:text-base opacity-60 mb-1 hover:opacity-100 transition">
                         {link.label}
                       </p>
                     </Link>
@@ -112,10 +109,10 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="w-full h-20 flex flex-col md:flex-row items-center justify-evenly md:justify-between">
 
-          <p className=" font-light fot_anim_txt text-xs lg:text-base opacity-50">All Rights Reserved © 2024</p>
+          <p className=" font-light fot_anim_txt text-xs lg:text-base opacity-60">All Rights Reserved © {new Date().getFullYear()}</p>
 
           <div className="flex items-center gap-1">
-            <p className="hidden font-light md:block fot_anim_txt text-xs lg:text-base opacity-50">Our story continues:</p>
+            <p className="hidden font-light md:block fot_anim_txt text-xs lg:text-base opacity-60">Our story continues:</p>
             <div className="flex gap-4">
               {socialLinks.map(({ icon: Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noopener noreferrer">

@@ -6,6 +6,24 @@ import { RiArrowRightUpLine } from '@remixicon/react';
 import ArrowButton from '../Buttons/ArrowButton';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+
+
+const aboutData = [
+  {
+    title: "Training + SOP Playbooks",
+    para: "Standardised operations that eliminate guesswork and ensure every task is executed the right way, every time."
+  },
+  {
+    title: "Quality Standards + Audits",
+    para: "Consistency protected by defined quality benchmarks and regular audits across all operations."
+  },
+  {
+    title: "Launch + Demand Support",
+    para: "End-to-end go-to-market playbooks with central guidance to drive visibility, demand, and early traction."
+  },
+];
+
+
 const FranchiseSection = () => {
 
     // useEffect(() => {
@@ -62,28 +80,29 @@ const FranchiseSection = () => {
 
     return (
         <div className='fran_parent'>
-            <div className=" relative w-full h-screen flex  items-center text-white overflow-hidden ">
-                <img className=' fr_bg_img  absolute blur-none w-full h-full z-[-1] object-cover brightness-[.4]' src="/images/Hero swiper/pic_3.webp" alt="" />
-                <div className=" p-5 lg:p-24 space-y-10">
-                    <div className="">
-                        <h2 className='  text-sm lg:text-6xl mb-2 opacity-80'>Become a Franchise Partner</h2>
-                        <p className=' text-2xl leading-none lg:text-lg fr_anim_txt_a '>Proven SOPs, training, tech + marketing support to launch TLH in your city.</p>
-                    </div>
-                    <div className="">
-
-                        <h5
-                            className={` text-sm  md:text-xl lg:text-3xl transition-all duration-300 `}>
-                            • Training + operating SOPs
-                            <br />
-                           • Quality standards + audits
-                            <br />
-                           • Launch marketing support
-                        </h5>
-                    </div>
-                    <div className=" max-sm:-ml-3 w-1/2 lg:w-[25%] whitespace-nowrap scale-[.85] lg:scale-100 ">
-                        <ArrowButton variant="light" label="Enquire Now" href="/franchise" />
-                    </div>
+            <div className="w-full  flex flex-col items-center text-center  p-28">
+                {/* <h2 className=' hero_animate_txt_a text-sm lg:text-xl block overflow-hidden mb-2 lg:mb-5 opacity-70'>Franchise</h2> */}
+                <h1 className=' hero_animate_txt_b  leading-none text-2xl lg:text-6xl   '>Become a TLH <br /> Franchise Partner</h1>
+                <p className='  mt-4 text-sm  lg:text-xl w-1/2 leading-tight '>A self-reliant, SOP-driven model built for consistent execution.</p>
+                <div className="w-full mt-20  grid grid-cols-3 gap-x-20 ">
+                    {aboutData.map((item, index) => (
+                        <div key={index} className="w-full">
+                            <div className="flex lg:flex-col gap-5 items-start lg:items-center justify-between">
+                                <div className=" lg:w-full w-[65%] lg:space-y-2">
+                                    <h1 className=' ex_anim_title  capitalize text-sm lg:text-xl '>{item.title}</h1>
+                                    <div className=" hidden lg:block ex_anim_line origin-left  w-full h-[1px] black"></div>
+                                    <p className=' text-sm lg:text-base leading-tight ex_anim_para'>{item.para}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                <button className=' mt-20 text-sm lg:text-base learn_btn relative whitespace-nowrap overflow-hidden group  text-white lg:text-black   bg-black lg:bg-transparent  rounded-full border-1 border-[#0e1111] px-4 py-2 lg:px-6 center lg:py-2'>
+                    <p className='fixy1 font-normal opacity-0'>Enquire Now</p>
+                    <p className='lg:fixy1 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute'>Enquire Now</p>
+                    <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full black top-0 left-[-100%] absolute "></div>
+                    <p className='fixy1 font-normal translate-y-[10px] z-[99] text-white group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300  absolute'> Enquire Now</p>
+                </button>
             </div>
         </div>
     )

@@ -268,7 +268,7 @@ const HeroSwiper = () => {
         </div> */}
 
         <div className="absolute lg:w-[65%] space-y-5 bottom-5 lg:bottom-20 pl-5 lg:pl-24 z-20 text-white">
-          <h1 className=" text-2xl leading-none lg:text-6xl ">Premium garment care. Doorstep pickup & delivery.</h1>
+          <h1 className=" text-2xl leading-none capitalize lg:text-6xl ">Premium garment care. Doorstep pickup & delivery.</h1>
           <p className="text-sm leading-tight lg:text-xl lg:w-[60%]">Dry cleaning, restoration, wedding wear, sneakers & bags — handled with expert care.</p>
           <div className="  w-[55%]  lg:w-[22%]">
             <ArrowButton variant="light" label="Book a Pickup" />
@@ -294,8 +294,8 @@ const HeroSwiper = () => {
           </button>
         </div> */}
 
-        <div className=" hero_inner_paren w-full h-full">
-          <div className="chng_sl hidden lg:block w-full h-full relative">
+        <div className=" hero_inner_paren hidden lg:block w-full h-full">
+          <div className="chng_sl  w-full h-full relative">
 
             {swiperData?.map((image, index) => (
               <div

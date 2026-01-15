@@ -63,7 +63,7 @@ const Index = () => {
             </div>
 
             {/* City Tabs */}
-            <div className=" tags w-full  lg:mt-10 px-5 lg:px-24 h-10 border-b scroller_none border-black/20 flex items-center gap-5 lg:gap-10">
+            <div className=" tags w-full  lg:mt-10 px-5 lg:px-10 h-10 border-b scroller_none border-black/20 flex items-center gap-5 lg:gap-10">
                 {uniqueCity.map(city => (
                     <div
                         key={city}
@@ -78,7 +78,7 @@ const Index = () => {
 
             <div className="w-full flex flex-col lg:flex-row justify-between p-5 lg:p-10 mb-5 lg:mb-20">
                 {/* Left Side (Shops List) */}
-                <div className=" w-full lg:w-[40%] h-[60vh] lg:h-[35vw] overflow-y-scroll custom_scrollbar">
+                <div className=" w-full lg:w-[40%] border-r border-black/10 pr-5">
                     {allStoresData.find(store => store.cityName === activeCity)?.shopNames?.map((shop, index) => (
                         <div
                             key={index}
