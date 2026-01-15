@@ -59,7 +59,7 @@ const FranchiseHero = () => {
       />
 
       {/* Content */}
-      <div className="absolute px-5 w-[100%] lg:w-[70%] flex flex-col gap-5 lg:items-center top-[53%] left-[50%] lg:text-center translate-y-[-50%] translate-x-[-50%]">
+      <div className="absolute px-5 w-[100%] lg:w-[70%] flex flex-col gap-5 lg:items-center bottom-[15%] left-[50%] lg:text-center  translate-x-[-50%]">
         <div className="block overflow-hidden">
           <h2 className=" fr_hr_anim_head text-sm lg:text-base">Become a Franchise</h2>
         </div>
@@ -76,7 +76,7 @@ const FranchiseHero = () => {
 
 
         {/* Button */}
-        <div className=" w-[50vw] scale-100  lg:w-[20vw]">
+        <div className=" w-full scale-100  lg:w-[20vw]">
           <ArrowButton variant="light" label="Apply for Partnership" />
         </div>
       </div>

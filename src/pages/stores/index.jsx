@@ -68,7 +68,7 @@ const Index = () => {
                     <div
                         key={city}
                         onClick={() => setactiveCity(city)}
-                        className={`relative shrink-0 whitespace-nowrap h-full flex items-center justify-center cursor-pointer transition duration-300 ${activeCity === city ? "" : "text-black/40"}`}
+                        className={`relative shrink-0 whitespace-nowrap h-full flex items-center justify-center cursor-pointer transition duration-300 ${activeCity === city ? "font-semibold opacity-100" : "opacity-80"}`}
                     >
                         <AnimatedText uniqueKey={city} className="text-sm lg:text-base">{city}</AnimatedText>
                         <div className={` absolute -bottom-[1.5px] z-[9] w-full black rounded-full h-[2px] transition duration-300 ${activeCity === city ? "opacity-100" : "opacity-0"}`}></div>

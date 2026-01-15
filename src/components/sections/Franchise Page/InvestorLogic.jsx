@@ -47,13 +47,13 @@ const data = [
 
 const InvestorLogic = () => {
   return (
-    <section className="w-full px-6 md:px-12 lg:px-24 py-24">
+    <section className="w-full px-5 md:px-12 lg:px-24 py-10 lg:py-24">
       <div className="w-full center">
         <h1 className=" resp_anim_txt text-2xl lg:text-6xl  ">
           The Investor Logic
         </h1>
       </div>
-      <div className="grid grid-cols-1  mt-18 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 mt-5 lg:mt-18 md:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-8">
         {data.map((item, index) => (
           <div key={index} className="flex flex-col gap-4">
             {/* Image Card */}

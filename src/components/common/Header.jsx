@@ -10,8 +10,8 @@ import { useBookDrawer } from '@/store/useBookDrawer';
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
 const links = [{
-  title: "About Us",
-  url: "/about-us"
+  title: "About",
+  url: "/about"
 }, {
   title: "Services",
   url: "/services"
@@ -21,9 +21,6 @@ const links = [{
 }, {
   title: "Franchise",
   url: "/franchise"
-}, {
-  title: "Care guides",
-  url: "/care-guides"
 }, {
   title: "Contact",
   url: "/contact"
@@ -172,10 +169,11 @@ const Header = () => {
               key={link.title}
               href={link.url}
               scroll={false}
-              className="relative  z-10 text-white group  flex flex-col items-center"
+              className="relative group  z-10 text-white group  flex flex-col items-center"
               onMouseEnter={() => handleMouseEnter(link, i)}
               onMouseLeave={() => handleMouseLeave(link, i)}
             >
+                <div className="absolute w-0 group-hover:w-full transition-all duration-300 left-0 rounded-full h-px bg-white bottom-0"></div>
               {
                 router.pathname === link.url ? (
                   <p className="text-base opacity-100 ">{link.title}</p>
@@ -191,7 +189,7 @@ const Header = () => {
                 )
               }
               {router.pathname === link.url && (
-                <div className="absolute size-[6px] left-[50%] translate-x-[-50%] rounded-full bg-white -bottom-2"></div>
+                <div className="absolute w-full left-0 rounded-full h-px bg-white bottom-0"></div>
               )}
             </Link>
           ))}

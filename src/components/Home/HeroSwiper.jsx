@@ -18,19 +18,19 @@ gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 const swiperData = [
   {
-    img: "/images/Hero swiper/pic_1.webp",
+    img: "/images/about page/NSA02387.webp",
     title: "Professional dry cleaning",
   },
   {
-    img: "/images/Hero swiper/pic_2.webp",
+    img: "/images/about page/NSA02532.webp",
     title: "Revive Your Shoes & Bags",
   },
   {
-    img: "/images/Hero swiper/pic_3.webp",
+    img: "/images/home/DSC00445-2.webp",
     title: "Expert Cleaning and Care!",
   },
   {
-    img: "/images/Hero swiper/pic_4.webp",
+    img: "/images/home/NVP_3238.webp",
     title: "Bridal Elegance, Restored with Care",
   },
 ];

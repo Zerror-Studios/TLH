@@ -113,26 +113,26 @@ const ExcelleceSection = () => {
 
     return (
         <div className='excellence_parent'>
-            <div className="w-full p-28 center">
+            <div className="w-full p-5 lg:p-28 lg:center">
                 <div className="w-full  flex flex-col items-center justify-center gap-10 lg:gap-20">
                     <div className="w-full lg:text-center">
                         <div className='text-2xl leading-none lg:text-6xl '>
                             <h1 className='ex_animate_txt_a'>Excellence in Every Detail</h1>
                         </div>
-                        <p className=' text-sm  lg:text-xl leading-tight  mt-4  ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
+                        <p className=' text-sm  lg:text-xl leading-tight mt-2  lg:mt-4  ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
                     </div>
 
                     <div className="w-full   center">
-                        <div className="w-full flex gap-32   ">
-                            <div className="w-1/2 sticky top-[7rem] h-[calc(100vh-10rem)] ">
-                                <img className='cover rounded-xl' src="https://plus.unsplash.com/premium_photo-1664372899525-d99a419fd21a?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                        <div className="w-full lg:flex gap-32   ">
+                            <div className=" w-full lg:w-1/2 lg:sticky top-[7rem] h-[60vh] lg:h-[calc(100vh-10rem)] ">
+                                <video loop autoPlay muted playsInline className='cover rounded-xl' src="/images/home/Reel.mp4" alt="" />
                             </div>
-                            <div className="w-1/2 space-y-32 py-20">
+                            <div className=" w-full lg:w-1/2 space-y-10 lg:space-y-24 py-10 lg:py-20">
                                 {excellenceData.map((item, i) => (
                                     <div key={i} className="w-full ">
                                         <div className="flex items-center gap-10">
-                                        <img className='size-20' src={item.img} alt="" />
-                                        <div className=" pr-10">
+                                        <img className=' w-14 lg:size-20' src={item.img} alt="" />
+                                        <div className=" lg:pr-10">
                                         <h2 className="hero_animate_txt_a text-sm lg:text-base block overflow-hidden mb-2 lg:mb-5 opacity-70">
                                             Step {i + 1}
                                         </h2>

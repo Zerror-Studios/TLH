@@ -58,7 +58,7 @@ const BookNowDrawer = () => {
       <div
         className={`fixed z-[999] bg-[#FFFAF0] shadow-xl transition-transform duration-300
           w-full md:w-[50vw] lg:w-[30vw]
-          h-[85dvh] md:h-full
+          h-[100dvh] md:h-full
           top-0 right-0
           ${
             isOpen
@@ -70,7 +70,7 @@ const BookNowDrawer = () => {
         <div className="p-6 lg:p-10 h-full flex flex-col overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold">Book Now</h2>
+            <h1 className=" text-2xl lg:text-4xl ">Book Now</h1>
             <button
               onClick={closeDrawer}
               className="text-2xl leading-none"
@@ -91,7 +91,7 @@ const BookNowDrawer = () => {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="Enter your name"
-                className="w-full border rounded-md px-3 py-2 bg-transparent"
+                className="w-full border-b border-black/30 px-3 py-2 bg-transparent"
               />
             </div>
 
@@ -105,7 +105,7 @@ const BookNowDrawer = () => {
                 value={form.contact}
                 onChange={handleChange}
                 placeholder="Enter contact number"
-                className="w-full border rounded-md px-3 py-2 bg-transparent"
+                className="w-full border-b border-black/30 px-3 py-2 bg-transparent"
               />
             </div>
 
@@ -139,7 +139,7 @@ const BookNowDrawer = () => {
                 value={form.city}
                 onChange={handleChange}
                 placeholder="Enter city"
-                className="w-full border rounded-md px-3 py-2 bg-transparent"
+                className="w-full border-b border-black/30 px-3 py-2 bg-transparent"
               />
             </div>
           </div>
@@ -151,6 +151,9 @@ const BookNowDrawer = () => {
           >
             Book Now
           </button>
+          <div className="w-full center text-xs mt-2">
+          <p>All Terms & Conditions Apply</p>
+          </div>
         </div>
       </div>
     </>

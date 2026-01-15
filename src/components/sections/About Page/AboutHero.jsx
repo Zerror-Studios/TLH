@@ -3,6 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from "gsap/dist/SplitText";
 import ArrowButton from "@/components/Buttons/ArrowButton";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -62,19 +63,14 @@ const AboutHero = () => {
     );
 
     // ---- IMAGE PARALLAX ----
-    gsap.fromTo(
+    gsap.to(
       imageRef.current,
       {
-        y: "-8%",
-        scale: 1.1,
-      },
-      {
-        y: "8%",
-        scale: 1,
+        y: 200,
         ease: "none",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top bottom",
+          start: "top top",
           end: "bottom top",
           scrub: true,
         },
@@ -85,15 +81,19 @@ const AboutHero = () => {
   return (
     <div className="w-full relative h-[87vh] lg:h-screen overflow-hidden text-white">
       {/* Background Image */}
-      <img
+      <video
+        loop
+        autoPlay
+        muted
+        playsInline
         ref={imageRef}
-        className="fr_hr_anim_img absolute inset-0 w-full h-full object-cover brightness-[0.35]"
-        src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop"
+        className="fr_hr_anim_img absolute inset-0 w-full h-full object-cover brightness-[0.8]"
+        src="/images/home/hero_reel.mp4"
         alt="Garment care process at The Laundry House"
       />
 
       {/* Overlay Content */}
-      <div className=" z-10 absolute px-5 w-full lg:w-[70%] flex flex-col gap-5 lg:items-center top-[53%] left-[50%] lg:text-center translate-y-[-50%] translate-x-[-50%]">
+      <div className=" z-10 absolute px-5 w-full lg:w-[70%] flex flex-col gap-5 lg:items-center bottom-[10%] left-[50%] lg:text-center translate-x-[-50%]">
         <div className="block overflow-hidden">
           <h2 className="fr_hr_anim_head text-sm lg:text-base tracking-wide ">
             Who We Are
@@ -113,10 +113,6 @@ const AboutHero = () => {
           processes, and attention to detail.
         </p>
 
-        {/* Button */}
-        <div className="fr_hr_anim_btn w-[50vw] lg:w-[20vw]">
-          <ArrowButton variant="light" label="Our Story" />
-        </div>
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ const FranchiseForm = () => {
   }, []);
 
   return (
-    <div className="form_parent">
+    <div id="franchise-form" className="form_parent">
       <div className="w-full px-5 lg:px-24 mb-20">
         <div className="form_bg w-full rounded-xl bg-black/5 p-6 md:p-10 lg:p-20 flex flex-col md:flex-row gap-12">
 
@@ -110,7 +110,7 @@ const FranchiseForm = () => {
                       }}>
                     <ArrowButton
                       label="Continue"
-                      
+                      variant="dark"
                     />
                   </div>
                 </>
@@ -167,12 +167,11 @@ const FranchiseForm = () => {
                       }}>
                      <ArrowButton
                       label="Previous Step"
-                      variant="light"
-                     
+                      variant="dark"
                     />
                   </div>
                    <div className="w-full sm:w-[55%]" >
-                    <ArrowButton label="Submit Application" />
+                    <ArrowButton label="Submit Application" variant="dark"/>
                   </div>
                   </div>
                 </>

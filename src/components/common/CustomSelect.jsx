@@ -41,9 +41,9 @@ const CustomSelect = ({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="w-full border rounded-md px-3 py-2 bg-[#fffaf0] flex justify-between items-center"
+        className="w-full border-b border-black/40 px-3 py-2  flex justify-between items-center"
       >
-        <span className={value ? "text-black" : "text-gray-400"}>
+        <span className={value ? "text-black" : "text-black/50"}>
           {value || placeholder}
         </span>
         <span className={`transition-transform ${open ? "rotate-180" : ""}`}>

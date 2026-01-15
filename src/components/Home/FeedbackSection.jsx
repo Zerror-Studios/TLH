@@ -150,7 +150,7 @@ const FeedbackSection = () => {
 
     return (
         <div className='feed_parent'>
-            <div className="w-full p-20">
+            <div className="w-full p-5 lg:p-20">
                 <div className="w-full flex items-center lg:justify-center lg:text-center">
                     <div className="">
                         <h1 className=' text-2xl leading-none lg:text-6xl animate_txt_a    '>What Our Customers Say</h1>

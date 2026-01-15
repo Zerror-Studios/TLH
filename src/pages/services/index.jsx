@@ -259,7 +259,7 @@ const index = () => {
 
           <div className="w-full h-[1.5px] black opacity-60" />
 
-         {/* ✅ FIXED CustomSelect */}
+          {/* ✅ FIXED CustomSelect */}
           <CustomSelect
             label="Service"
             name="service"
@@ -274,31 +274,19 @@ const index = () => {
         <ArrowButton variant="dark" label="Book Now" />
       </div>
 
-       <div className="w-full flex lg:items-center justify-center flex-col p-5 pt-20 lg:pt-32">
+      <div className="w-full flex lg:items-center justify-center flex-col p-5 pt-20 lg:pt-32">
         <div className="block overflow-hidden">
-          <h1 className=" serv_txt_a  text-2xl lg:text-6xl  ">Our Services</h1>
+          <h1 className=' serv_txt_a  text-2xl lg:text-6xl  '>Our Services</h1>
         </div>
         <div className="block overflow-hidden">
-          <p className=" text-sm mt-1 serv_txt_a leading-tight lg:text-xl">
-            Explore the range of services we offer to care for your garments.
-          </p>
+          <p className=' text-sm mt-1 serv_txt_a leading-tight lg:text-xl'>Explore the range of services we offer to care for your garments.</p>
         </div>
       </div>
       <div className="tags w-full  lg:mt-10 px-5 lg:px-10 h-10 border-b scroller_none overflow-x-scroll gap-5 border-black/20  flex items-center justify-between">
-        {uniqueTags.map((tag) => (
-          <div
-            onClick={() => changeTag(tag)}
-            key={tag}
-            className={`relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer transition duration-300 ${
-              activeTag === tag ? " " : "text-black/40"
-            }`}
-          >
-            <p className=" text-sm lg:text-base">{tag}</p>
-            <div
-              className={` absolute -bottom-[0px] z-[9] w-full black rounded-full h-[2px] transition duration-300 ${
-                activeTag === tag ? "opacity-100" : "opacity-0"
-              }`}
-            ></div>
+        {uniqueTags.map(tag => (
+          <div onClick={() => changeTag(tag)} key={tag} className={`relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer transition duration-300 ${activeTag === tag ? "font-semibold opacity-100" : "opacity-80"}`}>
+            <p className=' text-sm lg:text-base'>{tag}</p>
+            <div className={` absolute -bottom-[0px] z-[9] w-full black rounded-full h-[2px] transition duration-300 ${activeTag === tag ? "opacity-100" : "opacity-0"}`}></div>
           </div>
         ))}
       </div>
@@ -323,36 +311,27 @@ const index = () => {
                   />
                 </motion.div>
                 <div className="w-full mt-2 gap-1 md:mt-3 flex flex-col justify-between">
-                  <h1 className=" text-xl lg:text-2xl serv_txt_b">
-                    {service.title}
-                  </h1>
-                  <p className=" text-xs md:text-sm leading-none lg:text-base serv_txt_b">
-                    {service.desc}
-                  </p>
-                  <div className="w-full">
+                  <h1 className=" text-xl lg:text-2xl serv_txt_b">{service.title}</h1>
+                  <p className=" text-xs md:text-sm leading-none lg:text-base serv_txt_b">{service.desc}</p>
+                  <div className='w-full'>
                     <button
                       onClick={() => openService(service)}
-                      className="serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5"
-                    >
-                      <p className="   opacity-0">Book Now</p>
-                      <p className=" group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute">
-                        Book Now{" "}
-                      </p>
+                      className='serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5'>
+                      <p className='   opacity-0'>Book Now</p>
+                      <p className=' group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute'>Book Now </p>
                       <div className="w-full  group-hover:scale-110 origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#FFFAF0] top-0 left-[-100%] absolute "></div>
-                      <p className="  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute">
-                        {" "}
-                        Book Now
-                      </p>
+                      <p className='  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Book Now</p>
                     </button>
                   </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
+
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default index;

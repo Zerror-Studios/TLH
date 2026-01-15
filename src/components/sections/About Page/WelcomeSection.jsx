@@ -11,8 +11,8 @@ const WelcomeSection = () => {
       <div className="w-full flex flex-col items-center pt-24 py-10 px-6 lg:px-24 text-center">
         
         {/* Heading */}
-        <h1 className="text-2xl lg:text-6xl leading-none welc_animate_txt">
-          Welcome to The Laundry House
+        <h1 className="text-2xl lg:text-6xl leading-none capitalize welc_animate_txt">
+          Garment care for <br /> important people.
         </h1>
 
         <p className="text-sm lg:text-xl mt-2 welc_animate_txt">

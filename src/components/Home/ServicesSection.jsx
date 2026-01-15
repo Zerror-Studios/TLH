@@ -1,4 +1,5 @@
 import ServiceBtn from '@/components/Buttons/ServiceBtn';
+import { useBookDrawer } from '@/store/useBookDrawer';
 import { useGSAP } from '@gsap/react';
 import { RiMapPinFill } from '@remixicon/react';
 import gsap from 'gsap';
@@ -40,6 +41,8 @@ const services = [
 
 const ServicesSection = () => {
 
+       const openDrawer = useBookDrawer((state) => state.openDrawer);
+
     useGSAP(() => {
         var tl = gsap.timeline({
             defaults: {
@@ -78,9 +81,9 @@ const ServicesSection = () => {
 
     return (
         <div className='hidden lg:block'>
-            <div className="w-full center mt-10">
+            <div className="w-full center sticky top-[5rem] mt-10">
                 {/* <h2 className=' hero_animate_txt_a text-sm lg:text-xl block overflow-hidden uppercase'>Our Services</h2> */}
-                <h1 className=' hero_animate_txt_b capitalize leading-none text-2xl lg:text-6xl mb-10   '>Our Services</h1>
+                <h1 className=' hero_animate_txt_b  capitalize leading-none text-2xl lg:text-6xl mb-10   '>Our Services</h1>
             </div>
             <div className=" sticky_cards_paren w-full relative  h-min flex flex-col gap-20  items-center ">
                 {services.map((card, index) => (
@@ -90,7 +93,7 @@ const ServicesSection = () => {
                             <div className=" border_anim  w-full origin-left  border mt-4 mb-20 border-dashed rounded-full border-black/30"></div>
 
                             <p className='text-xl '>{card.desc}</p>
-                            <div className="w-[30%] mt-10 ">
+                            <div onClick={openDrawer} className="w-[30%] mt-10 ">
                                 <ServiceBtn />
                             </div>
                         </div>
