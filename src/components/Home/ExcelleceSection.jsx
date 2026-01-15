@@ -5,26 +5,26 @@ import SplitText from 'gsap/dist/SplitText';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const excellenceData = [
-  {
-    img: "/icon/inspection.svg",
-    title: "Inspection & Stain Mapping",
-    para: "Each garment is inspected and stains are identified for safe, effective treatment."
-  },
-  {
-    img: "/icon/drop.svg",
-    title: "Fabric-safe Cleaning",
-    para: "Specialized dry and wet cleaning methods tailored to protect every fabric type."
-  },
-  {
-    img: "/icon/steam.svg",
-    title: "Finishing & Steaming",
-    para: "Expert finishing and steaming to restore shape, softness, and pristine appearance."
-  },
-  {
-    img: "/icon/check.svg",
-    title: "QC & Premium Packaging",
-    para: "Thorough quality checks followed by hygienic,  packaging for lasting freshness."
-  }
+    {
+        img: "https://cdn-icons-png.flaticon.com/512/5531/5531663.png",
+        title: "Inspection & Stain Mapping",
+        para: "Each garment is inspected and stains are identified for safe, effective treatment."
+    },
+    {
+        img: "https://cdn-icons-png.flaticon.com/512/2865/2865959.png",
+        title: "Fabric-safe Cleaning",
+        para: "Specialized dry and wet cleaning methods tailored to protect every fabric type."
+    },
+    {
+        img: "https://cdn-icons-png.flaticon.com/512/1934/1934788.png",
+        title: "Finishing & Steaming",
+        para: "Expert finishing and steaming to restore shape, softness, and pristine appearance."
+    },
+    {
+        img: "https://cdn-icons-png.flaticon.com/512/8071/8071280.png",
+        title: "QC & Premium Packaging",
+        para: "Thorough quality checks followed by hygienic,  packaging for lasting freshness."
+    }
 ];
 
 const ExcelleceSection = () => {
@@ -121,23 +121,36 @@ const ExcelleceSection = () => {
                         </div>
                         <p className=' text-sm  lg:text-xl leading-tight  mt-4  ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
                     </div>
-                    <div className="w-full  flex flex-col lg:flex-row lg:text-center lg:justify-center gap-10  ">
-                        {excellenceData.map((item, index) => (
-                            <div key={index} className=" lg:w-[25%] ">
-                                <div className="flex lg:flex-col gap-5 items-start lg:items-center justify-between">
-                                    <div className=" lg:w-full w-[65%] lg:space-y-2">
-                                        <h1 className=' ex_anim_title  capitalize text-sm lg:text-xl '>{item.title}</h1>
-                                        <div className=" hidden lg:block ex_anim_line origin-left  w-full h-[1px] black"></div>
-                                        <p className=' text-sm lg:text-base ex_anim_para'>{item.para}</p>
-                                    </div>
-                                    <div className=" lg:w-full w-[20%] h-full flex items-center justify-center">
-                                        <img className=' ex_anim_img size-24' src={item.img} alt="" />
-                                    </div>
-                                </div>
-                                <div className=" lg:hidden w-full mt-2 h-[1px] bg-black"></div>
+
+                    <div className="w-full   center">
+                        <div className="w-full flex gap-32   ">
+                            <div className="w-1/2 sticky top-[7rem] h-[calc(100vh-10rem)] ">
+                                <img className='cover rounded-xl' src="https://plus.unsplash.com/premium_photo-1664372899525-d99a419fd21a?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                             </div>
-                        ))}
+                            <div className="w-1/2 space-y-32 py-20">
+                                {excellenceData.map((item, i) => (
+                                    <div key={i} className="w-full ">
+                                        <div className="flex items-center gap-10">
+                                        <img className='size-20' src={item.img} alt="" />
+                                        <div className=" pr-10">
+                                        <h2 className="hero_animate_txt_a text-sm lg:text-base block overflow-hidden mb-2 lg:mb-5 opacity-70">
+                                            Step {i + 1}
+                                        </h2>
+                                        <h1 className="ex_anim_title capitalize text-sm lg:text-xl">
+                                            {item.title}
+                                        </h1>
+                                        <p className="text-sm lg:text-base leading-tight ex_anim_para">
+                                            {item.para}
+                                        </p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

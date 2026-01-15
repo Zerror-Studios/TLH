@@ -150,7 +150,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>

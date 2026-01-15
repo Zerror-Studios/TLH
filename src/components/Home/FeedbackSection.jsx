@@ -185,7 +185,7 @@ const FeedbackSection = () => {
                                     ref={(el) => (cardRefs.current[index] = el)}
                                     style={{ height: maxHeight ? `${maxHeight}px` : "auto" }}
                                     className="w-[100%] bg-white/20 border-l border-gray-300 mb-10 lg:mb-14 px-5 flex flex-col justify-between relative gap-4"
-                                >                                    {/* <div className=" feed_line absolute h-[70%] top-[50%] translate-y-[-50%] left-0 w-[1.5px] opacity-20 black"></div> */}
+                                >                                 
                                     <div className="flex gap-4 flex-col ">
                                         <div className="flex gap-0.5">
                                             {
@@ -195,7 +195,6 @@ const FeedbackSection = () => {
                                             }
                                         </div>
                                         <p
-                                            // onClick={() => setExpanded(!expanded)}
                                             className={` w-full  text-sm lg:text-base relative transition-all duration-300 ${expanded ? "" : ""}`}>{review.comment}
                                         </p>
                                     </div>
