@@ -16,19 +16,19 @@ const services = [
         cities: ["Varanasi", "Amritsar", "Udaipur", "Mysuru", "Guwahati", "Rajkot", "Vadodara", "Ranchi"],
     },
     {
-        img: "/images/services/3_Home & Auto Fabrics.webp",
+        img: "/images/services/home_&_fabrics.webp",
         title: "Home & Fabrics",
         desc: "Professional cleaning solutions for upholstery, curtains, carpets, and car interiors. Our service removes deep stains, dust, and allergens to keep your living and driving spaces fresh and hygienic.",
         cities: ["Indore", "Nagpur", "Bhopal", "Coimbatore", "Surat", "Patna", "Thiruvananthapuram"],
     },
     {
-        img: "/images/services/2_Shoe & Bags.webp",
+        img: "/images/services/sneakers_&_bags.webp",
         title: "Sneakers & Bags",
         desc: "Expert cleaning, conditioning, and restoration for premium shoes, handbags, and leather goods. We specialize in reviving worn items, extending their life while maintaining their luxury look and feel.",
         cities: ["Chennai", "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Chandigarh"],
     },
     {
-        img: "/images/services/1_Garment Care.webp",
+        img: "/images/services/garment_care.webp",
         title: "Garment Care",
         desc: "Premium garment care tailored for daily wear, delicate fabrics, and designer outfits. From washing and stain removal to fabric-specific cleaning and finishing, we ensure every piece stays fresh and refined.",
         cities: ["Delhi", "Mumbai", "Bengaluru", "Hyderabad", "Kolkata"],

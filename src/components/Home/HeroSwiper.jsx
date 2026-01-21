@@ -13,23 +13,24 @@ import SplitText from 'gsap/dist/SplitText';
 import { CustomEase } from 'gsap/dist/CustomEase';
 import { RiArrowLeftSFill, RiArrowLeftSLine, RiArrowRightSFill, RiArrowRightSLine } from "@remixicon/react";
 import ArrowButton from "../Buttons/ArrowButton";
+import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 const swiperData = [
   {
-    img: "/images/about page/NSA02387.webp",
+    img: "/images/hero_swiper/slide_1.webp",
     title: "Professional dry cleaning",
   },
   {
-    img: "/images/about page/NSA02532.webp",
+    img: "/images/hero_swiper/slide_2.webp",
     title: "Revive Your Shoes & Bags",
   },
   {
-    img: "/images/home/DSC00445-2.webp",
+    img: "/images/hero_swiper/slide_3.webp",
     title: "Expert Cleaning and Care!",
   },
   {
-    img: "/images/home/NVP_3238.webp",
+    img: "/images/hero_swiper/slide_4.webp",
     title: "Bridal Elegance, Restored with Care",
   },
 ];
@@ -311,7 +312,9 @@ const HeroSwiper = () => {
                   ></div>
                 </div>
               </div> */}
-                <img
+                <Image
+                  width={1920}
+                  height={1080}
                   className="w-full h-full object-cover brightness-75"
                   src={image.img}
                   alt={image.title}

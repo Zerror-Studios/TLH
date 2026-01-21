@@ -63,6 +63,7 @@ const AboutHero = () => {
     );
 
     // ---- IMAGE PARALLAX ----
+    if (window.innerWidth < 1024) return
     gsap.to(
       imageRef.current,
       {

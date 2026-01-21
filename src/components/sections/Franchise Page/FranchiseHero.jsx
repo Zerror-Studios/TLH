@@ -49,12 +49,31 @@ const FranchiseHero = () => {
     );
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth < 1024) return
+
+    gsap.to(
+      ".fr_hr_anim_img",
+      {
+        y: 200,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".fr_hr_anim_img",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+  }, [])
+
+
   return (
-    <div className="w-full relative h-[100svh] text-white">
+    <div className=" franch_hero_pren w-full relative overflow-hidden h-[100svh] text-white">
       {/* Background Image */}
       <img
-        className="fr_hr_anim_img w-full h-full object-cover brightness-[.3]"
-        src="/images/Hero swiper/pic_3.webp"
+        className="fr_hr_anim_img w-full h-full object-cover brightness-[.6]"
+        src="/images/home/franchise.webp"
         alt=""
       />
 
@@ -140,12 +159,12 @@ const FranchiseHero = () => {
         </div>
 
         {/* Button */}
-        <a  href="#franchise-form"  className=" hidden lg:block w-full  lg:w-[20vw]">
+        <a href="#franchise-form" className=" hidden lg:block w-full  lg:w-[20vw]">
           <ArrowButton variant="light" label="Apply for Partnership" />
         </a>
       </div>
       <a href="#franchise-form" className=" z-[99] fixed left-1/2 -translate-x-1/2 bottom-[2svh] lg:hidden w-[60vw]">
-        <ArrowButton  variant="light" label="Apply for Partnership" />
+        <ArrowButton variant="light" label="Apply for Partnership" />
       </a>
     </div>
   );

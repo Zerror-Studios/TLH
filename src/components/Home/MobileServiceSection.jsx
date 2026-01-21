@@ -16,21 +16,21 @@ const services = [
         cities: ["Varanasi", "Amritsar", "Udaipur", "Mysuru", "Guwahati", "Rajkot", "Vadodara", "Ranchi"],
     },
     {
-        img: "/images/services/3_Home & Auto Fabrics.webp",
-        title: "Home & Auto Fabrics",
+        img: "/images/services/home_&_fabrics.webp",
+        title: "Home & Fabrics",
         desc: "Professional cleaning solutions for upholstery, curtains, carpets, and car interiors. Our service removes deep stains, dust, and allergens to keep your living and driving spaces fresh and hygienic.",
         cities: ["Indore", "Nagpur", "Bhopal", "Coimbatore", "Surat", "Patna", "Thiruvananthapuram"],
     },
     {
-        img: "/images/services/2_Shoe & Bags.webp",
-        title: "Shoe & Bags",
+        img: "/images/services/sneakers_&_bags.webp",
+        title: "Sneakers & Bags",
         desc: "Expert cleaning, conditioning, and restoration for premium shoes, handbags, and leather goods. We specialize in reviving worn items, extending their life while maintaining their luxury look and feel.",
         cities: ["Chennai", "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Chandigarh"],
     },
     {
-        img: "/images/services/1_Garment Care.webp",
+        img: "/images/services/garment_care.webp",
         title: "Garment Care",
-        desc: "The Laundry House offers premium garment care services designed to preserve the quality, feel, and freshness of every piece. Whether it's daily wear, delicate fabrics, or designer outfits, we handle each garment with expert attention and care. Our services include professional washing, stain removal, fabric-specific cleaning, ironing, and finishing – all tailored to suit your clothing’s needs.",
+        desc: "Premium garment care tailored for daily wear, delicate fabrics, and designer outfits. From washing and stain removal to fabric-specific cleaning and finishing, we ensure every piece stays fresh and refined.",
         cities: ["Delhi", "Mumbai", "Bengaluru", "Hyderabad", "Kolkata"],
     },
 

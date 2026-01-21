@@ -30,12 +30,11 @@ const FranchiseSection = () => {
         <section className="franch_paren w-full py-16 text-white lg:py-24 px-5 h-screen center overflow-hidden relative">
             {/* Background decoration */}
             <div className="prx_img absolute w-full h-full">
-                <img className="cover brightness-[.4]" src="https://clouddhobi.com/wp-content/uploads/2025/02/cloud-dhobi-franchise-support-benefits-scaled.jpg" alt="" />
+                <img className="cover brightness-[.5]" src="/images/home/franchise.webp" alt="" />
             </div>
 
             <div className="relative z-10 max-w-[85rem] mx-auto">
                 <div className="max-w-4xl mx-auto lg:text-center space-y-5">
-
 
                     {/* Headline */}
                     <div className="w-full ">
