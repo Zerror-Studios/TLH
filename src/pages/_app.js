@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { ToastContainer, Zoom } from "react-toastify";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,6 +27,19 @@ export default function App({ Component, pageProps }) {
   }, [router]);
   return (
     <LenisScroll>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+        transition={Zoom}
+      />
       <Layout>
         <PageTransition>
           <Component {...pageProps} />

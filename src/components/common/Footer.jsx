@@ -4,6 +4,8 @@ import {
   RiInstagramFill,
   RiThreadsFill,
   RiTwitterFill,
+  RiWhatsappFill,
+  RiWhatsappLine,
   RiYoutubeFill
 } from '@remixicon/react'
 import React, { useEffect, useState } from 'react'
@@ -38,26 +40,25 @@ const Footer = () => {
       links: [
         { label: "Franchise", href: "/franchise" },
         { label: "Store Locator", href: "/stores" },
-        { label: "Care Guides", href: "/stores" },
       ],
     },
     {
       title: "Others",
       links: [
-        { label: "FAQs", href: "/others/faqs" },
-        { label: "Privacy Policy", href: "/others/privacy-policy" },
-        { label: "Terms of Service", href: "/others/terms" },
-        { label: "Cookie Policy", href: "/others/cookies" },
+        { label: "FAQs", href: "/faqs" },
+        { label: "Privacy Policy", href: "/privacy-policy" },
+        { label: "Terms & Conditions", href: "/terms-and-conditions" },
       ],
     },
   ];
 
   const socialLinks = [
-    { icon: RiThreadsFill, href: "https://www.threads.net" },
-    { icon: RiTwitterFill, href: "https://twitter.com" },
-    { icon: RiFacebookFill, href: "https://facebook.com" },
-    { icon: RiYoutubeFill, href: "https://youtube.com" },
-    { icon: RiInstagramFill, href: "https://instagram.com" },
+    // { icon: RiThreadsFill, href: "https://www.threads.net" },
+    // { icon: RiTwitterFill, href: "https://twitter.com" },
+    // { icon: RiFacebookFill, href: "https://facebook.com" },
+    { icon: RiYoutubeFill, href: " https://youtube.com/@thelaundryhouse?si=lAIxfghsNDfOKH1x" },
+    { icon: RiInstagramFill, href: "https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==" },
+    { icon: RiWhatsappFill, href: "https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==" },
   ];
 
   return (
@@ -112,11 +113,11 @@ const Footer = () => {
           <p className=" font-light fot_anim_txt text-xs lg:text-base opacity-60">All Rights Reserved © {new Date().getFullYear()}</p>
 
           <div className="flex items-center gap-1">
-            <p className="hidden font-light md:block fot_anim_txt text-xs lg:text-base opacity-60">Our story continues:</p>
+            {/* <p className="hidden font-light md:block fot_anim_txt text-xs lg:text-base opacity-60">Our story continues:</p> */}
             <div className="flex gap-4">
               {socialLinks.map(({ icon: Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noopener noreferrer">
-                  <Icon size={18} className="fot_anim_txt text-base lg:text-lg hover:opacity-80 transition" />
+                  <Icon size={20} className="fot_anim_txt text-base lg:text-lg hover:opacity-80 transition" />
                 </a>
               ))}
             </div>

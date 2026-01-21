@@ -35,9 +35,9 @@ const FranchiseSuccessPath = () => {
             <div className="max-w-5xl pt-24 lg:pt-32 mx-auto px-5">
                 {/* Header */}
                 <div className="lg:text-center mb-6 lg:mb-16">
-                    <p className="text-sm mb-4">
+                    {/* <p className="text-sm mb-4">
                         Application Status
-                    </p>
+                    </p> */}
 
                     <h1 className=' text-2xl leading-none  lg:text-6xl   lg:whitespace-nowrap  '>Your Application Is Under Review</h1>
 
@@ -60,16 +60,16 @@ const FranchiseSuccessPath = () => {
 
 
                                 {/* Content */}
-                                <div className=" border border-black/40 rounded-lg p-6 w-full">
+                                <div className=" border border-black/40 rounded-lg p-3 lg:p-6 w-full">
                                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                                         <div className="flex w-full gap-x-5 ">
                                             <p> {index + 1}</p>
                                             <div className="w-full ">
                                                 <div className="w-full flex justify-between">
-                                                    <h2 className=" text-lg lg:text-2xl leading-none mb-2">
+                                                    <h2 className=" w-[60%] text-lg lg:text-2xl leading-none mb-2">
                                                         {step.title}
                                                     </h2>
-                                                    <span className="text-sm w-[10%] flex justify-end leading-tight lg:text-base">
+                                                    <span className="text-xs  flex justify-end leading-none lg:text-base">
                                                         {step.time}
                                                     </span>
                                                 </div>

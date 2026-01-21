@@ -1,6 +1,6 @@
 import ArrowButton from "@/components/Buttons/ArrowButton"
 import ServiceBtn from "@/components/Buttons/ServiceBtn"
-import { RiFacebookLine, RiGithubLine, RiInstagramLine, RiYoutubeLine } from "@remixicon/react"
+import { RiFacebookLine, RiGithubLine, RiInstagramLine, RiWhatsappLine, RiYoutubeLine } from "@remixicon/react"
 
 export default function ContactPage() {
     return (
@@ -15,23 +15,30 @@ export default function ContactPage() {
                 </div>
                 <div className="w-full flex flex-col-reverse lg:flex-row gap-y-10 mt-14 px-5 lg:px-24 lg:items-stretch">
                     <div className=" w-full lg:w-1/2 flex flex-col gap-y-10   lg:justify-between">
-                        <div className=" text-sm lg:text-xl font-thin  space-y-2 ">
-                            <p>email@example.com</p>
-                            <p>(555) 555-5555</p>
-                            <p>123 Demo Street <br />
-                                New York, NY 12345
-                            </p>
+                        <div className=" text-sm lg:text-xl font-thin  space-y-3 lg:space-y-5 ">
+                            <p>support@tlhindia.in</p>
+                            <p>+91 8800020002</p>
+                            <p className="lg:w-[60%] leading-tight">Shop No. 1, Parshwa Darshan Complex, Near Gaay Circle, Shrenik Park Crossing, Akota, Vadodara – 390020</p>
                         </div>
                         <div className=" flex gap-x-5 items-center">
                             <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
+                                <a href=" https://youtube.com/@thelaundryhouse?si=lAIxfghsNDfOKH1x" target="_blank">
                                 <RiYoutubeLine />
+                                </a>
                             </div>
                             <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
+                                <a href="https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==" target="_blank" >
                                 <RiInstagramLine />
+                                </a>
                             </div>
                             <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
-                                <RiFacebookLine />
+                                <a href="https://wa.me/918800020002" target="_blank" >
+                                <RiWhatsappLine />
+                                </a>
                             </div>
+                            {/* <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
+                                <RiFacebookLine />
+                            </div> */}
                         </div>
                     </div>
                     <div className=" w-full lg:w-1/2">

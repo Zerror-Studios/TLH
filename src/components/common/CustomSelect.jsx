@@ -33,7 +33,7 @@ const CustomSelect = ({
   return (
     <div ref={ref} className="relative">
       {label && (
-        <label className="block text-sm font-medium mb-1">
+        <label className="block text-sm  mb-1">
           {label}
         </label>
       )}
@@ -52,7 +52,7 @@ const CustomSelect = ({
       </button>
 
       {open && (
-        <div className="absolute mt-1 w-full bg-[#fffaf0] border rounded-md shadow-lg max-h-52 overflow-auto z-[9999]">
+        <div data-lenis-prevent className="absolute mt-1 custom_scrollbar w-full bg-[#fffaf0] border border-black/30 shadow-lg max-h-52 overflow-auto z-[9999]">
           {options.map((item) => (
             <div
               key={item}
