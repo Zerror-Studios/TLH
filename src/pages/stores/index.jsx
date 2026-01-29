@@ -30,7 +30,7 @@ const AnimatedText = ({ children, className, uniqueKey }) => {
 
 const Index = () => {
     const [activeCity, setactiveCity] = useState(allStoresData[0].cityName);
-    const [categoryType, setcategoryType] = useState("Men's Wear");
+    const [categoryType, setcategoryType] = useState("All Garments");
 
     const uniqueCity = useMemo(() => {
         const allCity = allStoresData.flatMap(store => store.cityName);
@@ -67,11 +67,11 @@ const Index = () => {
             </div>
 
             {/* City Tabs */}
-            <div className=" tags w-full  lg:mt-10 px-5 lg:px-10 h-10 border-b scroller_none border-black/20 flex items-center gap-5 lg:gap-10">
+            <div className=" tags w-full  lg:mt-10 px-5 lg:px-10 h-10 border-b scroller_none overflow-x-scroll border-black/20 flex items-center gap-5 lg:gap-10">
                 {uniqueCity.map(city => (
                     <div
                         key={city}
-                        onClick={() => setactiveCity(city)}
+                        onClick={() => {setcategoryType("All Garments");setactiveCity(city)}}
                         className={`relative shrink-0 whitespace-nowrap h-full flex items-center justify-center cursor-pointer transition duration-300 ${activeCity === city ? "font-semibold opacity-100" : "opacity-80"}`}
                     >
                         <AnimatedText uniqueKey={city} className="text-sm lg:text-base">{city}</AnimatedText>
@@ -82,7 +82,7 @@ const Index = () => {
 
             <div className="w-full flex flex-col lg:flex-row justify-between p-5 lg:p-10 mb-5 lg:mb-20">
                 {/* Left Side (Shops List) */}
-                <div className=" w-full lg:w-[40%] border-r border-black/10 pr-5">
+                <div className=" lg:sticky top-24 lg:h-screen w-full lg:w-[40%] border-r border-black/10 pr-5">
                     {allStoresData.find(store => store.cityName === activeCity)?.shopNames?.map((shop, index) => (
                         <div
                             key={index}
@@ -105,7 +105,11 @@ const Index = () => {
                                     <AnimatedText uniqueKey={`${shop.name}-phone-icon`}>
                                         <RiPhoneFill size={14} />
                                     </AnimatedText>
-                                    <AnimatedText uniqueKey={shop.contact} className="fixy1">{shop.contact}</AnimatedText>
+                                    <AnimatedText uniqueKey={shop.contact} className="fixy1">
+                                        <a href="tel:{shop.contact}" className="fixy1 underline">
+                                        {shop.contact}
+                                        </a>
+                                        </AnimatedText>
                                 </div>
                                 <div className="store_txt_a flex items-center gap-1">
                                     <AnimatedText uniqueKey={`${shop.name}-map-icon`}>
@@ -156,8 +160,8 @@ const Index = () => {
                             <thead className="w-full">
                                 <tr className="chnge_cat_tble table_border w-full flex h-12 bg-black/5 border-[#0e11117e] border-b-2 justify-between">
                                     <th className="w-[33%] center h-10"><p className="  store_txt_b font-medium translate-y-[4px]">Garments/ Accessories</p></th>
-                                    <th className="w-[33%] center h-10"><p className="  store_txt_b font-medium translate-y-[4px]">Premium Fabric Care Service</p></th>
-                                    <th className="w-[33%] center h-10"><p className="  store_txt_b font-medium translate-y-[4px]">Steam Iron Service</p></th>
+                                    <th className="w-[33%] center h-10"><p className="  store_txt_b font-medium translate-y-[4px]">Starting Price</p></th>
+                                    <th className="w-[33%] center h-10"><p className="  store_txt_b font-medium translate-y-[4px]">Steam Press</p></th>
                                 </tr>
                             </thead>
                             <tbody className="w-full">
@@ -173,10 +177,20 @@ const Index = () => {
                                                 <AnimatedText uniqueKey={service.serviceName} className="store_txt_c text-xs lg:text-base">{service.serviceName}</AnimatedText>
                                             </td>
                                             <td className="w-[32%] center">
-                                                <AnimatedText uniqueKey={service.premiumPrice} className="store_txt_c text-xs lg:text-base">₹ {service.premiumPrice}</AnimatedText>
+                                                <AnimatedText
+                                                    uniqueKey={service.startingPrice}
+                                                    className="store_txt_c text-xs lg:text-base"
+                                                >
+                                                    {service.startingPrice === "-" ? "-" : `₹ ${service.startingPrice}`}
+                                                </AnimatedText>
                                             </td>
                                             <td className="w-[32%] center">
-                                                <AnimatedText uniqueKey={service.steamPrice} className="store_txt_c text-xs lg:text-base">₹ {service.steamPrice}</AnimatedText>
+                                                <AnimatedText
+                                                    uniqueKey={service.steamPrice}
+                                                    className="store_txt_c text-xs lg:text-base"
+                                                >
+                                                    {service.steamPrice === "-" ? "-" : `₹ ${service.steamPrice}`}
+                                                </AnimatedText>
                                             </td>
                                         </tr>
                                     ))}
@@ -200,28 +214,28 @@ export default Index;
 
 
 export const meta = {
-  title: "Our Stores | Find a Laundry House Near You",
-  description:
-    "Locate The Laundry House stores near you and experience premium laundry and dry cleaning services at our expertly managed outlets.",
-  canonical: "https://thelaundryhouseindia.com/stores",
-  og: {
-    title: "The Laundry House Stores",
+    title: "Our Stores | Find a Laundry House Near You",
     description:
-      "Find your nearest The Laundry House store for premium garment care services.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
-    url: "https://thelaundryhouseindia.com/stores",
-    type: "website",
-    site_name: "The Laundry House",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Find The Laundry House Stores",
-    description:
-      "Premium laundry and dry cleaning outlets near you.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
-  },
-  robots: "index,follow",
-  keywords:
-    "laundry stores near me, dry cleaning outlets India, The Laundry House locations",
-  author: "The Laundry House",
+        "Locate The Laundry House stores near you and experience premium laundry and dry cleaning services at our expertly managed outlets.",
+    canonical: "https://thelaundryhouseindia.com/stores",
+    og: {
+        title: "The Laundry House Stores",
+        description:
+            "Find your nearest The Laundry House store for premium garment care services.",
+        image: "https://thelaundryhouseindia.com/logo-og.png",
+        url: "https://thelaundryhouseindia.com/stores",
+        type: "website",
+        site_name: "The Laundry House",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Find The Laundry House Stores",
+        description:
+            "Premium laundry and dry cleaning outlets near you.",
+        image: "https://thelaundryhouseindia.com/logo-og.png",
+    },
+    robots: "index,follow",
+    keywords:
+        "laundry stores near me, dry cleaning outlets India, The Laundry House locations",
+    author: "The Laundry House",
 };
