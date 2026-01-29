@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from 'gsap/dist/SplitText';
 import { motion, AnimatePresence } from "framer-motion";
+import SeoHeader from '@/components/seo/SeoHeader';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -51,7 +52,10 @@ const Index = () => {
     }, []);
 
     return (
-        <div>
+        <>
+
+            <SeoHeader meta={meta} />
+
             {/* Header Section */}
             <div className="w-full flex lg:items-center justify-center flex-col p-5 pt-20 lg:pt-32">
                 <div className="block overflow-hidden">
@@ -188,8 +192,36 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default Index;
+
+
+export const meta = {
+  title: "Our Stores | Find a Laundry House Near You",
+  description:
+    "Locate The Laundry House stores near you and experience premium laundry and dry cleaning services at our expertly managed outlets.",
+  canonical: "https://thelaundryhouseindia.com/stores",
+  og: {
+    title: "The Laundry House Stores",
+    description:
+      "Find your nearest The Laundry House store for premium garment care services.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+    url: "https://thelaundryhouseindia.com/stores",
+    type: "website",
+    site_name: "The Laundry House",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Find The Laundry House Stores",
+    description:
+      "Premium laundry and dry cleaning outlets near you.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+  },
+  robots: "index,follow",
+  keywords:
+    "laundry stores near me, dry cleaning outlets India, The Laundry House locations",
+  author: "The Laundry House",
+};

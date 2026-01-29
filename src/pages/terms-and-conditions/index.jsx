@@ -1,3 +1,4 @@
+import SeoHeader from "@/components/seo/SeoHeader";
 import { RiArrowDownSLine } from "@remixicon/react";
 import React, { useState } from "react";
 
@@ -278,6 +279,9 @@ const TermsConditions = () => {
 
   return (
     <>
+
+    <SeoHeader meta={meta}/>
+
       {/* Page Title */}
       <div className="w-full px-5 pt-24 lg:pt-32 lg:text-center">
         <h1 className="text-2xl leading-none lg:text-6xl add_anim_txt_a lg:whitespace-nowrap">
@@ -337,3 +341,32 @@ const TermsConditions = () => {
 };
 
 export default TermsConditions;
+
+
+
+export const meta = {
+  title: "Terms & Conditions | The Laundry House – Service Guidelines",
+  description:
+    "Review The Laundry House Terms & Conditions outlining service policies, responsibilities, payments, and customer guidelines.",
+  canonical: "https://thelaundryhouseindia.com/terms-and-conditions",
+  og: {
+    title: "Terms & Conditions – The Laundry House",
+    description:
+      "Understand the service terms, policies, and customer responsibilities.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+    url: "https://thelaundryhouseindia.com/terms-and-conditions",
+    type: "website",
+    site_name: "The Laundry House",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions – The Laundry House",
+    description:
+      "Service terms and customer policies explained clearly.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+  },
+  robots: "index,follow",
+  keywords:
+    "terms and conditions laundry, service policy, laundry service terms, The Laundry House terms",
+  author: "The Laundry House",
+};

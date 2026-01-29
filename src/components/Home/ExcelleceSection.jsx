@@ -125,7 +125,7 @@ const ExcelleceSection = () => {
                     <div className="w-full   center">
                         <div className="w-full lg:flex gap-32   ">
                             <div className=" w-full lg:w-1/2 lg:sticky top-[7rem] h-[60vh] lg:h-[calc(100vh-10rem)] ">
-                                <video loop autoPlay muted playsInline className='cover rounded-lg' src="/images/home/Reel.mp4" alt="" />
+                                <video loop autoPlay muted playsInline className='cover rounded-lg' src="/images/home/info_reel.mp4" alt="" />
                             </div>
                             <div className=" w-full lg:w-1/2 space-y-10 lg:space-y-24 py-10 lg:py-20">
                                 {excellenceData.map((item, i) => (

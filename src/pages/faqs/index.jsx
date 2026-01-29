@@ -1,3 +1,4 @@
+import SeoHeader from "@/components/seo/SeoHeader";
 import { RiArrowDownSLine } from "@remixicon/react";
 import React, { useState } from "react";
 
@@ -231,6 +232,9 @@ const Faq = () => {
 
   return (
     <>
+
+    <SeoHeader meta={meta} />
+
       {/* Page Title */}
       <div className="w-full px-5 pt-24 lg:pt-32 lg:text-center">
         <h1 className="text-2xl leading-none lg:text-6xl add_anim_txt_a lg:whitespace-nowrap">
@@ -289,3 +293,32 @@ const Faq = () => {
 };
 
 export default Faq;
+
+
+
+export const meta = {
+  title: "FAQs | The Laundry House – Laundry & Dry Cleaning Help",
+  description:
+    "Find answers to frequently asked questions about laundry, dry cleaning, garment care, pricing, turnaround time, and services at The Laundry House.",
+  canonical: "https://thelaundryhouseindia.com/faqs",
+  og: {
+    title: "FAQs – The Laundry House",
+    description:
+      "Common questions answered about our laundry and dry cleaning services.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+    url: "https://thelaundryhouseindia.com/faqs",
+    type: "website",
+    site_name: "The Laundry House",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laundry & Dry Cleaning FAQs",
+    description:
+      "Everything you need to know about our garment care services.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+  },
+  robots: "index,follow",
+  keywords:
+    "laundry faqs, dry cleaning questions, garment care help, The Laundry House support",
+  author: "The Laundry House",
+};

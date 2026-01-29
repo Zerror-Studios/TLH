@@ -9,11 +9,13 @@ import AboutHeroSwiper from "@/components/sections/About Page/AboutHeroSwiper";
 import AboutServices from "@/components/sections/About Page/AboutServices";
 import OurProcess from "@/components/sections/About Page/OurProcess";
 import WelcomeSection from "@/components/sections/About Page/WelcomeSection";
+import SeoHeader from "@/components/seo/SeoHeader";
 import React from "react";
 
-const index = () => {
+const About = () => {
   return (
-    <div>
+    <>
+      <SeoHeader meta={meta} />
       <AboutHero />
       {/* <div className=" pt-32 p-24">
         <h1 className=' text-2xl lg:text-6xl leading-none welc_animate_txt   '>About us</h1>
@@ -29,8 +31,37 @@ const index = () => {
       {/* <AboutServices /> */}
       {/* <AboutExcelleceSection/> */}
       {/* <FranchiseSection/> */}
-    </div>
+    </>
   );
 };
 
-export default index;
+export default About;
+
+
+
+export const meta = {
+  title: "About Us | The Laundry House – Premium Garment Care Experts",
+  description:
+    "Discover the story of The Laundry House, a premium garment care brand committed to craftsmanship, fabric science, and world-class laundry and dry cleaning services.",
+  canonical: "https://thelaundryhouseindia.com/about",
+  og: {
+    title: "About The Laundry House – Our Story & Craftsmanship",
+    description:
+      "Learn how The Laundry House redefines garment care through innovation, expertise, and premium laundry solutions.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+    url: "https://thelaundryhouseindia.com/about",
+    type: "website",
+    site_name: "The Laundry House",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About The Laundry House",
+    description:
+      "A legacy of premium garment care, fabric expertise, and customer trust.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+  },
+  robots: "index,follow",
+  keywords:
+    "about The Laundry House, premium laundry brand, garment care experts, dry cleaning professionals India",
+  author: "The Laundry House",
+};

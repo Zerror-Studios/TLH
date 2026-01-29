@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import ArrowButton from "@/components/Buttons/ArrowButton";
 import CustomSelect from "@/components/common/CustomSelect";
+import SeoHeader from "@/components/seo/SeoHeader";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
@@ -215,7 +216,8 @@ const index = () => {
   }, []);
 
   return (
-    <div>
+    <>
+      <SeoHeader meta={meta}/>
       <div
         onClick={closeService}
         ref={overlayRef}
@@ -313,16 +315,21 @@ const index = () => {
                 <div className="w-full mt-2 gap-1 md:mt-3 flex flex-col justify-between">
                   <h1 className=" text-xl lg:text-2xl serv_txt_b">{service.title}</h1>
                   <p className=" text-xs md:text-sm leading-none lg:text-base serv_txt_b">{service.desc}</p>
-                  <div className='w-full'>
-                    <button
-                      onClick={() => openService(service)}
-                      className='serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5'>
-                      <p className='   opacity-0'>Book Now</p>
-                      <p className=' group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute'>Book Now </p>
-                      <div className="w-full  group-hover:scale-110 origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#FFFAF0] top-0 left-[-100%] absolute "></div>
-                      <p className='  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Book Now</p>
-                    </button>
-                  </div>
+
+
+                  <a href="https://wa.me/918800020002" target='_blank'>
+
+                    <div className='w-full'>
+                      <button
+                        // onClick={() => openService(service)}
+                        className='serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5'>
+                        <p className='   opacity-0'>Book Now</p>
+                        <p className=' group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute'>Book Now </p>
+                        <div className="w-full  group-hover:scale-110 origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#FFFAF0] top-0 left-[-100%] absolute "></div>
+                        <p className='  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Book Now</p>
+                      </button>
+                    </div>
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -330,8 +337,36 @@ const index = () => {
 
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
 export default index;
+
+
+export const meta = {
+  title: "Our Services | Premium Laundry & Dry Cleaning – The Laundry House",
+  description:
+    "Explore premium laundry, dry cleaning, shoe & bag care, stain removal, and garment restoration services by The Laundry House.",
+  canonical: "https://thelaundryhouseindia.com/services",
+  og: {
+    title: "Premium Laundry & Dry Cleaning Services",
+    description:
+      "From everyday wear to luxury garments, experience expert laundry and fabric care services.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+    url: "https://thelaundryhouseindia.com/services",
+    type: "website",
+    site_name: "The Laundry House",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laundry & Dry Cleaning Services",
+    description:
+      "Expert care for your garments with premium laundry and restoration services.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+  },
+  robots: "index,follow",
+  keywords:
+    "laundry services India, premium dry cleaning, garment restoration, shoe bag cleaning, stain removal service",
+  author: "The Laundry House",
+};

@@ -1,3 +1,4 @@
+import SeoHeader from "@/components/seo/SeoHeader";
 import { RiArrowDownSLine } from "@remixicon/react";
 import React, { useState } from "react";
 
@@ -280,6 +281,9 @@ const PrivacyPolicy = () => {
 
     return (
         <>
+
+        <SeoHeader meta={meta} />
+
             {/* Page Title */}
             <div className="w-full px-5 pt-24 lg:pt-32 lg:text-center">
                 <h1 className="text-2xl leading-none lg:text-6xl add_anim_txt_a lg:whitespace-nowrap">
@@ -431,3 +435,33 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+
+
+
+
+export const meta = {
+  title: "Privacy Policy | The Laundry House – Data Protection & Privacy",
+  description:
+    "Read The Laundry House Privacy Policy to understand how we collect, use, protect, and safeguard your personal information and data.",
+  canonical: "https://thelaundryhouseindia.com/privacy-policy",
+  og: {
+    title: "Privacy Policy – The Laundry House",
+    description:
+      "Learn how The Laundry House protects your personal data and privacy.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+    url: "https://thelaundryhouseindia.com/privacy-policy",
+    type: "website",
+    site_name: "The Laundry House",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy – The Laundry House",
+    description:
+      "Your privacy matters. Read how we safeguard your data.",
+    image: "https://thelaundryhouseindia.com/logo-og.png",
+  },
+  robots: "index,follow",
+  keywords:
+    "privacy policy laundry service, data protection, user privacy, The Laundry House privacy",
+  author: "The Laundry House",
+};
