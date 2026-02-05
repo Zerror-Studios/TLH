@@ -31,7 +31,7 @@ const CustomSelect = ({
   };
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative text-sm lg:text-base">
       {label && (
         <label className="block text-sm  mb-1">
           {label}
@@ -41,13 +41,13 @@ const CustomSelect = ({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="w-full border-b border-black/20  py-1  flex justify-between items-center"
+        className="w-full  border-b border-black/20  py-1  flex justify-between items-center"
       >
-        <span className={value ? "text-black" : "text-black/50"}>
+        <span className={` font-light ${value ? "text-black" : "text-stone-400"}`}>
           {value || placeholder}
         </span>
         <span className={`transition-transform ${open ? "rotate-180" : ""}`}>
-          < RiArrowDownSLine  />
+          < RiArrowDownSLine />
         </span>
       </button>
 
@@ -57,9 +57,8 @@ const CustomSelect = ({
             <div
               key={item}
               onClick={() => handleSelect(item)}
-              className={`px-3 py-2 cursor-pointer hover:bg-black/5 ${
-                item === value ? "bg-black/10 font-medium" : ""
-              }`}
+              className={`px-3 py-2 cursor-pointer hover:bg-black/5 ${item === value ? "bg-black/10 font-medium" : ""
+                }`}
             >
               {item}
             </div>

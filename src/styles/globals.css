@@ -36,8 +36,14 @@ body {
   color: #0e1111;
   background-color: #fffaf0;
 }
+
+.font_regular {
+  font-family: font_regular !important;
+}
 p,
 span,
+input,
+textarea,
 button,
 label {
   font-family: font_regular;
@@ -54,7 +60,8 @@ h2 {
 h5 {
   font-family: font_light !important;
 }
-h6 {
+h6,
+.font-thin {
   font-family: font_thin !important;
 }
 .custom_scroller::-webkit-scrollbar {
@@ -136,9 +143,7 @@ button {
   object-fit: cover;
 }
 
-
-
-/* toastify */ /* toastify *//* toastify *//* toastify */
+/* toastify */ /* toastify */ /* toastify */ /* toastify */
 :root {
   --toastify-color-light: #fffaf0;
   --toastify-color-dark: #0e1111;

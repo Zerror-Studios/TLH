@@ -5,15 +5,22 @@ import SplitText from "gsap/dist/SplitText";
 import ArrowButton from "@/components/Buttons/ArrowButton";
 import CustomSelect from "@/components/common/CustomSelect";
 import Link from "next/link";
+import InputField from "@/components/common/InputField";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const FranchiseForm = () => {
+  const router = useRouter();
+const [isSubmitting, setIsSubmitting] = useState(false);
+
   const stepRef = useRef(null);
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phone: "",
     city: "",
     investment: "",
@@ -28,19 +35,97 @@ const FranchiseForm = () => {
   };
 
   const changeStep = (nextStep) => {
-  gsap.to(stepRef.current, {
-    opacity: 0,
-    duration: 0.25,
-    ease: "power2.out",
-    onComplete: () => {
-      setStep(nextStep);
-      gsap.fromTo(
-        stepRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.35, ease: "power2.out" }
-      );
-    },
-  });
+    gsap.to(stepRef.current, {
+      opacity: 0,
+      duration: 0.25,
+      ease: "power2.out",
+      onComplete: () => {
+        setStep(nextStep);
+        gsap.fromTo(
+          stepRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.35, ease: "power2.out" }
+        );
+      },
+    });
+  };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (isSubmitting) return;
+
+  const {
+    name,
+    email,
+    phone,
+    city,
+    investment,
+    profession,
+    timeline,
+    locationStatus,
+  } = formData;
+
+  // Validation
+  if (
+    !name ||
+    !email ||
+    !phone ||
+    !city ||
+    !investment ||
+    !profession ||
+    !timeline ||
+    !locationStatus
+  ) {
+    toast.error("Please fill all required fields");
+    return;
+  }
+
+  const payload = {
+    name,
+    email,
+    phone,
+    city,
+    investment,
+    profession,
+    timeline,
+    locationStatus,
+  };
+
+  try {
+    setIsSubmitting(true);
+
+    const res = await fetch("/api/submitFranchiseForm", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Something went wrong");
+    }
+
+    toast.success("Form submitted successfully!");
+
+    setFormData({
+      name: "",
+      email:"",
+      phone: "",
+      city: "",
+      investment: "",
+      profession: "",
+      timeline: "",
+      locationStatus: "",
+    });
+
+    router.push("/franchise/success");
+  } catch (err) {
+    toast.error(err.message);
+  } finally {
+    setIsSubmitting(false);
+  }
 };
 
 
@@ -82,20 +167,27 @@ const FranchiseForm = () => {
           <div className="w-full center">
 
             <div className=" w-full lg:w-[60%] mt-10 lg:mt-20 ">
-              <form ref={stepRef} className="w-full space-y-10">
+              <form ref={stepRef} className="w-full space-y-10" onSubmit={handleSubmit}>
 
                 {/* STEP 1 */}
                 {step === 1 && (
                   <>
-                    <Field
+                    <InputField
                       label="Full Name"
                       name="name"
                       placeholder="Enter Name"
                       value={formData.name}
                       onChange={handleChange}
                     />
+                    <InputField
+                      label="Email"
+                      name="email"
+                      placeholder="Enter Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
 
-                    <Field
+                    <InputField
                       label="Phone Number"
                       name="phone"
                       placeholder="Enter Number"
@@ -103,7 +195,7 @@ const FranchiseForm = () => {
                       onChange={handleChange}
                     />
 
-                    <Field
+                    <InputField
                       label="City of Interest"
                       name="city"
                       placeholder="Enter City"
@@ -129,14 +221,14 @@ const FranchiseForm = () => {
                 {/* STEP 2 */}
                 {step === 2 && (
                   <>
-                  <Field
+                    <InputField
                       label="Current Business / Profession"
                       name="profession"
                       placeholder="Enter Profession"
                       value={formData.profession}
                       onChange={handleChange}
                     />
-                    
+
                     <CustomSelect
                       label="Investment Capacity *"
                       name="investment"
@@ -169,7 +261,7 @@ const FranchiseForm = () => {
                     />
                     <div className="flex gap-4">
                       <div className="w-full sm:w-[55%]" onClick={(e) => {
-                          e.preventDefault();
+                        e.preventDefault();
                         changeStep(1);
                       }}>
                         <ArrowButton
@@ -177,9 +269,18 @@ const FranchiseForm = () => {
                           variant="dark"
                         />
                       </div>
-                      <Link href="/success" className="w-full sm:w-[55%]" >
-                        <ArrowButton label="Submit" variant="dark" />
-                      </Link>
+                     <div
+  className={`w-full sm:w-[55%] transition-opacity ${
+    isSubmitting ? "pointer-events-none opacity-50" : ""
+  }`}
+>
+  <ArrowButton
+    type="submit"
+    label={isSubmitting ? "Submitting..." : "Submit"}
+    variant="dark"
+  />
+</div>
+
                     </div>
                   </>
                 )}
@@ -193,22 +294,5 @@ const FranchiseForm = () => {
   );
 };
 
-/* ---------------- REUSABLE FIELD ---------------- */
-
-const Field = ({ label, name, value, onChange, placeholder }) => (
-  <div className="w-full">
-    <label className="block text-sm mb-1 font-medium">
-      {label}
-    </label>
-    <input
-      name={name}
-      value={value}
-      placeholder={placeholder}
-      onChange={onChange}
-      className="input_box w-full bg-transparent outline-none text-sm lg:text-base mb-1"
-    />
-    <div className="input_line w-full h-[1px] bg-black/20 rounded-full" />
-  </div>
-);
 
 export default FranchiseForm;

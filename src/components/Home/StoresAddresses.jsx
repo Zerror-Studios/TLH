@@ -9,34 +9,24 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Addresses = [
     {
-        city: "Mumbai",
-        icon: "	https://cdn-icons-png.flaticon.com/512/11240/11240887.png",
-        location: "Lower Parel, Mumbai, Maharashtra"
+        city: "Jaipur",
+        icon: "	https://cdn-icons-png.flaticon.com/512/1927/1927006.png",
     },
     {
         city: "Delhi",
         icon: "	https://cdn-icons-png.flaticon.com/512/510/510018.png",
-        location: "Defence Colony Market, New Delhi"
     },
     {
-        city: "Bengalore",
+        city: "Surat",
         icon: "	https://cdn-icons-png.flaticon.com/512/10706/10706892.png",
-        location: "Indiranagar, Bengaluru, Karnataka"
     },
     {
         city: "Hyderabad",
         icon: "	https://cdn-icons-png.flaticon.com/512/15254/15254664.png",
-        location: "Jubilee Hills, Hyderabad, Telangana"
-    },
-    {
-        city: "Chennai",
-        icon: "https://cdn-icons-png.flaticon.com/512/16025/16025209.png",
-        location: "Alwarpet, Chennai, Tamil Nadu"
     },
     {
         city: "Ahmedabad",
         icon: "https://cdn-icons-png.flaticon.com/512/16025/16025219.png",
-        location: "Prahladnagar, Ahmedabad, Gujarat"
     }
 ];
 

@@ -50,7 +50,7 @@ const Home = ({ meta }) => {
       <div className=" diff_line w-full bg-black h-[1px]"></div>
     </div> */}
       <StoresAddresses />
-      <FranchiseSection />
+      {/* <FranchiseSection /> */}
       <FeedbackSection />
     </>
   )

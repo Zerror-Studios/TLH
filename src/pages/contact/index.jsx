@@ -1,9 +1,138 @@
 import ArrowButton from "@/components/Buttons/ArrowButton"
 import ServiceBtn from "@/components/Buttons/ServiceBtn"
+import CustomSelect from "@/components/common/CustomSelect";
+import InputField from "@/components/common/InputField";
 import SeoHeader from "@/components/seo/SeoHeader";
 import { RiFacebookLine, RiGithubLine, RiInstagramLine, RiWhatsappLine, RiYoutubeLine } from "@remixicon/react"
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function ContactPage() {
+
+    const router = useRouter()
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        city: "",
+        service: "",
+        message: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const serviceOptions = [
+        "Achkan / Sherwani",
+        "Bag Cleaning (Small / Big)",
+        "Bath Robe",
+        "Bathroom Mat / Floor Mat / Towel",
+        "Bedsheet (Single / Double)",
+        "Bikini / Swimming Costume / Shorts",
+        "Blanket (Single / Double)",
+        "Blazer / Jacket",
+        "Brassiere / Dress / Half Jacket",
+        "Car Interior Cleaning",
+        "Carpet Cleaning (Per Sq. Ft.)",
+        "Curtains (Per Panel)",
+        "Darri / Khadi (Per Sq. Ft.)",
+        "Designer Gown",
+        "Dhoti / Pyjama / Capri",
+        "Dhoti Kurta / Kurta Pyjama",
+        "Dress (Long)",
+        "Dupatta / Blouse",
+        "Jodhpuri Suit",
+        "Kameez / Skirt / Kurta",
+        "Leather Jacket",
+        "Lehenga & Odani (Zari)",
+        "Lehenga, Kurti, Odani & Blouse (Zari)",
+        "Ladies Ethnic Suit (3 Pcs)",
+        "Marwari Suit – Plain (4 Pcs / Rajputi Poshak)",
+        "Overcoat / Long Coat",
+        "Pants / Jeans / Slacks / Salwar",
+        "Pillow",
+        "Pillow Cover",
+        "Pullover / Cardigan",
+        "Quilt / Razai (Single / Double)",
+        "Safari Suit / Track Suit / Pathani Suit (2 Pcs)",
+        "Saree",
+        "Scarf / Stocking",
+        "Shawl – Pashmina",
+        "Shirt / T-Shirt",
+        "Shoes Cleaning",
+        "Soft Toy (Small / Big)",
+        "Sports Jacket / Coat",
+        "Sports Jacket / Jumper / Dangree / Shawl",
+        "Suit – 2 Pieces",
+        "Suit – 3 Pieces",
+        "Sweat Shirt / Sweat Pants",
+        "Tuxedo / Suit",
+        "Undershirt / Tie",
+        "Wedding Dress (Bari)",
+        "Other"
+    ];
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (isSubmitting) return;
+
+        const { firstName, lastName, email, city, service, message } = formData;
+
+        if (!firstName || !lastName || !email || !city || !service || !message) {
+            toast.error("Please fill all required fields");
+            return;
+        }
+
+        const payload = {
+            fullName: `${firstName} ${lastName}`,
+            email,
+            city,
+            service,
+            message,
+        };
+
+        try {
+            setIsSubmitting(true);
+
+            const res = await fetch("/api/submitContactForm", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || "Something went wrong");
+            }
+
+            toast.success("Form submitted successfully!");
+
+            setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                city: "",
+                service: "",
+                message: "",
+            });
+            
+            router.push("/contact/success");
+        } catch (err) {
+            toast.error(err.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+
     return (
 
         <>
@@ -18,7 +147,7 @@ export default function ContactPage() {
                 <div className="w-full flex flex-col-reverse lg:flex-row gap-y-10 mt-14 px-5 lg:px-24 lg:items-stretch">
                     <div className=" w-full lg:w-1/2 flex flex-col gap-y-10   lg:justify-between">
                         <div className=" text-sm lg:text-xl font-thin  space-y-3 lg:space-y-5 ">
-                            <p>support@tlhindia.in</p>
+                            <p>info@thelaundryhouseindia.com</p>
                             <p>+91 8800020002</p>
                             <p className="lg:w-[60%] leading-tight">Shop No. 1, Parshwa Darshan Complex, Near Gaay Circle, Shrenik Park Crossing, Akota, Vadodara – 390020</p>
                         </div>
@@ -44,50 +173,109 @@ export default function ContactPage() {
                         </div>
                     </div>
                     <div className=" w-full lg:w-1/2">
-                        <form className="w-full flex text-sm lg:text-base flex-col gap-y-10">
-                            <div className="flex flex-col gap-[1.2vw]">
-                                <p className="uppercase ">
-                                    Name <sup> *</sup>
-                                </p>
+                        <form
+                            onSubmit={handleSubmit}
+                            className="w-full flex text-sm lg:text-base flex-col gap-y-10"
+                        >
 
-                                <div className="flex gap-[2vw]">
-                                    <input
-                                        type="text"
+                            {/* NAME */}
+                            <div className="flex gap-[2vw]">
+
+
+                                <div className="w-1/2 flex flex-col gap-[1.2vw]">
+                                    <p className="uppercase">
+                                        First Name <sup>*</sup>
+                                    </p>
+                                    <InputField
+                                        name="firstName"
                                         placeholder="First Name"
-                                        className="w-full bg-transparent border-b border-neutral-600 pb-[0.6rem] outline-none placeholder-neutral-500"
+                                        value={formData.firstName}
+                                        onChange={handleChange}
                                     />
-                                    <input
-                                        type="text"
+                                </div>
+                                <div className="w-1/2 flex flex-col gap-[1.2vw]">
+                                    <p className="uppercase">
+                                        Last Name <sup>*</sup>
+                                    </p>
+                                    <InputField
+                                        name="lastName"
                                         placeholder="Last Name"
-                                        className="w-full bg-transparent border-b border-neutral-600 pb-[0.6rem] outline-none placeholder-neutral-500"
+                                        value={formData.lastName}
+                                        onChange={handleChange}
                                     />
                                 </div>
                             </div>
 
+                            {/* EMAIL */}
+                            <div className="flex w-full   gap-[2vw]">
+                                <div className="w-1/2 flex flex-col gap-[1.2vw]">
+                                    <p className="uppercase">
+                                        Email <sup>*</sup>
+                                    </p>
+                                    <InputField
+                                        name="email"
+                                        placeholder="Enter Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <div className=" w-1/2 flex flex-col gap-[1.2vw]">
+
+                                    <p className="uppercase">
+                                        City <sup>*</sup>
+                                    </p>
+                                    <InputField
+                                        name="city"
+                                        placeholder="Enter City"
+                                        value={formData.city}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* SERVICE */}
                             <div className="flex flex-col gap-[1.2vw]">
-                                <p className="uppercase ">
-                                    Email <sup> *</sup>
+                                <p className="uppercase">
+                                    Select Service <sup>*</sup>
                                 </p>
-                                <input
-                                    placeholder="Enter Email"
-                                    type="email"
-                                    className="w-full bg-transparent border-b border-neutral-600 pb-[0.6rem] outline-none placeholder-neutral-500"
+                                <CustomSelect
+                                    name="service"
+                                    value={formData.service}
+                                    options={serviceOptions}
+                                    placeholder="Select Service"
+                                    onChange={handleChange}
                                 />
                             </div>
 
+                            {/* MESSAGE */}
                             <div className="flex flex-col gap-[1.2vw]">
-                                <p className="uppercase ">
-                                    Message <sup> *</sup>
+                                <p className="uppercase">
+                                    Message<sup>*</sup>
                                 </p>
-                                <textarea
-                                    placeholder="Enter Message"
-                                    rows={4}
-                                    className="w-full bg-transparent border-b border-neutral-600 pb-[0.6rem] outline-none placeholder-neutral-500 resize-none"
-                                />
+                                <div className="w-full">
+                                    <textarea
+                                        data-lenis-prevent
+                                        name="message"
+                                        rows={4}
+                                        placeholder="Briefly Describe Your Requirement"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        className="input_box font-light w-full custom_scrollbar bg-transparent outline-none resize-none text-sm lg:text-base mb-1"
+                                    />
+                                    <div className="input_line w-full h-[1px] bg-black/20 rounded-full" />
+                                </div>
                             </div>
-                            <div className=" w-full lg:w-[30%]">
-                                <ServiceBtn label="Send Message" />
+
+                            {/* CTA */}
+                            <div
+                                className={`w-full lg:w-[30%] transition-opacity ${isSubmitting ? "pointer-events-none opacity-50" : ""
+                                    }`}
+                            >
+                                <ServiceBtn label={isSubmitting ? "Submitting..." : "Request a Quote"} />
                             </div>
+
+
                         </form>
                     </div>
                 </div>

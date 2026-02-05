@@ -1,114 +1,149 @@
-import {
-  RiArrowDownSLine,
-  RiArrowRightUpLine,
-  RiCloseLine,
-} from "@remixicon/react";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from "gsap/dist/SplitText";
 import CustomEase from "gsap/dist/CustomEase";
-
-import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
-import ArrowButton from "@/components/Buttons/ArrowButton";
-import CustomSelect from "@/components/common/CustomSelect";
 import SeoHeader from "@/components/seo/SeoHeader";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: {
-      duration: 0.6,
-      ease: "easeInOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-    transition: {
-      duration: 0.4,
-      ease: "easeInOut",
-    },
-  },
-};
 
-const Services = [
+const services = [
   {
     id: 1,
     title: "Garment Care",
-    desc: "Professional dry cleaning and wet cleaning for all your precious garments.",
-    Tags: ["Dry Cleaning", "Wet Cleaning"],
+    desc: "Expert cleaning solutions designed to maintain fabric quality, color, and freshness for daily and premium garments. Each piece is carefully treated using fabric-safe processes to ensure long-lasting wear and comfort.",
+    subServices: [
+      "Shirt Cleaning",
+      "T-Shirt Cleaning",
+      "Kurta Cleaning",
+      "Trouser Cleaning",
+      "Jacket & Coat Cleaning",
+      "Ethnic Wear Cleaning"
+    ],
     img: "/images/services/1_Garment Care.webp",
   },
   {
     id: 2,
     title: "Shoe & Bags",
-    desc: "Premium cleaning and restoration services for shoes and bags.",
-    Tags: ["Shoe Cleaning", "Bag Cleaning"],
+    desc: "Advanced cleaning and restoration techniques to revive footwear and bags without damaging material or structure. From everyday shoes to premium accessories, we restore hygiene and appearance effectively.",
+    subServices: [
+      "Sports Shoe Cleaning",
+      "Leather Shoe Cleaning",
+      "Sneaker Whitening",
+      "Handbag Cleaning",
+      "Backpack Cleaning",
+      "Bag Deodorizing"
+    ],
     img: "/images/services/2_Shoe & Bags.webp",
   },
   {
     id: 3,
     title: "Home & Auto Fabrics",
-    desc: "Deep cleaning for sofas, curtains, and carpets including auto upholstery.",
-    Tags: ["Sofa Cleaning", "Curtain Cleaning", "Carpet Cleaning"],
+    desc: "Deep fabric cleaning services that eliminate dust, allergens, and stains from home and vehicle interiors. Safe methods ensure thorough cleaning while preserving fabric texture and durability.",
+    subServices: [
+      "Sofa Cleaning",
+      "Car Seat Cleaning",
+      "Carpet Cleaning",
+      "Curtain Cleaning",
+      "Mattress Cleaning",
+      "Chair Upholstery Cleaning"
+    ],
     img: "/images/services/3_Home & Auto Fabrics.webp",
   },
   {
     id: 4,
     title: "Wedding Couture",
-    desc: "Specialized cleaning and finishing of wedding gowns and couture dresses.",
-    Tags: ["Dry Cleaning", "Steam Ironing"],
+    desc: "Specialized care for heavy bridal and designer outfits with delicate embroidery and fabrics. Each garment undergoes detailed inspection, gentle cleaning, and precision finishing.",
+    subServices: [
+      "Bridal Lehenga Cleaning",
+      "Wedding Gown Cleaning",
+      "Sherwani Cleaning",
+      "Heavy Embroidery Care",
+      "Hand Finishing"
+    ],
     img: "/images/services/4_Wedding Couturer.webp",
   },
   {
     id: 5,
     title: "Laundry Essentials",
-    desc: "Everyday laundry service with wet cleaning and steam ironing.",
-    Tags: ["Wet Cleaning", "Steam Ironing"],
+    desc: "Reliable everyday laundry services designed for convenience, hygiene, and consistent quality. Ideal for regular wear clothing with efficient washing, drying, and ironing solutions.",
+    subServices: [
+      "Daily Wear Washing",
+      "Shirt Ironing",
+      "Trouser Ironing",
+      "Bedsheet Cleaning",
+      "Towel Washing",
+      "Uniform Cleaning"
+    ],
     img: "/images/services/1_Garment Care.webp",
   },
   {
     id: 6,
     title: "Curtains & Drapes",
-    desc: "On-site and off-site curtain cleaning to remove dust and pollutants.",
-    Tags: ["Curtain Cleaning"],
+    desc: "Professional curtain cleaning services that remove accumulated dust and pollutants without shrinking or fading. Available in both on-site steam cleaning and off-site deep wash options.",
+    subServices: [
+      "Sheer Curtain Cleaning",
+      "Blackout Curtain Cleaning",
+      "Steam Cleaning",
+      "Curtain Removal & Rehang"
+    ],
     img: "/images/services/2_Shoe & Bags.webp",
   },
   {
     id: 7,
     title: "Carpet & Rugs",
-    desc: "Professional carpet and rug cleaning with stain removal and deodorizing.",
-    Tags: ["Carpet Cleaning"],
+    desc: "Intensive carpet and rug cleaning solutions that target deep-seated dirt, stains, and odors. Our process restores softness, color vibrancy, and freshness.",
+    subServices: [
+      "Area Rug Cleaning",
+      "Wall-to-Wall Carpet Cleaning",
+      "Stain Treatment",
+      "Odor Removal",
+      "Pet Hair Removal"
+    ],
     img: "/images/services/3_Home & Auto Fabrics.webp",
   },
   {
     id: 8,
-    title: "Luxury Leather Bags",
-    desc: "Restoration, polishing, and deep cleaning for luxury leather bags.",
-    Tags: ["Bag Cleaning"],
+    title: "Luxury Leather Care",
+    desc: "Premium leather cleaning and restoration services crafted for luxury bags and accessories. Specialized treatments enhance shine, repair wear, and extend product lifespan.",
+    subServices: [
+      "Leather Bag Cleaning",
+      "Color Restoration",
+      "Leather Polishing",
+      "Scratch & Scuff Repair"
+    ],
     img: "/images/services/1_Garment Care.webp",
   },
   {
     id: 9,
     title: "Silk & Satin Wear",
-    desc: "Gentle hand-finishing and dry cleaning for silk and satin fabrics.",
-    Tags: ["Dry Cleaning", "Steam Ironing"],
+    desc: "Delicate care solutions for silk and satin garments that require gentle handling and expert finishing. Our methods preserve fabric softness, sheen, and intricate detailing.",
+    subServices: [
+      "Silk Saree Cleaning",
+      "Satin Dress Cleaning",
+      "Designer Wear Cleaning",
+      "Hand Wash & Finish"
+    ],
+    img: "/images/services/1_Garment Care.webp",
+  },
+  {
+    id: 10,
+    title: "Kids Wear",
+    desc: "Safe and hygienic cleaning services specially designed for children’s clothing and sensitive fabrics. Gentle detergents ensure cleanliness without irritation or damage.",
+    subServices: [
+      "Kids Shirt Cleaning",
+      "Kids Dress Cleaning",
+      "School Uniform Washing",
+      "Soft Fabric Care"
+    ],
     img: "/images/services/1_Garment Care.webp",
   },
 ];
+
 
 const introAnimation = () => {
   gsap.fromTo(
@@ -116,100 +151,12 @@ const introAnimation = () => {
     { y: 80, opacity: 1 },
     { y: 0, opacity: 1, delay: 0.3, duration: 0.5, stagger: 0.05 }
   );
-
-  gsap.fromTo(
-    ".serv_clip",
-    {
-      clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-    },
-    {
-      delay: 0.1,
-      stagger: 0.15,
-      ease: "custom",
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-      duration: 0.8,
-    }
-  );
 };
 
 const index = () => {
-  const router = useRouter();
-  CustomEase.create("custom", "0.785, 0.135, 0.15, 0.86");
 
-  const [activeTag, setactiveTag] = useState("All");
-  const [activeService, setactiveService] = useState(Services[0]);
+  const [active, setActive] = useState(0);
 
-  /* ✅ ONLY ADDITION */
-  const [sidebarForm, setSidebarForm] = useState({
-    service: "",
-  });
-
-  const slideRef = useRef(null);
-  const overlayRef = useRef(null);
-
-  const changeTag = (tag) => {
-    setactiveTag(tag);
-  };
-
-  const filteredServices = useMemo(() => {
-    if (activeTag === "All") return Services;
-    return Services.filter((service) => service.Tags.includes(activeTag));
-  }, [activeTag]);
-
-  const uniqueTags = useMemo(() => {
-    const allTags = Services.flatMap((service) => service.Tags);
-    return ["All", ...new Set(allTags)];
-  }, []);
-
-  const openService = (service) => {
-    setactiveService(service);
-    setSidebarForm({ service: service.title }); // auto fill
-
-    if (window.lenis) window.lenis.stop();
-    gsap.to(slideRef.current, {
-      right: 0,
-      duration: 1,
-      ease: "custom",
-    });
-    gsap.to(overlayRef.current, {
-      pointerEvents: "auto",
-      opacity: 1,
-      duration: 1,
-      ease: "custom",
-    });
-  };
-
-  const services = [
-    "Web Development",
-    "UI/UX Design",
-    "SEO Optimization",
-    "Consultation",
-  ];
-
-  /* ✅ ONLY ADDITION */
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSidebarForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const closeService = () => {
-    if (window.lenis) window.lenis.start();
-
-    gsap.to(slideRef.current, {
-      right: "-100%",
-      duration: 1,
-      ease: "custom",
-    });
-    gsap.to(overlayRef.current, {
-      pointerEvents: "none",
-      opacity: 0,
-      duration: 1,
-      ease: "custom",
-    });
-  };
 
   useEffect(() => {
     introAnimation();
@@ -217,64 +164,7 @@ const index = () => {
 
   return (
     <>
-      <SeoHeader meta={meta}/>
-      <div
-        onClick={closeService}
-        ref={overlayRef}
-        className="overlay pointer-events-none opacity-0 fixed h-screen w-full bg-black/70 z-[99]"
-      />
-
-      <div
-        ref={slideRef}
-        data-lenis-prevent
-        className="open_slide w-full md:w-[50vw] lg:w-[30vw] flex flex-col justify-between h-[100dvh] bg-[#FFFAF0] p-5 lg:p-10 fixed top-0 right-[-100%] z-[999] overflow-auto"
-      >
-        <div className="flex flex-col gap-3 lg:gap-5">
-          <div className="w-full flex items-center justify-between">
-            <h1 className="text-3xl">{activeService?.title}</h1>
-            <RiCloseLine
-              onClick={closeService}
-              size={30}
-              className="cursor-pointer"
-            />
-          </div>
-
-          <div className="w-full h-[1.5px] black opacity-60" />
-
-          <div className="w-[65%] aspect-square">
-            <img src={activeService?.img} alt="" />
-          </div>
-
-          <p className="text-sm">{activeService?.desc}</p>
-
-          <div className="w-full h-[1.5px] black opacity-60" />
-
-          {/* ✅ FIXED CustomSelect */}
-          <CustomSelect
-            label="Service"
-            name="service"
-            value={sidebarForm.service}
-            options={services}
-            placeholder="Select service"
-            onChange={handleChange}
-          />
-
-          <div className="w-full h-[1.5px] black opacity-60" />
-
-          {/* ✅ FIXED CustomSelect */}
-          <CustomSelect
-            label="Service"
-            name="service"
-            value={sidebarForm.service}
-            options={services}
-            placeholder="Select service"
-            onChange={handleChange}
-          />
-
-        </div>
-
-        <ArrowButton variant="dark" label="Book Now" />
-      </div>
+      <SeoHeader meta={meta} />
 
       <div className="w-full flex lg:items-center justify-center flex-col p-5 pt-20 lg:pt-32">
         <div className="block overflow-hidden">
@@ -284,59 +174,71 @@ const index = () => {
           <p className=' text-sm mt-1 serv_txt_a leading-tight lg:text-xl'>Explore the range of services we offer to care for your garments.</p>
         </div>
       </div>
-      <div className="tags w-full  lg:mt-10 px-5 lg:px-10 h-10 border-b scroller_none overflow-x-scroll gap-5 border-black/20  flex items-center justify-between">
-        {uniqueTags.map(tag => (
-          <div onClick={() => changeTag(tag)} key={tag} className={`relative shrink-0 whitespace-nowrap h-full flex items-center cursor-pointer transition duration-300 ${activeTag === tag ? "font-semibold opacity-100" : "opacity-80"}`}>
-            <p className=' text-sm lg:text-base'>{tag}</p>
-            <div className={` absolute -bottom-[0px] z-[9] w-full black rounded-full h-[2px] transition duration-300 ${activeTag === tag ? "opacity-100" : "opacity-0"}`}></div>
-          </div>
-        ))}
-      </div>
-      <div className=" mb-5 lg:mb-20 p-5 lg:p-10 w-full overflow-hidden ">
-        <div className="w-full pb-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-y-20 ">
-          <AnimatePresence mode="wait">
-            {filteredServices.map((service, index) => (
-              <motion.div
-                key={service.title} // stable key
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                transition={{ delay: index * 0.15 }} // stagger effect
-                className="w-full shrink-0 flex flex-col  "
+
+      <section className="max-w-7xl mx-auto px-5  pb-16 md:py-24 md:grid lg:grid-cols-2 gap-20">
+        {/* LEFT – ACCORDION */}
+        <div className="space-y-4">
+          {services.map((service, i) => (
+            <div
+              key={i}
+              className={`border rounded-lg transition ${active === i ? "border-black" : "border-gray-200"
+                }`}
+            >
+              <button
+                onClick={() => setActive(i)}
+                className="w-full text-left px-6 py-6 flex justify-between items-center"
               >
-                <motion.div className="serv_clip aspect-square rounded-md w-full  overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={service.img}
-                    alt={service.title}
-                  />
-                </motion.div>
-                <div className="w-full mt-2 gap-1 md:mt-3 flex flex-col justify-between">
-                  <h1 className=" text-xl lg:text-2xl serv_txt_b">{service.title}</h1>
-                  <p className=" text-xs md:text-sm leading-none lg:text-base serv_txt_b">{service.desc}</p>
+                <h1 className=" text-xl lg:text-2xl serv_txt_b">{service.title}</h1>
+                <span className="text-2xl">
+                  {active === i ? "−" : "+"}
+                </span>
+              </button>
 
+              <div
+                className={`overflow-hidden space-y-5 transition-all duration-300 ${active === i ? " max-h-[100vh]  md:max-h-[20rem] px-6 pb-6" : "max-h-0"
+                  }`}
+              >
+                <p className=" text-xs md:text-sm leading-none lg:text-base serv_txt_b">{service.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.subServices.map((subService, i) => (
+                    <button key={i} className=" border border-black/10 px-3 py-1.5 w-fit rounded-full gap-x-2 flex items-center">
+                      <div className=" shrink-0 aspect-square text-sm bg-black rounded-full size-1"></div>
+                      <p className="text-sm">{subService}</p>
+                    </button>
+                  ))}
+                </div>
 
+                <div className=' w-full md:w-[30%]'>
                   <a href="https://wa.me/918800020002" target='_blank'>
-
-                    <div className='w-full'>
-                      <button
-                        // onClick={() => openService(service)}
-                        className='serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5'>
-                        <p className='   opacity-0'>Book Now</p>
-                        <p className=' group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute'>Book Now </p>
-                        <div className="w-full  group-hover:scale-110 origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#FFFAF0] top-0 left-[-100%] absolute "></div>
-                        <p className='  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Book Now</p>
-                      </button>
-                    </div>
+                    <button
+                      // onClick={() => openService(service)}
+                      className='serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5'>
+                      <p className='   opacity-0'>Book Now</p>
+                      <p className=' group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute'>Book Now </p>
+                      <div className="w-full  group-hover:scale-110 origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#FFFAF0] top-0 left-[-100%] absolute "></div>
+                      <p className='  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Book Now</p>
+                    </button>
                   </a>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+
+        {/* RIGHT – STICKY IMAGE */}
+        <div className=" max-sm:hidden! relative h-[100vh] center lg:sticky lg:top-0 pt-16  overflow-hidden">
+          <div className="h-[70vh]  w-full overflow-hidden rounded-xl">
+          <img
+            src={services[active].img}
+            alt={services[active].title}
+            className="cover transition-opacity duration-500"
+            />
+            </div>
+        </div>
+      </section>
+
+
+
     </>
   )
 }
