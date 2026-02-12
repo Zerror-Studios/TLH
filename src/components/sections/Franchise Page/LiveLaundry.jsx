@@ -75,7 +75,7 @@ const LiveLaundry = () => {
           {/* Visual */}
           <div className="order-1 lg:order-2 relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-elevated">
-              <video loop muted playsInline autoPlay className="cover" src="/images/home/info_reel.mp4"></video>
+              <video loop muted playsInline autoPlay className="cover" src="/images/home/serv_reel.mp4"></video>
             </div>
           </div>
         </div>
