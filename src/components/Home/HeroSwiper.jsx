@@ -18,19 +18,19 @@ gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 const swiperData = [
   {
-    img: "/images/hero_swiper/slide_1.webp",
+    img: "/images/hero_swiper/img1.jpeg",
     title: "Professional dry cleaning",
   },
   {
-    img: "/images/hero_swiper/slide_2.webp",
+    img: "/images/hero_swiper/img2.jpeg",
     title: "Revive Your Shoes & Bags",
   },
   {
-    img: "/images/hero_swiper/slide_3.webp",
+    img: "/images/hero_swiper/img3.jpeg",
     title: "Expert Cleaning and Care!",
   },
   {
-    img: "/images/hero_swiper/slide_4.webp",
+    img: "/images/hero_swiper/img4.jpeg",
     title: "Bridal Elegance, Restored with Care",
   },
 ];
@@ -263,9 +263,9 @@ const HeroSwiper = () => {
         }}
         className=" hero_sec relative w-full h-[87vh] lg:h-screen overflow-hidden">
 
-        {/* <div class="absolute w-full h-full z-10 inset-0 pointer-events-none
+        <div class="absolute w-full h-full z-10 inset-0 pointer-events-none
             bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),transparent_35%)]">
-        </div> */}
+        </div>
 
         <div className="absolute lg:w-[65%] space-y-5 bottom-5 lg:bottom-20 pl-5 lg:pl-24 z-20 text-white">
           <h1 className=" text-2xl leading-none capitalize lg:text-6xl ">Premium garment care. Doorstep pickup & delivery.</h1>
