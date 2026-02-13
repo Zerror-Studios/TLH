@@ -1,13 +1,9 @@
-import { google } from "googleapis";
+import { GoogleAuth } from "google-auth-library";
+import { sheets_v4 } from "@googleapis/sheets";
 import nodemailer from "nodemailer";
 
-/* ---------------- Google Sheets Auth ---------------- */
-async function authenticate() {
-  if (!process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY) {
-    throw new Error("Missing GOOGLE_PRIVATE_KEY");
-  }
-
-  const auth = new google.auth.GoogleAuth({
+async function getSheetsClient() {
+  const auth = new GoogleAuth({
     credentials: {
       client_email: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL,
       private_key: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -15,7 +11,7 @@ async function authenticate() {
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
-  return google.sheets({ version: "v4", auth });
+  return new sheets_v4.Sheets({ auth });
 }
 
 /* ---------------- API Handler ---------------- */
@@ -56,7 +52,7 @@ export default async function handler(req, res) {
     });
 
     /* ---------- Google Sheet ---------- */
-    const sheets = await authenticate();
+    const sheets = await getSheetsClient();
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID,
