@@ -71,7 +71,7 @@ const Index = () => {
                 {uniqueCity.map(city => (
                     <div
                         key={city}
-                        onClick={() => {setcategoryType("All Garments");setactiveCity(city)}}
+                        onClick={() => { setcategoryType("All Garments"); setactiveCity(city) }}
                         className={`relative shrink-0 whitespace-nowrap h-full flex items-center justify-center cursor-pointer transition duration-300 ${activeCity === city ? "font-semibold opacity-100" : "opacity-80"}`}
                     >
                         <AnimatedText uniqueKey={city} className="text-sm lg:text-base">{city}</AnimatedText>
@@ -83,50 +83,66 @@ const Index = () => {
             <div className="w-full flex flex-col lg:flex-row justify-between p-5 lg:p-10 mb-5 lg:mb-20">
                 {/* Left Side (Shops List) */}
                 <div className=" lg:sticky top-24 lg:h-screen w-full lg:w-[40%] border-r border-black/10 pr-5">
-                    {allStoresData.find(store => store.cityName === activeCity)?.shopNames?.map((shop, index) => (
-                        <div
-                            key={index}
-                            className={`w-full ${index === 0 ? "py-0 pb-4" : "py-4 pb-4"} chnge_cat_tble_b flex flex-col gap-1 md:gap-2 border-b border-black/20`}
-                        >
-                            <AnimatedText uniqueKey={shop.name} className="store_txt_a text-xl md:text-2xl font-bold ">{shop.name}</AnimatedText>
-                            <AnimatedText uniqueKey={shop.address} className="store_txt_a text-xs md:text-sm opacity-70">{shop.address}</AnimatedText>
-                            <div className="flex text-xs md:text-sm items-center justify-between md:justify-start md:gap-14">
-                                <div className="store_txt_a flex items-center gap-1">
-                                    <AnimatedText uniqueKey={`${shop.name}-time-icon`}>
-                                        <RiTimeFill size={14} />
-                                    </AnimatedText>
-                                    <AnimatedText uniqueKey={shop.openTime} className="fixy1">{shop.openTime}</AnimatedText>
-                                    <AnimatedText uniqueKey={`${shop.name}-dash`} className="fixy1">
-                                        -
-                                    </AnimatedText>
-                                    <AnimatedText uniqueKey={shop.closeTime} className="fixy1">{shop.closeTime}</AnimatedText>
-                                </div>
-                                <div className="store_txt_a flex items-center gap-1">
-                                    <AnimatedText uniqueKey={`${shop.name}-phone-icon`}>
-                                        <RiPhoneFill size={14} />
-                                    </AnimatedText>
-                                    <AnimatedText uniqueKey={shop.contact} className="fixy1">
-                                        <a href="tel:{shop.contact}" className="fixy1 underline">
-                                        {shop.contact}
-                                        </a>
-                                        </AnimatedText>
-                                </div>
-                                <div className="store_txt_a flex items-center gap-1">
-                                    <AnimatedText uniqueKey={`${shop.name}-map-icon`}>
-                                        <RiMapPinFill size={14} />
-                                    </AnimatedText>
-                                    <a
-                                        href={shop.location}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="fixy1 underline"
+                    {allStoresData.find(store => store.cityName === activeCity)?.shopNames?.map((shop, index) => {
+                        const [storeName, location] = shop.name.split(" – ");
+                        return (
+                            <div
+                                key={index}
+                                className={`w-full ${index === 0 ? "py-0 pb-4" : "py-4 pb-4"} chnge_cat_tble_b flex flex-col gap-2 md:gap-3 border-b border-black/20`}
+                            >
+                                <div className="leading-none">
+                                    <AnimatedText
+                                        uniqueKey={shop.name}
+                                        className="store_txt_a text-xl md:text-2xl font-bold "
                                     >
-                                        <AnimatedText uniqueKey={shop.location} className="fixy1">Location</AnimatedText>
-                                    </a>
+                                        <span>
+                                            {storeName}
+                                        </span>
+                                        <br />
+                                        <span>
+                                            {location}
+                                        </span>
+                                    </AnimatedText>                                </div>
+                                <AnimatedText uniqueKey={shop.address} className="store_txt_a text-xs md:text-sm opacity-70">{shop.address}</AnimatedText>
+                                <div className="flex text-xs md:text-sm items-center justify-between md:justify-start md:gap-14">
+                                    <div className="store_txt_a flex items-center gap-1">
+                                        <AnimatedText uniqueKey={`${shop.name}-time-icon`}>
+                                            <RiTimeFill size={14} />
+                                        </AnimatedText>
+                                        <AnimatedText uniqueKey={shop.openTime} className="fixy1">{shop.openTime}</AnimatedText>
+                                        <AnimatedText uniqueKey={`${shop.name}-dash`} className="fixy1">
+                                            -
+                                        </AnimatedText>
+                                        <AnimatedText uniqueKey={shop.closeTime} className="fixy1">{shop.closeTime}</AnimatedText>
+                                    </div>
+                                    <div className="store_txt_a flex items-center gap-1">
+                                        <AnimatedText uniqueKey={`${shop.name}-phone-icon`}>
+                                            <RiPhoneFill size={14} />
+                                        </AnimatedText>
+                                        <AnimatedText uniqueKey={shop.contact} className="fixy1">
+                                            <a href="tel:{shop.contact}" className="fixy1 underline">
+                                                {shop.contact}
+                                            </a>
+                                        </AnimatedText>
+                                    </div>
+                                    <div className="store_txt_a flex items-center gap-1">
+                                        <AnimatedText uniqueKey={`${shop.name}-map-icon`}>
+                                            <RiMapPinFill size={14} />
+                                        </AnimatedText>
+                                        <a
+                                            href={shop.location}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="fixy1 underline"
+                                        >
+                                            <AnimatedText uniqueKey={shop.location} className="fixy1">Location</AnimatedText>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        )
+                    }
+                    )}
                 </div>
 
                 {/* Right Side (Categories + Table) */}
@@ -171,7 +187,7 @@ const Index = () => {
                                     ?.servicePrices.map((service, index) => (
                                         <tr
                                             key={index}
-                                            className={` ${index % 2 === 0 ? "bg-black/3 " : "bg-black/5"} chnge_cat_tble w-full flex justify-between h-10 lg:h-12 items-center`}
+                                            className={` ${index % 2 === 0 ? "bg-black/3 " : "bg-black/5"} chnge_cat_tble w-full flex justify-between h-12 lg:h-14 items-center`}
                                         >
                                             <td className="w-[32%] center">
                                                 <AnimatedText uniqueKey={service.serviceName} className="store_txt_c text-xs lg:text-base">{service.serviceName}</AnimatedText>

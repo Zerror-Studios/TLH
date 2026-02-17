@@ -7,7 +7,7 @@ const ServiceBtn = ({ variant = "dark", label = "Book Now" }) => {
   const borderColor = isLight ? "border-white" : "border-black";
   const baseTextColor = isLight ? "text-black" : "text-white";
   const hoverTextColor = isLight ? "group-hover:text-white" : "group-hover:text-black";
-  const circleBg = isLight ? "bg-[#fffaf0]" : "bg-black";
+  const circleBg = isLight ? "bg-[#fffaf0]" : "bg-[#0e1111]";
 
   return (
     <button

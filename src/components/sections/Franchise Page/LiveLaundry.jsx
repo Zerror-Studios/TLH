@@ -2,7 +2,7 @@ import { RiArrowDownCircleFill, RiEye2Fill, RiEye2Line, RiShieldCheckFill } from
 
 const LiveLaundry = () => {
   return (
-    <section className="py-10 p-5 md:p-24 bg-background overflow-hidden">
+    <section className="py-10 p-5 md:p-24 pt-5! bg-background overflow-hidden">
       <div className="w-full flex lg:items-stretch">
         <div className="grid lg:grid-cols-2 space-y-6 lg:space-y-0 lg:gap-24">
           {/* Content */}

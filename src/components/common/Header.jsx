@@ -33,7 +33,7 @@ const Header = () => {
   const pathname = usePathname()
   const router = useRouter();
   const lineRefs = useRef([]);
-   const openDrawer = useBookDrawer((state) => state.openDrawer);
+  const openDrawer = useBookDrawer((state) => state.openDrawer);
 
   useEffect(() => {
     // Pages where nav should always be black
@@ -156,10 +156,10 @@ const Header = () => {
         transition-colors duration-500 ease-in-out 
         `}
       >
-        <div className={` bg_bner w-screen z-[-1] left-0 top-0 ${pathname === "/" ? "h-0" : "h-full"} bg-black absolute`}></div>
-        <div className=" w-[55%] md:w-[20%]">
+        <div className={` bg_bner w-screen z-[-1] left-0 top-0 ${pathname === "/" ? "h-0" : "h-full"} bg-[#0e1111] absolute`}></div>
+        <div className=" w-[65%] md:w-[20%]">
           <Link href="/" scroll={false} className='w-full'>
-            <img className='w-[100%] lg:w-[14vw]' src="/logos/Logo_White.svg" alt="" />
+            <img className='w-[100%] lg:w-[17vw]' src="/logos/Logo_White.svg" alt="" />
           </Link>
         </div>
         <RiMenu3Line size={28} className='lg:hidden text-white' onClick={openMenu} />
@@ -173,7 +173,7 @@ const Header = () => {
               onMouseEnter={() => handleMouseEnter(link, i)}
               onMouseLeave={() => handleMouseLeave(link, i)}
             >
-                <div className="absolute w-0 group-hover:w-full transition-all duration-300 left-0 rounded-full h-px bg-white bottom-0"></div>
+              <div className="absolute w-0 group-hover:w-full transition-all duration-300 left-0 rounded-full h-px bg-white bottom-0"></div>
               {
                 router.pathname === link.url ? (
                   <p className="text-base opacity-100 ">{link.title}</p>
@@ -195,19 +195,19 @@ const Header = () => {
           ))}
         </div>
         <div className="hidden  lg:flex items-center  gap-3 justify-end  w-[20%]">
-          {/* <button  onClick={openDrawer} className=' text-sm lg:text-base learn_btn relative overflow-hidden group     bg-black lg:bg-transparent  rounded-full border-1 border-[#ffffff] px-0 py-2 lg:px-6 center lg:py-2'>
+          {/* <button  onClick={openDrawer} className=' text-sm lg:text-base learn_btn relative overflow-hidden group     bg-[#0e1111] lg:bg-transparent  rounded-full border-1 border-[#ffffff] px-0 py-2 lg:px-6 center lg:py-2'>
             <p className='fixy1 font-normal opacity-0'>Book Now</p>
             <p className='lg:fixy1 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute text-white'>Book Now</p>
             <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full bg-white top-0 left-[-100%] absolute "></div>
             <p className='fixy1 font-normal translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300  absolute'> Book Now</p>
           </button> */}
-        <a href="https://wa.me/918800020002" target='_blank'>
-          <button className=' text-sm lg:text-base learn_btn relative overflow-hidden group     bg-black lg:bg-transparent  rounded-full border-1 border-[#ffffff] px-0 py-2 lg:px-6 center lg:py-2'>
-            <p className='fixy1 font-normal opacity-0'>whatsappp</p>
-            <div className='lg:fixy1 flex  items-center gap-2 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute text-white'> <img className='w-5' src="/icon/whatsapp.png" alt="" /> <p> Whatsapp</p></div>
-            <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full bg-white top-0 left-[-100%] absolute "></div>
-            <div className='fixy1  flex  items-center gap-2 font-normal translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300  absolute'>  <img className='w-5' src="/icon/whatsapp.png" alt="" /> <p> Whatsapp</p></div>
-          </button>
+          <a href="https://wa.me/918800020002" target='_blank'>
+            <button className=' text-sm lg:text-base learn_btn relative overflow-hidden group     bg-[#0e1111] lg:bg-transparent  rounded-full border-1 border-[#ffffff] px-0 py-2 lg:px-6 center lg:py-2'>
+              <p className='fixy1 font-normal opacity-0'>whatsappp</p>
+              <div className='lg:fixy1 flex  items-center gap-2 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute text-white'> <img className='w-5' src="/icon/whatsapp.png" alt="" /> <p> Whatsapp</p></div>
+              <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full bg-white top-0 left-[-100%] absolute "></div>
+              <div className='fixy1  flex  items-center gap-2 font-normal translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300  absolute'>  <img className='w-5' src="/icon/whatsapp.png" alt="" /> <p> Whatsapp</p></div>
+            </button>
           </a>
         </div>
       </div>

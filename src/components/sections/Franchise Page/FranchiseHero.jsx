@@ -91,8 +91,8 @@ const FranchiseHero = () => {
           </p>
         </div>
 
-        <div className=" flex overflow-x-scroll scroller_none lg:grid lg:grid-cols-4 lg:justify-center gap-x-3 lg:gap-x-5 text-start pt-5 lg:py-10">
-          <div className="w-full bg-white px-6 lg:px-10 whitespace-nowrap py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
+        <div className="  grid grid-cols-2  lg:grid-cols-4 lg:justify-center gap-3 lg:gap-x-5 text-start pt-5 lg:py-10">
+          <div className="w-full bg-white px-6 lg:px-10  py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
             <div className=" size-10 lg:size-14 shrink-0 bg-[#F2EDE4] rounded-lg center">
               <img
                 className="w-[55%]"
@@ -107,7 +107,7 @@ const FranchiseHero = () => {
             </div>
           </div>
 
-          <div className="w-full bg-white px-6 lg:px-10 whitespace-nowrap py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
+          <div className="w-full bg-white px-6 lg:px-10  py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
             <div className=" size-10 lg:size-14 shrink-0 bg-[#F2EDE4] rounded-lg center">
               <img
                 className="w-1/2"
@@ -124,7 +124,7 @@ const FranchiseHero = () => {
 
 
 
-          <div className="w-full bg-white px-6 lg:px-10 whitespace-nowrap py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
+          <div className="w-full bg-white px-6 lg:px-10  py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
             <div className=" size-10 lg:size-14 shrink-0 bg-[#F2EDE4] rounded-lg center">
               <img
                 className="w-[55%]"
@@ -139,7 +139,7 @@ const FranchiseHero = () => {
             </div>
           </div>
 
-          <div className="w-full bg-white px-6 lg:px-10 whitespace-nowrap py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
+          <div className="w-full bg-white px-6 lg:px-10  py-5 lg:py-8 rounded-lg text-black lg:justify-center flex items-stretch gap-x-3">
             <div className=" size-10 lg:size-14 shrink-0 bg-[#F2EDE4] rounded-lg center">
               <img
                 className="w-[55%]"
@@ -160,11 +160,11 @@ const FranchiseHero = () => {
 
         {/* Button */}
         <a href="#franchise-form" className=" hidden lg:block w-full  lg:w-[20vw]">
-          <ArrowButton variant="light" label="Apply for Partnership" />
+          <ArrowButton variant="light" label="Enquire Now" />
         </a>
       </div>
-      <a href="#franchise-form" className=" z-[99] fixed left-1/2 -translate-x-1/2 bottom-[2svh] lg:hidden w-[60vw]">
-        <ArrowButton variant="light" label="Apply for Partnership" />
+      <a href="#franchise-form" className=" z-[97] fixed left-[1rem] bottom-[2svh] lg:hidden w-[45vw]">
+        <ArrowButton variant="light" label="Enquire Now" />
       </a>
     </div>
   );

@@ -258,10 +258,10 @@ const StoresAddresses = () => {
                 </div> */}
 
                 <div className="w-full center  text-white lg:text-black mt-10 lg:mt-20 ">
-                    <Link href={"/stores"} scroll={false} className=' text-sm lg:text-base learn_btn relative overflow-hidden group     bg-black lg:bg-transparent  rounded-full border-1 border-[#000000] px-4 py-2 lg:px-6 center lg:py-2'>
+                    <Link href={"/stores"} scroll={false} className=' text-sm lg:text-base learn_btn relative overflow-hidden group     bg-[#0e1111] lg:bg-transparent  rounded-full border-1 border-[#000000] px-4 py-2 lg:px-6 center lg:py-2'>
                         <p className='fixy1 font-normal text-white opacity-0'>View all stores</p>
                         <p className='lg:fixy1 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute '>View all stores</p>
-                        <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full bg-black top-0 left-[-100%] absolute "></div>
+                        <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#0e1111] top-0 left-[-100%] absolute "></div>
                         <p className='fixy1 font-normal translate-y-[10px] z-[99] text-white group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300  absolute'> View all stores</p>
                     </Link>
                 </div>

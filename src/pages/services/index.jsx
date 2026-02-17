@@ -15,7 +15,7 @@ const services = [
   {
     id: 1,
     title: "Garment Care",
-    desc: "Expert cleaning solutions designed to maintain fabric quality, color, and freshness for daily and premium garments. Each piece is carefully treated using fabric-safe processes to ensure long-lasting wear and comfort.",
+    desc: "Professional garment cleaning that preserves fabric quality, color, and freshness using safe processes for daily and premium wear.",
     subServices: [
       "Shirt Cleaning",
       "T-Shirt Cleaning",
@@ -24,12 +24,12 @@ const services = [
       "Jacket & Coat Cleaning",
       "Ethnic Wear Cleaning"
     ],
-    img: "/images/services/1_Garment Care.webp",
+    img: "/images/services/garment_care.webp",
   },
   {
     id: 2,
     title: "Shoe & Bags",
-    desc: "Advanced cleaning and restoration techniques to revive footwear and bags without damaging material or structure. From everyday shoes to premium accessories, we restore hygiene and appearance effectively.",
+    desc: "Specialized cleaning solutions for shoes and bags that restore hygiene, appearance, and material integrity without damage.",
     subServices: [
       "Sports Shoe Cleaning",
       "Leather Shoe Cleaning",
@@ -38,12 +38,12 @@ const services = [
       "Backpack Cleaning",
       "Bag Deodorizing"
     ],
-    img: "/images/services/2_Shoe & Bags.webp",
+    img: "/images/services/shoe_bag.webp",
   },
   {
     id: 3,
     title: "Home & Auto Fabrics",
-    desc: "Deep fabric cleaning services that eliminate dust, allergens, and stains from home and vehicle interiors. Safe methods ensure thorough cleaning while preserving fabric texture and durability.",
+    desc: "Deep cleaning services for home and car fabrics that remove dust, stains, and allergens while protecting texture.",
     subServices: [
       "Sofa Cleaning",
       "Car Seat Cleaning",
@@ -52,12 +52,12 @@ const services = [
       "Mattress Cleaning",
       "Chair Upholstery Cleaning"
     ],
-    img: "/images/services/3_Home & Auto Fabrics.webp",
+    img: "/images/services/home_auto.webp",
   },
   {
     id: 4,
     title: "Wedding Couture",
-    desc: "Specialized care for heavy bridal and designer outfits with delicate embroidery and fabrics. Each garment undergoes detailed inspection, gentle cleaning, and precision finishing.",
+    desc: "Expert care for bridal and designer outfits with delicate fabrics, detailed embroidery, and precision finishing.",
     subServices: [
       "Bridal Lehenga Cleaning",
       "Wedding Gown Cleaning",
@@ -65,38 +65,24 @@ const services = [
       "Heavy Embroidery Care",
       "Hand Finishing"
     ],
-    img: "/images/services/4_Wedding Couturer.webp",
-  },
-  {
-    id: 5,
-    title: "Laundry Essentials",
-    desc: "Reliable everyday laundry services designed for convenience, hygiene, and consistent quality. Ideal for regular wear clothing with efficient washing, drying, and ironing solutions.",
-    subServices: [
-      "Daily Wear Washing",
-      "Shirt Ironing",
-      "Trouser Ironing",
-      "Bedsheet Cleaning",
-      "Towel Washing",
-      "Uniform Cleaning"
-    ],
-    img: "/images/services/1_Garment Care.webp",
+    img: "/images/services/wedding.webp",
   },
   {
     id: 6,
     title: "Curtains & Drapes",
-    desc: "Professional curtain cleaning services that remove accumulated dust and pollutants without shrinking or fading. Available in both on-site steam cleaning and off-site deep wash options.",
+    desc: "Professional curtain cleaning that removes dust and pollutants using safe steam or deep wash methods.",
     subServices: [
       "Sheer Curtain Cleaning",
       "Blackout Curtain Cleaning",
       "Steam Cleaning",
       "Curtain Removal & Rehang"
     ],
-    img: "/images/services/2_Shoe & Bags.webp",
+    img: "/images/services/curatin.webp",
   },
   {
     id: 7,
     title: "Carpet & Rugs",
-    desc: "Intensive carpet and rug cleaning solutions that target deep-seated dirt, stains, and odors. Our process restores softness, color vibrancy, and freshness.",
+    desc: "Advanced carpet and rug cleaning that eliminates deep dirt, stains, and odors while restoring softness.",
     subServices: [
       "Area Rug Cleaning",
       "Wall-to-Wall Carpet Cleaning",
@@ -104,45 +90,46 @@ const services = [
       "Odor Removal",
       "Pet Hair Removal"
     ],
-    img: "/images/services/3_Home & Auto Fabrics.webp",
+    img: "/images/services/carpet.webp",
   },
   {
     id: 8,
     title: "Luxury Leather Care",
-    desc: "Premium leather cleaning and restoration services crafted for luxury bags and accessories. Specialized treatments enhance shine, repair wear, and extend product lifespan.",
+    desc: "Premium leather cleaning and restoration services designed to enhance shine, repair wear, and extend lifespan.",
     subServices: [
       "Leather Bag Cleaning",
       "Color Restoration",
       "Leather Polishing",
       "Scratch & Scuff Repair"
     ],
-    img: "/images/services/1_Garment Care.webp",
+    img: "/images/services/luxury.webp",
   },
   {
     id: 9,
     title: "Silk & Satin Wear",
-    desc: "Delicate care solutions for silk and satin garments that require gentle handling and expert finishing. Our methods preserve fabric softness, sheen, and intricate detailing.",
+    desc: "Gentle cleaning solutions for silk and satin garments that preserve softness, sheen, and delicate detailing.",
     subServices: [
       "Silk Saree Cleaning",
       "Satin Dress Cleaning",
       "Designer Wear Cleaning",
       "Hand Wash & Finish"
     ],
-    img: "/images/services/1_Garment Care.webp",
+    img: "/images/services/satin_silk.webp",
   },
   {
     id: 10,
     title: "Kids Wear",
-    desc: "Safe and hygienic cleaning services specially designed for children’s clothing and sensitive fabrics. Gentle detergents ensure cleanliness without irritation or damage.",
+    desc: "Safe and hygienic cleaning for children’s clothing using gentle detergents suitable for sensitive fabrics.",
     subServices: [
       "Kids Shirt Cleaning",
       "Kids Dress Cleaning",
       "School Uniform Washing",
       "Soft Fabric Care"
     ],
-    img: "/images/services/1_Garment Care.webp",
+    img: "/images/services/kids.webp",
   },
 ];
+
 
 
 const introAnimation = () => {
@@ -175,67 +162,38 @@ const index = () => {
         </div>
       </div>
 
-      <section className="max-w-7xl mx-auto px-5  pb-16 md:py-24 md:grid lg:grid-cols-2 gap-20">
-        {/* LEFT – ACCORDION */}
-        <div className="space-y-4">
+      <section className="max-w-7xl mx-auto px-5 py-16 pt-5!  md:pt-12! md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <div
               key={i}
-              className={`border rounded-lg transition ${active === i ? "border-black" : "border-gray-200"
-                }`}
+              className="border border-gray-200 rounded-xl p-6 gap-y-2 md:gap-y-4 hover:border-black transition-all duration-300 flex flex-col justify-between"
             >
-              <button
-                onClick={() => setActive(i)}
-                className="w-full text-left px-6 py-6 flex justify-between items-center"
-              >
-                <h1 className=" text-xl lg:text-2xl serv_txt_b">{service.title}</h1>
-                <span className="text-2xl">
-                  {active === i ? "−" : "+"}
-                </span>
-              </button>
-
-              <div
-                className={`overflow-hidden space-y-5 transition-all duration-300 ${active === i ? " max-h-[100vh]  md:max-h-[20rem] px-6 pb-6" : "max-h-0"
-                  }`}
-              >
-                <p className=" text-xs md:text-sm leading-none lg:text-base serv_txt_b">{service.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.subServices.map((subService, i) => (
-                    <button key={i} className=" border border-black/10 px-3 py-1.5 w-fit rounded-full gap-x-2 flex items-center">
-                      <div className=" shrink-0 aspect-square text-sm bg-black rounded-full size-1"></div>
-                      <p className="text-sm">{subService}</p>
-                    </button>
-                  ))}
+                <div className="w-full rounded-sm  aspect-[4/3] bg-yellow-600 overflow-hidden  ">
+                <img className="cover" src={service.img} alt="" />
                 </div>
+           
+                <h2 className="text-xl lg:text-2xl serv_txt_b ">
+                  {service.title}
+                </h2>
 
-                <div className=' w-full md:w-[30%]'>
-                  <a href="https://wa.me/918800020002" target='_blank'>
-                    <button
-                      // onClick={() => openService(service)}
-                      className='serv_txt_b w-full add_anim_txt_btn text-sm lg:text-base font-normal mt-4  relative overflow-hidden group rounded-full text-white   hover:text-black bg-black  border-1 border-[#0e1111] px-4 center py-1.5 lg:py-2.5'>
-                      <p className='   opacity-0'>Book Now</p>
-                      <p className=' group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300   absolute'>Book Now </p>
-                      <div className="w-full  group-hover:scale-110 origin-center group-hover:left-0 transition-all duration-300 h-full bg-[#FFFAF0] top-0 left-[-100%] absolute "></div>
-                      <p className='  translate-y-[10px] z-[99] text-black group-hover:translate-y-[0px] group-hover:opacity-100 opacity-0 transition-all duration-300 font-normal absolute'> Book Now</p>
-                    </button>
-                  </a>
-                </div>
-              </div>
+                <p className="text-sm lg:text-base ">
+                  {service.desc}
+                </p>
+       
+
+              {/* <div className="mt-6">
+                <a href="https://wa.me/918800020002" target="_blank">
+                  <button className="w-full serv_txt_b text-sm lg:text-base rounded-full border border-black bg-black text-white py-2 transition hover:bg-white hover:text-black">
+                    Book Now
+                  </button>
+                </a>
+              </div> */}
             </div>
           ))}
         </div>
-
-        {/* RIGHT – STICKY IMAGE */}
-        <div className=" max-sm:hidden! relative h-[100vh] center lg:sticky lg:top-0 pt-16  overflow-hidden">
-          <div className="h-[70vh]  w-full overflow-hidden rounded-xl">
-          <img
-            src={services[active].img}
-            alt={services[active].title}
-            className="cover transition-opacity duration-500"
-            />
-            </div>
-        </div>
       </section>
+
 
 
 

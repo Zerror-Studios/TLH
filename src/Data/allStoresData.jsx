@@ -651,15 +651,7 @@ export const allStoresData = [
                 location: "",
             },
             {
-                name: "The Laundry House – Gurugram (Sector 81)",
-                address: "Shop No. 15, Bestech Ananda Parkview, Sector 81",
-                openTime: "9:00 am",
-                closeTime: "8:00 pm",
-                contact: "7982244566",
-                location: "",
-            },
-            {
-                name: "The Laundry House - Gurugram (Sector 70)",
+                name: "The Laundry House – Gurugram (Sector 70)",
                 address: "Shop No 8, Blueberry Shopping Arcade, Tulip Chowk, Opposite Tulip Mandir, Sector 70",
                 openTime: "10:00 am",
                 closeTime: "8:00 pm",
@@ -849,7 +841,7 @@ export const allStoresData = [
                 location: "https://maps.app.goo.gl/zLBN1h3NyMnG4W1M8",
             },
             {
-                name: "The Laundry House - Jaipur (C Scheme)",
+                name: "The Laundry House – Jaipur (C Scheme)",
                 address: "J2, Jamnalal Bajaj Marg, near Baozi Momos, C Scheme, Ashok Nagar",
                 openTime: "10:00 am",
                 closeTime: "8:00 pm",
@@ -968,7 +960,7 @@ export const allStoresData = [
                 location: "https://maps.app.goo.gl/bUnQq45LH2fqc6Sc6",
             },
             {
-                name: "The Laundry House - New Delhi (Greater Kailash Part 1)",
+                name: "The Laundry House – New Delhi (Greater Kailash Part 1)",
                 address: "N 252, N Block, Greater Kailash 1",
                 openTime: "10:00 am",
                 closeTime: "8:00 pm",

@@ -58,7 +58,7 @@ const Footer = () => {
     // { icon: RiFacebookFill, href: "https://facebook.com" },
     { icon: RiYoutubeFill, href: " https://youtube.com/@thelaundryhouse?si=lAIxfghsNDfOKH1x" },
     { icon: RiInstagramFill, href: "https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==" },
-    { icon: RiWhatsappFill, href: "https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==" },
+    { icon: RiWhatsappFill, href: "https://wa.me/918800020002" },
   ];
 
   return (
@@ -67,8 +67,10 @@ const Footer = () => {
         {/* Top Section */}
         <div className="w-full border-b flex flex-col md:flex-row pb-10 md:pb-20 items-center justify-between border-white/40">
           {/* Logo */}
-          <div className="w-[80%] md:w-[30%] lg:w-[50%] flex items-center justify-center md:justify-start">
+          <div className="w-[80%] md:w-[30%] lg:w-[60%] flex items-center justify-center md:justify-start">
+            <Link scroll={false} href="/">
             <img className='fot_anim_txt' src="/logos/Logo_White.svg" alt="Logo" />
+            </Link>
           </div>
 
           {/* Link Groups */}
@@ -108,7 +110,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="w-full h-20 flex flex-col md:flex-row items-center justify-evenly md:justify-between">
+        <div className="w-full h-20 flex flex-col md:flex-row md:items-center justify-evenly md:justify-between">
 
           <p className=" font-light fot_anim_txt text-xs lg:text-base opacity-60">All Rights Reserved © {new Date().getFullYear()}</p>
 

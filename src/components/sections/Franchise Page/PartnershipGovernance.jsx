@@ -67,9 +67,9 @@ const PartnershipGovernance = () => {
 
                 <div className="w-full center">
 
-                    <div className="w-full lg:w-[60%] lg:grid mt-6 lg:mt-14 gap-x-5 lg:gap-x-10 flex overflow-x-scroll scroller_none lg:grid-cols-2">
+                    <div className="w-full lg:w-[60%] grid mt-6 lg:mt-14 gap-x-5 lg:gap-x-10 gap-y-5 grid-cols-1 lg:grid-cols-2">
                         {data?.map((item, index) => (
-                            <div key={index} className=" w-[75vw] lg:w-full shrink-0 p-5 lg:p-8 bg-[#F2EDE4] rounded-lg">
+                            <div key={index} className=" w-full shrink-0 p-5 lg:p-8 bg-[#F2EDE4] rounded-lg">
                                 <div className="">
                                     <h2 className=" text-lg lg:text-2xl leading-none mb-2">{item?.title}</h2>
                                     <p className="text-sm leading-tight lg:text-base">

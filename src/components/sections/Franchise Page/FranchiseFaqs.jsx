@@ -148,7 +148,7 @@ const franchiseFaqsData = [
         </h1>
       </div>
 
-      <div className="max-w-5xl mx-auto px-5 lg:py-5  text-sm lg:text-lg ">
+      <div className="max-w-5xl mx-auto px-5 lg:py-5 pb-20! max-sm:pb-6!  text-sm lg:text-lg ">
 
         <div className=" my-5 ">
           {franchiseFaqsData.map((faq) => (

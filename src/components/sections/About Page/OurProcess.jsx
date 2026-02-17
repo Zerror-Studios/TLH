@@ -6,7 +6,7 @@ const OurProcess = () => {
   const openDrawer = useBookDrawer((state) => state.openDrawer);
 
   return (
-    <section className="w-full px-5 lg:px-24 py-12 lg:py-20">
+    <section className="w-full px-5 lg:px-24 pt-12 max-sm:pb-12 lg:pt-20">
       <div className="mx-auto flex flex-col gap-14 lg:gap-28">
 
         {/* Row 1 */}
@@ -14,7 +14,7 @@ const OurProcess = () => {
           {/* Image */}
           <div className="w-full h-[45vh] lg:h-[60vh] overflow-hidden rounded-lg">
             <img
-              src="/images/home/DSC00277.webp"
+              src="/images/about page/img_1.webp"
               alt="Doorstep pickup and delivery"
               className="w-full h-full object-cover"
             />
@@ -23,19 +23,14 @@ const OurProcess = () => {
           {/* Content */}
           <div className="flex flex-col gap-4 lg:gap-6">
             <h3 className="text-2xl lg:text-6xl font-medium">
-              Doorstep Pickup & Delivery
+             Safe for Your Body's Largest Organ
             </h3>
 
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
-              Convenience begins at your doorstep. Our team ensures seamless pickup
-              and delivery of your garments, eliminating the need for store visits
-              while maintaining complete care accountability.
-            </p>
+              At The Laundry House, we prioritise your health and safety by using only premium, skin-friendly European detergents that meet strict regulatory standards. Unregulated detergents containing harmful endocrine disruptors can cause skin irritation and are linked to serious health concerns such as cancer, PCOS, fertility issues, and hormonal imbalances.</p>
 
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
-              Each order is carefully logged, tracked, and handled with precision,
-              ensuring timely service and consistent quality from pickup to delivery.
-            </p>
+              By choosing our services, you reduce these risks and ensure your garments are cleaned with superior, safe products. Every wash reflects our commitment to wellness and promoting a healthier lifestyle through responsible garment care.</p>
 
             <a href="https://wa.me/918800020002" target='_blank'>
               <div className="lg:w-[30%] mt-3 lg:mt-10">
@@ -50,19 +45,14 @@ const OurProcess = () => {
           {/* Content */}
           <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
             <h3 className="text-2xl lg:text-6xl font-medium">
-              Specialist Stain Removal
+             Where Technology, Skill & Service Merge
             </h3>
 
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
-              Stains are treated with expert precision, not guesswork. Our specialists
-              analyze fabric composition, dye sensitivity, and stain origin before
-              selecting a targeted removal process.
-            </p>
+              Our state-of-the-art technology, eco-friendly processes, and highly trained professionals ensure that each piece of clothing is treated with the utmost care and attention.</p>
 
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
-              Fabric-safe techniques and controlled treatments ensure effective stain
-              removal while preserving texture, color integrity, and garment life.
-            </p>
+              From delicate silks to sturdy denims, we know how to handle them all. Stubborn stains, intricate embroideries, delicate fabrics - nothing is too challenging for us. And our master cleaners are trained to ensure that no speck of dirt misses their eye.</p>
 
             <a href="https://wa.me/918800020002" target='_blank'>
               <div className="lg:w-[30%] mt-3 lg:mt-10">
@@ -74,50 +64,12 @@ const OurProcess = () => {
           {/* Image */}
           <div className="w-full h-[45vh] lg:h-[60vh] overflow-hidden rounded-lg order-1 lg:order-2">
             <img
-              src="/images/home/DSC00243.webp"
+              src="/images/about page/img_2.webp"
               alt="Specialist stain removal process"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
-
-        {/* Row 3 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-5 lg:gap-14">
-          {/* Image */}
-          <div className="w-full h-[45vh] lg:h-[60vh] overflow-hidden rounded-lg">
-            <img
-              src="/images/home/NVP_3238.webp"
-              alt="Luxury garment and accessory restoration"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="flex flex-col gap-4 lg:gap-6">
-            <h3 className="text-2xl lg:text-6xl font-medium">
-              Restoration & Luxury Care
-            </h3>
-
-            <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
-              From wedding wear to luxury shoes and designer bags, we specialize in
-              restoration that goes beyond cleaning. Every piece is handled by skilled
-              professionals trained in premium garment care.
-            </p>
-
-            <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
-              Our restoration processes revive structure, finish, and elegance,
-              extending the life of treasured items while preserving their original
-              craftsmanship.
-            </p>
-
-            <a href="https://wa.me/918800020002" target='_blank'>
-              <div className="lg:w-[30%] mt-3 lg:mt-10">
-                <ServiceBtn />
-              </div>
-            </a>
-          </div>
-        </div>
-
 
       </div>
     </section>

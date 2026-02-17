@@ -13,36 +13,59 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from 'gsap/dist/SplitText';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const Reviews = [
+const testimonials = [
     {
-        name: "Ravi Gupta",
-        img: "https://images.unsplash.com/photo-1722322426803-101270837197?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
-        rating: 5,
+        name: "Ravi Choksi",
         comment:
-            "TLH has genuinely excellent services. I no longer worry about stains on my clothes because I’m confident they will be removed. The quality of washing is consistent, and the fabrics always feel fresh. "
+            "TLH have genuinely excellent services. Now I don't worry about stains on my clothes as I am confident that TLH will remove them. It is my preferred laundry place and we have been using their services since inception."
     },
     {
-        name: "Sita Sharma",
-        img: "https://images.unsplash.com/photo-1731500573044-3551bfa73c4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
-        rating: 5,
+        name: "Unnati Khambata",
         comment:
-            "The service is very good, and the clothes are always returned neat and well cared for. However, I feel the delivery times could be a little faster, especially during busy days. "
+            "I really like this laundry house and appreciate the service and staff. The work done here is very professional and they make customers feel reassured and comfortable. Best service."
     },
     {
-        name: "John Doe",
-        img: "https://plus.unsplash.com/premium_photo-1690407617686-d449aa2aad3c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
-        rating: 5,
+        name: "Keshav Mitra",
         comment:
-            "I had a wonderful experience with TLH. The staff was extremely polite and helpful, and the service itself was quick and efficient. My clothes came back spotless, neatly folded, and smelling fresh. "
+            "A very nice and modern unit-cum-store for dry cleaning. Qualitative work, attentive and decent staff. In a nutshell, a well-managed place."
     },
     {
-        name: "Ravi Gupta",
-        img: "https://images.unsplash.com/photo-1722322426803-101270837197?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpbGUlMjBwaWNzfGVufDB8fDB8fHww",
-        rating: 5,
+        name: "Aman Grover",
         comment:
-            "TLH has genuinely excellent services. I no longer worry about stains on my clothes because I’m confident they will be removed. The quality of washing is consistent, and the fabrics always feel fresh. "
+            "One stop shop for all dry cleaning needs in Vadodara. Advanced in technology, cost effective, and provides great service without any hassles."
     },
+    {
+        name: "Shakib Mansuri",
+        comment:
+            "I really appreciate the workers and staff for keeping the store running smoothly, even during the pandemic. They made us feel reassured and comfortable."
+    },
+    {
+        name: "Aar Bee",
+        comment:
+            "I was looking for a laundry service in Vadodara and found this truly professional place. This is the best laundry in Vadodara."
+    },
+    {
+        name: "Sagar Sharma",
+        comment:
+            "Best place to get your laundry done. Not just dry cleaning, but also curtains, carpets, soft toys, house and car cleaning, and even sneaker cleaning."
+    },
+    {
+        name: "Uzair Delair",
+        comment:
+            "Overall excellent service from start to finish. Proper professionals with great knowledge of fabrics, cleaning, and customer service."
+    },
+    {
+        name: "Devendra Singh Jethuri",
+        comment:
+            "I liked the professional and systematic approach of the shop. The finesse in processing clothes is better in cost, cleanliness, and packaging."
+    },
+    {
+        name: "Akshara Tarkas",
+        comment:
+            "The laundry services are great. Their packing and delivery options are really nice. The best service around here."
+    }
 ];
+
 
 const FeedbackSection = () => {
     const [expanded, setExpanded] = useState(false);
@@ -146,7 +169,7 @@ const FeedbackSection = () => {
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, [Reviews]);
+    }, [testimonials]);
 
     return (
         <div className='feed_parent'>
@@ -179,20 +202,18 @@ const FeedbackSection = () => {
                             },
                         }}
                     >
-                        {Reviews?.map((review, index) => (
+                        {testimonials?.map((review, index) => (
                             <SwiperSlide key={index}>
                                 <div
                                     ref={(el) => (cardRefs.current[index] = el)}
                                     style={{ height: maxHeight ? `${maxHeight}px` : "auto" }}
                                     className="w-[100%] bg-white/20 border-l border-gray-300 mb-10 lg:mb-14 px-5 flex flex-col justify-between relative gap-4"
-                                >                                 
+                                >
                                     <div className="flex gap-4 flex-col ">
                                         <div className="flex gap-0.5">
-                                            {
-                                                Array.from({ length: review.rating }, (_, i) => (
-                                                    <RiStarFill key={i} size={18} className=' feed_star text-[#F5C832]' />
-                                                ))
-                                            }
+                                            {[1, 2, 3,4, 5].map((i) => (
+                                                <RiStarFill key={i} size={18} className=' feed_star text-[#F5C832]' />
+                                            ))}
                                         </div>
                                         <p
                                             className={` w-full  text-sm lg:text-base relative transition-all duration-300 ${expanded ? "" : ""}`}>{review.comment}

@@ -18,9 +18,9 @@ const aboutData = [
     para: "Advanced stain removal and cleaning techniques are customized for each fabric to maintain color, texture, and durability."
   },
   {
-    img: "	https://cdn-icons-png.flaticon.com/512/3085/3085557.png",
-    title: "Luxury Restoration Care",
-    para: "Specialized restoration for wedding wear, shoes, and bags, bringing back their original finish, structure, and elegance."
+    img: "https://cdn-icons-png.flaticon.com/512/3898/3898973.png",
+  title: "Advanced Cleaning Services",
+  para: "Innovative cleaning techniques combined with careful fabric handling to ensure superior results, long-lasting freshness, and dependable garment care."
   },
 ];
 
@@ -95,7 +95,7 @@ const AboutSection = () => {
             </div>
           ))}
         </div>
-        <Link href={"/about"} scroll={false} className='  mt-10 lg:mt-12 text-sm lg:text-base learn_btn relative whitespace-nowrap overflow-hidden group  text-white lg:text-black   bg-black lg:bg-transparent  rounded-full border-1 border-[#0e1111] px-4 py-2 lg:px-6 center lg:py-2'>
+        <Link href={"/about"} scroll={false} className='  mt-10 lg:mt-12 text-sm lg:text-base learn_btn relative whitespace-nowrap overflow-hidden group  text-white lg:text-black   bg-[#0e1111] lg:bg-transparent  rounded-full border-1 border-[#0e1111] px-4 py-2 lg:px-6 center lg:py-2'>
           <p className='fixy1 font-normal opacity-0'>View More</p>
           <p className='lg:fixy1 group-hover:translate-y-[-10px] group-hover:opacity-0 transition-all duration-300 font-normal absolute'>View More</p>
           <div className="w-full origin-center group-hover:left-0 transition-all duration-300 h-full black top-0 left-[-100%] absolute "></div>

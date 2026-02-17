@@ -47,7 +47,7 @@ const Home = ({ meta }) => {
       <MobileServiceSection />
       <ExcelleceSection />
       {/* <div className=" hidden lg:block w-full  px-10">
-      <div className=" diff_line w-full bg-black h-[1px]"></div>
+      <div className=" diff_line w-full bg-[#0e1111] h-[1px]"></div>
     </div> */}
       <StoresAddresses />
       {/* <FranchiseSection /> */}

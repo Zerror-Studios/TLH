@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const services = [
     {
-        img: "/images/services/4_Wedding Couturer.webp",
+        img: "/images/services/wedding.webp",
         title: "Wedding Couture",
         desc: "Specialized bridal and couture garment care that preserves intricate details, delicate fabrics, and embellishments. Perfect for pre-wedding preparation or post-event preservation.",
         cities: ["Varanasi", "Amritsar", "Udaipur", "Mysuru", "Guwahati", "Rajkot", "Vadodara", "Ranchi"],

@@ -156,7 +156,7 @@ const [isSubmitting, setIsSubmitting] = useState(false);
   }, []);
 
   return (
-    <div id="franchise-form" className="form_parent w-full lg:pt-5 mb-20">
+    <div id="franchise-form" className="form_parent w-full lg:pt-5 mb-20 relative z-[98]">
       <div className="form_bg w-full center flex-col  px-5 lg:px-0 ">
         <div className=" w-full lg:w-[60%] p-8 lg:p-10 bg-[#F2EDE4] rounded-lg">
           <div className="w-full lg:text-center  ">
@@ -167,7 +167,7 @@ const [isSubmitting, setIsSubmitting] = useState(false);
           <div className="w-full center">
 
             <div className=" w-full lg:w-[60%] mt-10 lg:mt-20 ">
-              <form ref={stepRef} className="w-full space-y-10" onSubmit={handleSubmit}>
+              <form ref={stepRef} className="w-full space-y-6" onSubmit={handleSubmit}>
 
                 {/* STEP 1 */}
                 {step === 1 && (

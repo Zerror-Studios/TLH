@@ -53,9 +53,9 @@ const InvestorLogic = () => {
           The Investor Logic
         </h1>
       </div> */}
-      <div className=" w-full flex gap-x-5 overflow-x-scroll scroller_none lg:grid lg:grid-cols-3 gap-y-10 lg:gap-8">
+      <div className=" w-full  gap-x-5 grid grid-cols-1  lg:grid-cols-3 gap-y-10 lg:gap-8">
         {data.map((item, index) => (
-          <div key={index} className=" w-[75vw] shrink-0 lg:w-full flex flex-col gap-4">
+          <div key={index} className=" shrink-0 w-full flex flex-col gap-2 md:gap-4">
             {/* Image Card */}
             <div className="w-full aspect-4/3 rounded-lg overflow-hidden">
               <img
@@ -66,7 +66,7 @@ const InvestorLogic = () => {
             </div>
 
             {/* Text Outside Card */}
-            <div className="flex flex-col gap-5 px-1">
+            <div className="flex flex-col gap-2 px-1">
               <h2 className="text-xl md:text-4xl  text-black">
                 {item.title}
               </h2>
