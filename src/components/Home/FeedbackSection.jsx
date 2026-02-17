@@ -40,11 +40,6 @@ const testimonials = [
             "I really appreciate the workers and staff for keeping the store running smoothly, even during the pandemic. They made us feel reassured and comfortable."
     },
     {
-        name: "Aar Bee",
-        comment:
-            "I was looking for a laundry service in Vadodara and found this truly professional place. This is the best laundry in Vadodara."
-    },
-    {
         name: "Sagar Sharma",
         comment:
             "Best place to get your laundry done. Not just dry cleaning, but also curtains, carpets, soft toys, house and car cleaning, and even sneaker cleaning."
