@@ -86,7 +86,7 @@ const SeoHeader = ({ meta = {}, type = "website" }) => {
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
       />
-      <meta name="apple-mobile-web-app-title" content="DISRPTVE" />
+      <meta name="apple-mobile-web-app-title" content="The Laundry House" />
       <link rel="manifest" href="/favicon/site.webmanifest" />
 
       {/* Hreflang */}
