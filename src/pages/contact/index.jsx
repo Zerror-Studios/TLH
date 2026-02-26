@@ -29,16 +29,16 @@ export default function ContactPage() {
     };
 
     const serviceOptions = [
-  "Garment Care",
-  "Shoe & Bags",
-  "Home & Auto Fabrics",
-  "Wedding Couture",
-  "Curtains & Drapes",
-  "Carpet & Rugs",
-  "Luxury Leather Care",
-  "Silk & Satin Wear",
-  "Kids Wear"
-];
+        "Garment Care",
+        "Shoe & Bags",
+        "Home & Auto Fabrics",
+        "Wedding Couture",
+        "Curtains & Drapes",
+        "Carpet & Rugs",
+        "Luxury Leather Care",
+        "Silk & Satin Wear",
+        "Kids Wear"
+    ];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 service: "",
                 message: "",
             });
-            
+
             router.push("/contact/success");
         } catch (err) {
             toast.error(err.message);
@@ -256,7 +256,7 @@ export const meta = {
         title: "Contact The Laundry House",
         description:
             "Reach out for premium laundry services, support, or business inquiries.",
-        image: "https://thelaundryhouseindia.com/logo-og.png",
+        image: "https://thelaundryhouseindia.com/og.png",
         url: "https://thelaundryhouseindia.com/contact",
         type: "website",
         site_name: "The Laundry House",
@@ -266,7 +266,7 @@ export const meta = {
         title: "Contact The Laundry House",
         description:
             "We’re here for your garment care needs.",
-        image: "https://thelaundryhouseindia.com/logo-og.png",
+        image: "https://thelaundryhouseindia.com/og.png",
     },
     robots: "index,follow",
     keywords:

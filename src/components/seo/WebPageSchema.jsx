@@ -12,9 +12,9 @@ const WebPageSchema = ({ name, description, url, image }) => {
     inLanguage: "en-IN", // ✅ adjust if multi-language
     primaryImageOfPage: image
       ? {
-          "@type": "ImageObject",
-          url: image,
-        }
+        "@type": "ImageObject",
+        url: image,
+      }
       : undefined,
     speakable: {
       "@type": "SpeakableSpecification",
@@ -25,7 +25,7 @@ const WebPageSchema = ({ name, description, url, image }) => {
       name: Const.Brand,
       logo: {
         "@type": "ImageObject",
-        url: `${Const.ClientLink}/logo-og.png`,
+        url: `${Const.ClientLink}/og.png`,
       },
     },
   };

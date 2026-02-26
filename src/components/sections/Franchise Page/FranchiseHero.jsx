@@ -74,7 +74,7 @@ const FranchiseHero = () => {
       <img
         className="fr_hr_anim_img w-full h-full object-cover brightness-[.6]"
         src="/images/home/franchise.webp"
-        alt=""
+        alt="img"
       />
 
       {/* Content */}

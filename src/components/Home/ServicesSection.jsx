@@ -96,16 +96,16 @@ const ServicesSection = () => {
                             <div className=" border_anim  w-full origin-left  border mt-4 mb-20 border-dashed rounded-full border-black/30"></div>
 
                             <p className='text-xl '>{card.desc}</p>
-        <a href="https://wa.me/918800020002" target='_blank'>
+                            <a href="https://wa.me/918800020002" target='_blank'>
 
-                            <div className="w-[30%] mt-10 ">
-                                <ServiceBtn />
-                            </div>
+                                <div className="w-[30%] mt-10 ">
+                                    <ServiceBtn />
+                                </div>
                             </a>
                         </div>
 
                         <div className="w-[35%]  aspect-square overflow-hidden rounded-lg">
-                            <img className='cover' src={card.img} alt="" />
+                            <img className='cover' src={card.img} alt="img" />
                         </div>
 
                     </div>

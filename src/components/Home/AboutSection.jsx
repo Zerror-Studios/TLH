@@ -19,8 +19,8 @@ const aboutData = [
   },
   {
     img: "https://cdn-icons-png.flaticon.com/512/3898/3898973.png",
-  title: "Advanced Cleaning Services",
-  para: "Innovative cleaning techniques combined with careful fabric handling to ensure superior results, long-lasting freshness, and dependable garment care."
+    title: "Advanced Cleaning Services",
+    para: "Innovative cleaning techniques combined with careful fabric handling to ensure superior results, long-lasting freshness, and dependable garment care."
   },
 ];
 
@@ -83,7 +83,7 @@ const AboutSection = () => {
               <div className="flex lg:flex-col gap-5 items-start lg:items-center justify-between">
                 <div className=" w-full flex gap-x-10 lg:gap-x-0 lg:flex-col items-center">
                   <div className=" w-[20%]  lg:size-14 mb-5">
-                    <img className='' src={item.img} alt="" />
+                    <img className='' src={item.img} alt="img" />
                   </div>
                   <div className=" w-[80%] lg:w-full lg:space-y-2">
                     <h1 className=' ex_anim_title  capitalize text-sm lg:text-xl '>{item.title}</h1>

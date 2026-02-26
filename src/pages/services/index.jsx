@@ -169,18 +169,18 @@ const index = () => {
               key={i}
               className="border border-gray-200 rounded-xl p-6 gap-y-2 md:gap-y-4 hover:border-black transition-all duration-300 flex flex-col justify-between"
             >
-                <div className="w-full rounded-sm  aspect-[4/3] bg-yellow-600 overflow-hidden  ">
-                <img className="cover" src={service.img} alt="" />
-                </div>
-           
-                <h2 className="text-xl lg:text-2xl serv_txt_b ">
-                  {service.title}
-                </h2>
+              <div className="w-full rounded-sm  aspect-[4/3] bg-yellow-600 overflow-hidden  ">
+                <img className="cover" src={service.img} alt="img" />
+              </div>
 
-                <p className="text-sm lg:text-base ">
-                  {service.desc}
-                </p>
-       
+              <h2 className="text-xl lg:text-2xl serv_txt_b ">
+                {service.title}
+              </h2>
+
+              <p className="text-sm lg:text-base ">
+                {service.desc}
+              </p>
+
 
               {/* <div className="mt-6">
                 <a href="https://wa.me/918800020002" target="_blank">
@@ -213,7 +213,7 @@ export const meta = {
     title: "Premium Laundry & Dry Cleaning Services",
     description:
       "From everyday wear to luxury garments, experience expert laundry and fabric care services.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
     url: "https://thelaundryhouseindia.com/services",
     type: "website",
     site_name: "The Laundry House",
@@ -223,7 +223,7 @@ export const meta = {
     title: "Laundry & Dry Cleaning Services",
     description:
       "Expert care for your garments with premium laundry and restoration services.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
   },
   robots: "index,follow",
   keywords:

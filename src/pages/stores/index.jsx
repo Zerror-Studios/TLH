@@ -238,7 +238,7 @@ export const meta = {
         title: "The Laundry House Stores",
         description:
             "Find your nearest The Laundry House store for premium garment care services.",
-        image: "https://thelaundryhouseindia.com/logo-og.png",
+        image: "https://thelaundryhouseindia.com/og.png",
         url: "https://thelaundryhouseindia.com/stores",
         type: "website",
         site_name: "The Laundry House",
@@ -248,7 +248,7 @@ export const meta = {
         title: "Find The Laundry House Stores",
         description:
             "Premium laundry and dry cleaning outlets near you.",
-        image: "https://thelaundryhouseindia.com/logo-og.png",
+        image: "https://thelaundryhouseindia.com/og.png",
     },
     robots: "index,follow",
     keywords:

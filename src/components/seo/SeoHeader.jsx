@@ -10,7 +10,7 @@ const SeoHeader = ({ meta = {}, type = "website" }) => {
 
   // ✅ canonical: ensure no trailing double slashes
   const canonical = `${Const.ClientLink}${router.asPath === "/" ? "" : router.asPath}`;
-  const Logo = `${Const.ClientLink}/logo-og.png`;
+  const Logo = `${Const.ClientLink}/og.png`;
 
   return (
     <Head>

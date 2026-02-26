@@ -125,13 +125,13 @@ const ExcelleceSection = () => {
                     <div className="w-full   center">
                         <div className="w-full lg:flex gap-32   ">
                             <div className=" w-full lg:w-1/2 lg:sticky top-[7rem] h-[60vh] lg:h-[calc(100vh-10rem)] ">
-                                <video loop autoPlay muted playsInline className='cover rounded-lg' src="/images/home/serv_reel.mp4" alt="" />
+                                <video loop autoPlay muted playsInline className='cover rounded-lg' src="/images/home/serv_reel.mp4" alt="img" />
                             </div>
                             <div className=" w-full lg:w-1/2 space-y-10 lg:space-y-24 py-10 lg:py-20">
                                 {excellenceData.map((item, i) => (
                                     <div key={i} className="w-full ">
                                         <div className="flex items-center gap-10">
-                                            <img className=' w-14 lg:size-20' src={item.img} alt="" />
+                                            <img className=' w-14 lg:size-20' src={item.img} alt="img" />
                                             <div className=" lg:pr-10">
                                                 <h2 className="hero_animate_txt_a text-sm lg:text-base block overflow-hidden mb-2 lg:mb-5 opacity-70">
                                                     Step {i + 1}

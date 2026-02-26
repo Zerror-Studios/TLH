@@ -5,26 +5,26 @@ import SplitText from 'gsap/dist/SplitText';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const excellenceData = [
-  {
-    img: "/icon/inspection.svg",
-    title: "Inspection & Stain Mapping",
-    para: "Each garment is inspected and stains are identified for safe, effective treatment."
-  },
-  {
-    img: "/icon/drop.svg",
-    title: "Fabric-safe Cleaning",
-    para: "Specialized dry and wet cleaning methods tailored to protect every fabric type."
-  },
-  {
-    img: "/icon/steam.svg",
-    title: "Finishing & Steaming",
-    para: "Expert finishing and steaming to restore shape, softness, and pristine appearance."
-  },
-  {
-    img: "/icon/check.svg",
-    title: "QC & Premium Packaging",
-    para: "Thorough quality checks followed by hygienic,  packaging for lasting freshness."
-  }
+    {
+        img: "/icon/inspection.svg",
+        title: "Inspection & Stain Mapping",
+        para: "Each garment is inspected and stains are identified for safe, effective treatment."
+    },
+    {
+        img: "/icon/drop.svg",
+        title: "Fabric-safe Cleaning",
+        para: "Specialized dry and wet cleaning methods tailored to protect every fabric type."
+    },
+    {
+        img: "/icon/steam.svg",
+        title: "Finishing & Steaming",
+        para: "Expert finishing and steaming to restore shape, softness, and pristine appearance."
+    },
+    {
+        img: "/icon/check.svg",
+        title: "QC & Premium Packaging",
+        para: "Thorough quality checks followed by hygienic,  packaging for lasting freshness."
+    }
 ];
 
 const AboutExcelleceSection = () => {
@@ -125,7 +125,7 @@ const AboutExcelleceSection = () => {
                         </div>
                         <p className=' text-sm  lg:text-xl  mt-1  ex_animate_txt_c'>State-of-the-art equipment and eco-friendly processes for superior results</p>
                     </div>
-                     <div className="w-full  flex flex-col lg:flex-row lg:text-center lg:justify-center gap-10  ">
+                    <div className="w-full  flex flex-col lg:flex-row lg:text-center lg:justify-center gap-10  ">
                         {excellenceData.map((item, index) => (
                             <div key={index} className=" lg:w-[25%] ">
                                 <div className="flex lg:flex-col gap-5 items-start lg:items-center justify-between">
@@ -135,7 +135,7 @@ const AboutExcelleceSection = () => {
                                         <p className=' text-sm lg:text-base ex_anim_para'>{item.para}</p>
                                     </div>
                                     <div className=" lg:w-full w-[20%] h-full flex items-center justify-center">
-                                        <img className=' ex_anim_img size-24' src={item.img} alt="" />
+                                        <img className=' ex_anim_img size-24' src={item.img} alt="img" />
                                     </div>
                                 </div>
                                 <div className=" lg:hidden w-full mt-2 h-[1px] bg-black"></div>

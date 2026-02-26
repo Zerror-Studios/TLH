@@ -30,7 +30,7 @@ const FranchiseSection = () => {
         <section className="franch_paren w-full py-16 text-white lg:py-24 px-5 h-screen center overflow-hidden relative">
             {/* Background decoration */}
             <div className="prx_img absolute w-full h-full">
-                <img className="cover brightness-[.5]" src="/images/home/franchise.webp" alt="" />
+                <img className="cover brightness-[.5]" src="/images/home/franchise.webp" alt="img" />
             </div>
 
             <div className="relative z-10 max-w-[85rem] mx-auto">

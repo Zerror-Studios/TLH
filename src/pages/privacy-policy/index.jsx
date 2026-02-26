@@ -448,7 +448,7 @@ export const meta = {
     title: "Privacy Policy – The Laundry House",
     description:
       "Learn how The Laundry House protects your personal data and privacy.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
     url: "https://thelaundryhouseindia.com/privacy-policy",
     type: "website",
     site_name: "The Laundry House",
@@ -458,7 +458,7 @@ export const meta = {
     title: "Privacy Policy – The Laundry House",
     description:
       "Your privacy matters. Read how we safeguard your data.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
   },
   robots: "index,follow",
   keywords:

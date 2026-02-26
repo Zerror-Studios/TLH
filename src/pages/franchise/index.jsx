@@ -16,19 +16,19 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Franchise = () => {
 
-    return (
-        <>
-            <SeoHeader meta={meta} />
-            <FranchiseHero />
-            {/* <FranchiseNumbers /> */}
-            <InvestorLogic/>
-            <LiveLaundry/>
-            <PartnershipGovernance/>
-            {/* <Responsibility /> */}
-            <FranchiseForm />
-            <FranchiseFaqs/>
-        </>
-    )
+  return (
+    <>
+      <SeoHeader meta={meta} />
+      <FranchiseHero />
+      {/* <FranchiseNumbers /> */}
+      <InvestorLogic />
+      <LiveLaundry />
+      <PartnershipGovernance />
+      {/* <Responsibility /> */}
+      <FranchiseForm />
+      <FranchiseFaqs />
+    </>
+  )
 }
 
 export default Franchise
@@ -43,7 +43,7 @@ export const meta = {
     title: "The Laundry House Franchise Opportunity",
     description:
       "Own a premium laundry franchise backed by innovation, training, and a trusted brand.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
     url: "https://thelaundryhouseindia.com/franchise",
     type: "website",
     site_name: "The Laundry House",
@@ -53,7 +53,7 @@ export const meta = {
     title: "Laundry Franchise Opportunity",
     description:
       "Start your premium laundry business with The Laundry House.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
   },
   robots: "index,follow",
   keywords:

@@ -20,7 +20,7 @@ const About = () => {
       {/* <div className=" pt-32 p-24">
         <h1 className=' text-2xl lg:text-6xl leading-none welc_animate_txt   '>About us</h1>
           <div className="w-full mt-10 rounded-lg overflow-hidden h-[70vh]">
-            <img className='cover' src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+            <img className='cover' src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" />
           </div>
       </div> */}
 
@@ -48,7 +48,7 @@ export const meta = {
     title: "About The Laundry House – Our Story & Craftsmanship",
     description:
       "Learn how The Laundry House redefines garment care through innovation, expertise, and premium laundry solutions.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
     url: "https://thelaundryhouseindia.com/about",
     type: "website",
     site_name: "The Laundry House",
@@ -58,7 +58,7 @@ export const meta = {
     title: "About The Laundry House",
     description:
       "A legacy of premium garment care, fabric expertise, and customer trust.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
   },
   robots: "index,follow",
   keywords:

@@ -69,7 +69,7 @@ export async function getStaticProps() {
       title: "The Laundry House – Premium Laundry & Garment Care",
       description:
         "Experience premium laundry and dry cleaning services designed to protect, restore, and elevate your garments.",
-      image: "https://thelaundryhouseindia.com/logo-og.png",
+      image: "https://thelaundryhouseindia.com/og.png",
       url: "https://thelaundryhouseindia.com/",
       type: "website",
       site_name: "The Laundry House",
@@ -79,7 +79,7 @@ export async function getStaticProps() {
       title: "The Laundry House – Premium Garment Care",
       description:
         "Expert laundry and dry cleaning services crafted for freshness, care, and perfection.",
-      image: "https://thelaundryhouseindia.com/logo-og.png",
+      image: "https://thelaundryhouseindia.com/og.png",
     },
     robots: "index,follow",
     keywords:

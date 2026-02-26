@@ -9,11 +9,11 @@ const OrganizationSchema = () => {
     url: Const?.ClientLink || "",
     logo: {
       "@type": "ImageObject",
-      url: `${Const?.ClientLink || ""}/logo-og.png`,
+      url: `${Const?.ClientLink || ""}/og.png`,
       width: 160,
       height: 90,
     },
-    description:"We craft pristine garments that earn admiration back, with freshness. Full-service laundry experts specializing in premium dry cleaning, specialized restoration & garment care excellence.",
+    description: "We craft pristine garments that earn admiration back, with freshness. Full-service laundry experts specializing in premium dry cleaning, specialized restoration & garment care excellence.",
     sameAs: [
       " https://youtube.com/@thelaundryhouse?si=lAIxfghsNDfOKH1x",
       "https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==",

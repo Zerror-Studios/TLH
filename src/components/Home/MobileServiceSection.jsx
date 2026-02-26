@@ -148,7 +148,7 @@ const MobileServiceSection = () => {
                                         <div className=" w-full md:w-[40%] aspect-square">
                                             <div
                                                 className=" service_clip_img  w-full h-full overflow-hidden rounded-lg">
-                                                <img className='w-full h-full object-cover' src={item.img} alt="" />
+                                                <img className='w-full h-full object-cover' src={item.img} alt="img" />
                                             </div>
                                         </div>
                                     </div>

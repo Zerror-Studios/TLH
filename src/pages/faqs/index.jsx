@@ -312,7 +312,7 @@ export const meta = {
     title: "FAQs – The Laundry House",
     description:
       "Common questions answered about our laundry and dry cleaning services.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
     url: "https://thelaundryhouseindia.com/faqs",
     type: "website",
     site_name: "The Laundry House",
@@ -322,7 +322,7 @@ export const meta = {
     title: "Laundry & Dry Cleaning FAQs",
     description:
       "Everything you need to know about our garment care services.",
-    image: "https://thelaundryhouseindia.com/logo-og.png",
+    image: "https://thelaundryhouseindia.com/og.png",
   },
   robots: "index,follow",
   keywords:

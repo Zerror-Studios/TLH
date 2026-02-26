@@ -210,7 +210,7 @@ const StoresAddresses = () => {
                                 <div className=" size-14 lg:size-20 relative flex items-center justify-center">
                                     <img
                                         src={item.icon}
-                                        alt=""
+                                        alt="img"
                                         className="w-full h-full group-hover:scale-[1.2] transition-all duration-300 object-contain filter brightness-0 contrast-200"
                                     />
                                 </div>
