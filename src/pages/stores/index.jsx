@@ -82,7 +82,7 @@ const Index = () => {
 
             <div className="w-full flex flex-col lg:flex-row justify-between p-5 lg:p-10 mb-5 lg:mb-20">
                 {/* Left Side (Shops List) */}
-                <div className=" lg:sticky top-24 lg:h-screen w-full lg:w-[40%] border-r border-black/10 pr-5">
+                <div className=" lg:sticky top-24 lg:h-[120vh] w-full lg:w-[40%] border-r border-black/10 pr-5">
                     {allStoresData.find(store => store.cityName === activeCity)?.shopNames?.map((shop, index) => {
                         const [storeName, location] = shop.name.split(" – ");
                         return (
@@ -126,17 +126,21 @@ const Index = () => {
                                         </AnimatedText>
                                     </div>
                                     <div className="store_txt_a flex items-center gap-1">
-                                        <AnimatedText uniqueKey={`${shop.name}-map-icon`}>
-                                            <RiMapPinFill size={14} />
-                                        </AnimatedText>
-                                        <a
-                                            href={shop.location}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="fixy1 underline"
-                                        >
-                                            <AnimatedText uniqueKey={shop.location} className="fixy1">Location</AnimatedText>
-                                        </a>
+                                        {shop.location && (
+                                            <>
+                                                <AnimatedText uniqueKey={`${shop.name}-map-icon`}>
+                                                    <RiMapPinFill size={14} />
+                                                </AnimatedText>
+                                                <a
+                                                    href={shop.location}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="fixy1 underline"
+                                                >
+                                                    <AnimatedText uniqueKey={shop.location} className="fixy1">Location</AnimatedText>
+                                                </a>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
