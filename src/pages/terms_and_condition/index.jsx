@@ -349,13 +349,13 @@ export const meta = {
   title: "Terms & Conditions | The Laundry House – Service Guidelines",
   description:
     "Review The Laundry House Terms & Conditions outlining service policies, responsibilities, payments, and customer guidelines.",
-  canonical: "https://thelaundryhouseindia.com/terms-and-conditions",
+  canonical: "https://thelaundryhouseindia.com/terms_and_condition",
   og: {
     title: "Terms & Conditions – The Laundry House",
     description:
       "Understand the service terms, policies, and customer responsibilities.",
     image: "https://thelaundryhouseindia.com/og.png",
-    url: "https://thelaundryhouseindia.com/terms-and-conditions",
+    url: "https://thelaundryhouseindia.com/terms_and_condition",
     type: "website",
     site_name: "The Laundry House",
   },

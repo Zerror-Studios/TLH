@@ -47,7 +47,7 @@ const Footer = () => {
       links: [
         { label: "FAQs", href: "/faqs" },
         { label: "Privacy Policy", href: "/privacy-policy" },
-        { label: "Terms & Conditions", href: "/terms-and-conditions" },
+        { label: "Terms & Conditions", href: "/terms_and_condition" },
       ],
     },
   ];
@@ -69,7 +69,7 @@ const Footer = () => {
           {/* Logo */}
           <div className="w-[80%] md:w-[30%] lg:w-[60%] flex items-center justify-center md:justify-start">
             <Link scroll={false} href="/">
-            <img className='fot_anim_txt' src="/logos/Logo_White.svg" alt="Logo" />
+              <img className='fot_anim_txt' src="/logos/Logo_White.svg" alt="Logo" />
             </Link>
           </div>
 
