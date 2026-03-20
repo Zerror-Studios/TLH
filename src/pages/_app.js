@@ -32,18 +32,30 @@ export default function App({ Component, pageProps }) {
     };
   }, [router]);
 
+  useEffect(() => {
+    const existing = document.querySelector(
+      'script[src="https://wa-widget.pointofconnect.com/widget.js"]'
+    );
+
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://wa-widget.pointofconnect.com/widget.js";
+      script.setAttribute(
+        "widget-id",
+        "818ffed4-ddff-435c-bd6c-c055055ea0c9"
+      );
+      script.async = true;
+
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <>
       {/* Google Ads / Analytics */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17387356943"
         strategy="afterInteractive"
-      />
-
-      <Script
-        src="https://wa-widget.pointofconnect.com/widget.js"
-        strategy="afterInteractive"
-        data-widget-id="818ffed4-ddff-435c-bd6c-c055055ea0c9"
       />
 
       <Script id="gtag-init" strategy="afterInteractive">

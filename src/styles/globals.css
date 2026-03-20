@@ -210,6 +210,7 @@ button {
 
 
 
+
 .whatsapp_chat {
   opacity: 0;
   display: flex;
@@ -243,4 +244,20 @@ button {
 
 .whatsapp_chat:hover p {
   text-decoration: underline;
+}
+  
+#custom-widget-button{
+  background-color: #0e1111 !important;
+}
+div[style*="bottom: 70px"][style*="right: 20px"] > div:first-child {
+  background-color: #0e1111 !important;
+}
+div[style*="bottom: 70px"][style*="right: 20px"] button {
+  background-color: #0e1111 !important;
+}
+div[style*="bottom: 70px"][style*="right: 20px"] img[alt="Powered by Logo"] {
+  display: none !important;
+}
+div[style*="bottom: 70px"][style*="right: 20px"] span:has(+ img[alt="Powered by Logo"]) {
+  display: none !important;
 }
