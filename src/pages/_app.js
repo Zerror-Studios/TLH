@@ -40,6 +40,12 @@ export default function App({ Component, pageProps }) {
         strategy="afterInteractive"
       />
 
+      <Script
+        src="https://wa-widget.pointofconnect.com/widget.js"
+        strategy="afterInteractive"
+        data-widget-id="818ffed4-ddff-435c-bd6c-c055055ea0c9"
+      />
+
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
