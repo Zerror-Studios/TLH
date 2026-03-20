@@ -63,7 +63,7 @@ const Footer = () => {
 
   return (
     <div className='fot_parent relative z-[99]'>
-      <div className="w-full black text-white px-5 lg:px-24 pt-10 lg:pt-24">
+      <div className="w-full black text-white px-5 lg:px-10 pt-10 lg:pt-24 lg:pb-20">
         {/* Top Section */}
         <div className="w-full border-b flex flex-col md:flex-row pb-10 md:pb-20 items-center justify-between border-white/40">
           {/* Logo */}
