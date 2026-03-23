@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <BookNowDrawer />
-      <div
+      {/* <div
         onClick={() => reportConversion("https://wa.me/918800020002")}
         className="whatsapp_chat">
         <div className="whatsapp_chat_img center">
@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
           />
         </div>
         <p className="font-semibold">CHAT</p>
-      </div>
+      </div> */}
 
       <header>
         <Header />

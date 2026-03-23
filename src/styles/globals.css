@@ -246,7 +246,7 @@ button {
   text-decoration: underline;
 }
   
-#custom-widget-button{
+/* #custom-widget-button{
   background-color: #0e1111 !important;
 }
 div[style*="bottom: 70px"][style*="right: 20px"] > div:first-child {
@@ -260,4 +260,4 @@ div[style*="bottom: 70px"][style*="right: 20px"] img[alt="Powered by Logo"] {
 }
 div[style*="bottom: 70px"][style*="right: 20px"] span:has(+ img[alt="Powered by Logo"]) {
   display: none !important;
-}
+} */
