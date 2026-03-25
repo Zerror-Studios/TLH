@@ -59,7 +59,7 @@ const Footer = () => {
     // { icon: RiFacebookFill, href: "https://facebook.com" },
     { icon: RiYoutubeFill, href: " https://youtube.com/@thelaundryhouse?si=lAIxfghsNDfOKH1x" },
     { icon: RiInstagramFill, href: "https://www.instagram.com/the_laundry_house_official?igsh=MW53bXZld2ZxcW0wMw==" },
-    { icon: RiWhatsappFill, href: "https://wa.me/918800020002" },
+    { icon: RiWhatsappFill, href: "https://wa.me/919227997139" },
   ];
 
   return (

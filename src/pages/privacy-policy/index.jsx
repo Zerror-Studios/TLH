@@ -261,7 +261,7 @@ const PrivacyPolicy = () => {
                             </a>
                         </li>
                         <li>
-                            <strong>Phone:</strong> 8800020002
+                            <strong>Phone:</strong> 9227997139
                         </li>
                         <li>
                             <strong>Timing:</strong> Mon to Sat, 10 AM to 6 PM
@@ -282,7 +282,7 @@ const PrivacyPolicy = () => {
     return (
         <>
 
-        <SeoHeader meta={meta} />
+            <SeoHeader meta={meta} />
 
             {/* Page Title */}
             <div className="w-full px-5 pt-24 lg:pt-32 lg:text-center">
@@ -440,28 +440,28 @@ export default PrivacyPolicy;
 
 
 export const meta = {
-  title: "Privacy Policy | The Laundry House – Data Protection & Privacy",
-  description:
-    "Read The Laundry House Privacy Policy to understand how we collect, use, protect, and safeguard your personal information and data.",
-  canonical: "https://thelaundryhouseindia.com/privacy-policy",
-  og: {
-    title: "Privacy Policy – The Laundry House",
+    title: "Privacy Policy | The Laundry House – Data Protection & Privacy",
     description:
-      "Learn how The Laundry House protects your personal data and privacy.",
-    image: "https://thelaundryhouseindia.com/og.png",
-    url: "https://thelaundryhouseindia.com/privacy-policy",
-    type: "website",
-    site_name: "The Laundry House",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Privacy Policy – The Laundry House",
-    description:
-      "Your privacy matters. Read how we safeguard your data.",
-    image: "https://thelaundryhouseindia.com/og.png",
-  },
-  robots: "index,follow",
-  keywords:
-    "privacy policy laundry service, data protection, user privacy, The Laundry House privacy",
-  author: "The Laundry House",
+        "Read The Laundry House Privacy Policy to understand how we collect, use, protect, and safeguard your personal information and data.",
+    canonical: "https://thelaundryhouseindia.com/privacy-policy",
+    og: {
+        title: "Privacy Policy – The Laundry House",
+        description:
+            "Learn how The Laundry House protects your personal data and privacy.",
+        image: "https://thelaundryhouseindia.com/og.png",
+        url: "https://thelaundryhouseindia.com/privacy-policy",
+        type: "website",
+        site_name: "The Laundry House",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Privacy Policy – The Laundry House",
+        description:
+            "Your privacy matters. Read how we safeguard your data.",
+        image: "https://thelaundryhouseindia.com/og.png",
+    },
+    robots: "index,follow",
+    keywords:
+        "privacy policy laundry service, data protection, user privacy, The Laundry House privacy",
+    author: "The Laundry House",
 };

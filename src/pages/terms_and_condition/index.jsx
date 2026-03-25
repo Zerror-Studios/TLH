@@ -256,7 +256,7 @@ const TermsConditions = () => {
         <>
           <p>
             For any queries, kindly contact The Laundry House customer care at{" "}
-            <strong>+91 8800020002</strong> or write to us at{" "}
+            <strong>+91 9227997139</strong> or write to us at{" "}
             <a
               href="mailto:info@thelaundryhouseindia.com"
               target="_blank"

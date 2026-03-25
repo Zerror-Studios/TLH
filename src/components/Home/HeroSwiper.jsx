@@ -268,9 +268,9 @@ const HeroSwiper = () => {
           <h1 className=" text-2xl leading-none capitalize lg:text-6xl ">Premium garment care. Doorstep pickup & delivery.</h1>
           <p className="text-sm leading-tight lg:text-xl lg:w-[60%]">Dry cleaning, restoration, wedding wear, sneakers & bags — handled with expert care.</p>
           <div className="  w-[55%]  lg:w-[22%]">
-        <a href="https://wa.me/918800020002" target='_blank'>
-            <ArrowButton variant="light" label="Book a Pickup" />
-          </a>
+            <a href="https://wa.me/919227997139" target='_blank'>
+              <ArrowButton variant="light" label="Book a Pickup" />
+            </a>
           </div>
         </div>
 

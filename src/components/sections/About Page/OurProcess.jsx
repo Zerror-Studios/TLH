@@ -23,7 +23,7 @@ const OurProcess = () => {
           {/* Content */}
           <div className="flex flex-col gap-4 lg:gap-6">
             <h3 className="text-2xl lg:text-6xl font-medium">
-             Safe for Your Body's Largest Organ
+              Safe for Your Body's Largest Organ
             </h3>
 
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
@@ -32,7 +32,7 @@ const OurProcess = () => {
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
               By choosing our services, you reduce these risks and ensure your garments are cleaned with superior, safe products. Every wash reflects our commitment to wellness and promoting a healthier lifestyle through responsible garment care.</p>
 
-            <a href="https://wa.me/918800020002" target='_blank'>
+            <a href="https://wa.me/919227997139" target='_blank'>
               <div className="lg:w-[30%] mt-3 lg:mt-10">
                 <ServiceBtn />
               </div>
@@ -45,7 +45,7 @@ const OurProcess = () => {
           {/* Content */}
           <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
             <h3 className="text-2xl lg:text-6xl font-medium">
-             Where Technology, Skill & Service Merge
+              Where Technology, Skill & Service Merge
             </h3>
 
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
@@ -54,7 +54,7 @@ const OurProcess = () => {
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
               From delicate silks to sturdy denims, we know how to handle them all. Stubborn stains, intricate embroideries, delicate fabrics - nothing is too challenging for us. And our master cleaners are trained to ensure that no speck of dirt misses their eye.</p>
 
-            <a href="https://wa.me/918800020002" target='_blank'>
+            <a href="https://wa.me/919227997139" target='_blank'>
               <div className="lg:w-[30%] mt-3 lg:mt-10">
                 <ServiceBtn />
               </div>

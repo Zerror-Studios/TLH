@@ -183,7 +183,7 @@ const index = () => {
 
 
               {/* <div className="mt-6">
-                <a href="https://wa.me/918800020002" target="_blank">
+                <a href="https://wa.me/919227997139" target="_blank">
                   <button className="w-full serv_txt_b text-sm lg:text-base rounded-full border border-black bg-black text-white py-2 transition hover:bg-white hover:text-black">
                     Book Now
                   </button>

@@ -110,7 +110,7 @@ export default function ContactPage() {
                     <div className=" w-full lg:w-1/2 flex flex-col gap-y-10   lg:justify-between">
                         <div className=" text-sm lg:text-xl font-thin  space-y-3 lg:space-y-5 ">
                             <p>info@thelaundryhouseindia.com</p>
-                            <p>+91 8800020002</p>
+                            <p>+91 9227997139</p>
                             <p className="lg:w-[60%] leading-tight">Shop No. 1, Parshwa Darshan Complex, Near Gaay Circle, Shrenik Park Crossing, Akota, Vadodara – 390020</p>
                         </div>
                         <div className=" flex gap-x-5 items-center">
@@ -125,7 +125,7 @@ export default function ContactPage() {
                                 </a>
                             </div>
                             <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
-                                <a href="https://wa.me/918800020002" target="_blank" >
+                                <a href="https://wa.me/919227997139" target="_blank" >
                                     <RiWhatsappLine />
                                 </a>
                             </div>
