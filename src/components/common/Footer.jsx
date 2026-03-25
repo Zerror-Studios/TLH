@@ -21,7 +21,7 @@ const Footer = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (idx) => {
-    setOpenIndex(openIndex === idx ? null : idx); // close if same, else open
+    setOpenIndex(openIndex === idx ? null : idx);
   };
 
 
@@ -48,6 +48,7 @@ const Footer = () => {
         { label: "FAQs", href: "/faqs" },
         { label: "Privacy Policy", href: "/privacy-policy" },
         { label: "Terms & Conditions", href: "/terms_and_condition" },
+        { label: "Data Deletion Form", href: "/data-deletion-form" },
       ],
     },
   ];
