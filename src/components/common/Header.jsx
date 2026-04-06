@@ -150,16 +150,6 @@ const Header = () => {
     };
   }, [pathname]);
 
-  const handleWhatsappClick = (e) => {
-    e.preventDefault();
-
-    if (typeof window !== "undefined" && window.gtag_report_conversion) {
-      window.gtag_report_conversion();
-    }
-
-    window.open("https://wa.me/919227997139", "_blank");
-  };
-
   return (
     <>
       <div

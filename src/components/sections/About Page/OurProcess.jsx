@@ -1,6 +1,7 @@
 import React from "react";
 import ServiceBtn from "@/components/Buttons/ServiceBtn";
 import { useBookDrawer } from "@/store/useBookDrawer";
+import { reportConversion } from "@/libs/reportConversion";
 
 const OurProcess = () => {
   const openDrawer = useBookDrawer((state) => state.openDrawer);
@@ -32,11 +33,11 @@ const OurProcess = () => {
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
               By choosing our services, you reduce these risks and ensure your garments are cleaned with superior, safe products. Every wash reflects our commitment to wellness and promoting a healthier lifestyle through responsible garment care.</p>
 
-            <a href="https://wa.me/919227997139" target='_blank'>
+            <div onClick={() => reportConversion("https://wa.me/919227997139")} target='_blank'>
               <div className="lg:w-[30%] mt-3 lg:mt-10">
                 <ServiceBtn />
               </div>
-            </a>
+            </div>
           </div>
         </div>
 
@@ -54,11 +55,11 @@ const OurProcess = () => {
             <p className="text-sm lg:text-base leading-tight w-full  lg:w-[85%]">
               From delicate silks to sturdy denims, we know how to handle them all. Stubborn stains, intricate embroideries, delicate fabrics - nothing is too challenging for us. And our master cleaners are trained to ensure that no speck of dirt misses their eye.</p>
 
-            <a href="https://wa.me/919227997139" target='_blank'>
+            <div onClick={() => reportConversion("https://wa.me/919227997139")} target='_blank'>
               <div className="lg:w-[30%] mt-3 lg:mt-10">
                 <ServiceBtn />
               </div>
-            </a>
+            </div>
           </div>
 
           {/* Image */}

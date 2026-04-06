@@ -7,6 +7,7 @@ import { Navigation, A11y, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { reportConversion } from '@/libs/reportConversion';
 
 const services = [
     {
@@ -133,7 +134,7 @@ const MobileServiceSection = () => {
                                                     </div>
                                                 </div> */}
 
-                                                <a href="https://wa.me/919227997139" target='_blank'>
+                                                <div onClick={() => reportConversion("https://wa.me/919227997139")} target='_blank'>
                                                     <div className="w-full mt-4 ">
                                                         <button className='  group relative text-xs lg:text-base service_btn  w-full hover:bg-transparent bg-[#0e1111] hover:border-black border-transparent overflow-hidden hover:text-black transition-all duration-300 hover:  border-2 text-white py-2 lg:py-4 px-4 lg:px-8 uppercase  rounded-full flex items-center justify-between'>
                                                             <div className="w-full  group-hover:scale-110 origin-center group-hover:top-0 transition-all duration-300 h-full bg-[#FFFAF0] left-0 top-[100%] absolute rounded-full"></div>
@@ -141,7 +142,7 @@ const MobileServiceSection = () => {
                                                             <RiArrowRightUpLine size={24} className='z-[99]' />
                                                         </button>
                                                     </div>
-                                                </a>
+                                                </div>
 
                                             </div>
                                         </div>
