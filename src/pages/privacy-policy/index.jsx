@@ -261,7 +261,7 @@ const PrivacyPolicy = () => {
                             </a>
                         </li>
                         <li>
-                            <strong>Phone:</strong> 9227997139
+                            <strong>Phone:</strong> 9274669278
                         </li>
                         <li>
                             <strong>Timing:</strong> Mon to Sat, 10 AM to 6 PM

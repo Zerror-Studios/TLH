@@ -32,23 +32,7 @@ export default function App({ Component, pageProps }) {
     };
   }, [router]);
 
-  useEffect(() => {
-    const existing = document.querySelector(
-      'script[src="https://wa-widget.pointofconnect.com/widget.js"]'
-    );
 
-    if (!existing) {
-      const script = document.createElement("script");
-      script.src = "https://wa-widget.pointofconnect.com/widget.js";
-      script.setAttribute(
-        "widget-id",
-        "818ffed4-ddff-435c-bd6c-c055055ea0c9"
-      );
-      script.async = true;
-
-      document.body.appendChild(script);
-    }
-  }, []);
 
    useEffect(() => {
     const handleRouteChange = () => {
@@ -64,6 +48,13 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <Script
+        id="aisensy-wa-widget"
+        type="text/javascript"
+        src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+        widget-id="aabken"
+        strategy="afterInteractive"
+      />
 
       <Script
         id="facebook-pixel"

@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     <>
       <BookNowDrawer />
       {/* <div
-        onClick={() => reportConversion("https://wa.me/919227997139")}
+        onClick={() => reportConversion("https://wa.aisensy.com/aabkdo")}
         className="whatsapp_chat">
         <div className="whatsapp_chat_img center">
           <Image

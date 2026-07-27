@@ -97,7 +97,7 @@ const ServicesSection = () => {
                             <div className=" border_anim  w-full origin-left  border mt-4 mb-20 border-dashed rounded-full border-black/30"></div>
 
                             <p className='text-xl '>{card.desc}</p>
-                            <div onClick={() => reportConversion("https://wa.me/919227997139")} target='_blank'>
+                            <div onClick={() => reportConversion("https://wa.aisensy.com/aabkdo")} target='_blank'>
                                 <div className="w-[30%] mt-10 ">
                                     <ServiceBtn />
                                 </div>
