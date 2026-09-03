@@ -3,7 +3,7 @@ import ServiceBtn from "@/components/Buttons/ServiceBtn"
 import CustomSelect from "@/components/common/CustomSelect";
 import InputField from "@/components/common/InputField";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { reportConversion } from "@/libs/reportConversion";
+import { whatsappReportConversion } from "@/libs/reportConversion.js";
 import { RiFacebookLine, RiGithubLine, RiInstagramLine, RiWhatsappLine, RiYoutubeLine } from "@remixicon/react"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -126,7 +126,7 @@ export default function ContactPage() {
                                 </a>
                             </div>
                             <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
-                                <button onClick={() => reportConversion("https://wa.aisensy.com/aabkdo")} target="_blank" >
+                                <button onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo")} target="_blank" >
                                     <RiWhatsappLine />
                                 </button>
                             </div>

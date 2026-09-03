@@ -14,7 +14,7 @@ import { CustomEase } from 'gsap/dist/CustomEase';
 import { RiArrowLeftSFill, RiArrowLeftSLine, RiArrowRightSFill, RiArrowRightSLine } from "@remixicon/react";
 import ArrowButton from "../Buttons/ArrowButton";
 import Image from "next/image";
-import { reportConversion } from "@/libs/reportConversion";
+import { whatsappReportConversion } from "@/libs/reportConversion.js";
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 const swiperData = [
@@ -269,7 +269,7 @@ const HeroSwiper = () => {
           <h1 className=" text-2xl leading-none capitalize lg:text-6xl ">Premium garment care. Doorstep pickup & delivery.</h1>
           <p className="text-sm leading-tight lg:text-xl lg:w-[60%]">Dry cleaning, restoration, wedding wear, sneakers & bags — handled with expert care.</p>
           <div className="  w-[55%]  lg:w-[22%]">
-            <div onClick={() => reportConversion("https://wa.aisensy.com/aabkdo")} target='_blank'>
+            <div onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo")} target='_blank'>
               <ArrowButton variant="light" label="Book a Pickup" />
             </div>
           </div>

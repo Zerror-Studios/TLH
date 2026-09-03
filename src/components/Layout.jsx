@@ -6,7 +6,7 @@ import BookNowDrawer from "./common/BookNowDrawer";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { reportConversion } from "@/libs/reportConversion";
+import { whatsappReportConversion } from "@/libs/reportConversion.js";
 
 const Layout = ({ children }) => {
   const pathname = usePathname();
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     <>
       <BookNowDrawer />
       {/* <div
-        onClick={() => reportConversion("https://wa.aisensy.com/aabkdo")}
+        onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo")}
         className="whatsapp_chat">
         <div className="whatsapp_chat_img center">
           <Image
