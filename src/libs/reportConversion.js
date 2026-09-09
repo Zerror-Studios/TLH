@@ -1,10 +1,16 @@
 export const whatsappReportConversion = (url) => {
   if (typeof window === "undefined") return;
 
-  // Fire conversion first (non-blocking)
-  if (window.gtag) {
+  // Fire conversion first (non-blocking with beacon transport)
+  if (typeof window.gtag === "function") {
     window.gtag("event", "conversion", {
       send_to: "AW-17387356943/rKh4COf0ifMbEI-G-OJA",
+      transport: "beacon",
+    });
+  } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+    window.dataLayer.push("event", "conversion", {
+      send_to: "AW-17387356943/rKh4COf0ifMbEI-G-OJA",
+      transport: "beacon",
     });
   }
 
@@ -19,16 +25,25 @@ export const franchiseReportConversion = (url) => {
   if (typeof window === "undefined") return false;
 
   const callback = function () {
-    if (typeof url !== "undefined") {
-      window.location = url;
+    if (typeof url === "string" && url.trim() !== "") {
+      window.location.href = url;
     }
   };
 
-  if (window.gtag) {
+  if (typeof window.gtag === "function") {
     window.gtag("event", "conversion", {
       send_to: "AW-17387356943/nv18CNPfp-0cEI-G-OJA",
       value: 1.0,
       currency: "INR",
+      transport: "beacon",
+      event_callback: callback,
+    });
+  } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+    window.dataLayer.push("event", "conversion", {
+      send_to: "AW-17387356943/nv18CNPfp-0cEI-G-OJA",
+      value: 1.0,
+      currency: "INR",
+      transport: "beacon",
       event_callback: callback,
     });
   } else {
@@ -36,5 +51,6 @@ export const franchiseReportConversion = (url) => {
   }
   return false;
 };
+
 
 
