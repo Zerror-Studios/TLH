@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const FranchiseForm = () => {
   const router = useRouter();
-const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const stepRef = useRef(null);
   const [step, setStep] = useState(1);
@@ -52,83 +52,84 @@ const [isSubmitting, setIsSubmitting] = useState(false);
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (isSubmitting) return;
+    if (isSubmitting) return;
 
-  const {
-    name,
-    email,
-    phone,
-    city,
-    investment,
-    profession,
-    timeline,
-    locationStatus,
-  } = formData;
+    const {
+      name,
+      email,
+      phone,
+      city,
+      investment,
+      profession,
+      timeline,
+      locationStatus,
+    } = formData;
 
-  // Validation
-  if (
-    !name ||
-    !email ||
-    !phone ||
-    !city ||
-    !investment ||
-    !profession ||
-    !timeline ||
-    !locationStatus
-  ) {
-    toast.error("Please fill all required fields");
-    return;
-  }
-
-  const payload = {
-    name,
-    email,
-    phone,
-    city,
-    investment,
-    profession,
-    timeline,
-    locationStatus,
-  };
-
-  try {
-    setIsSubmitting(true);
-
-    const res = await fetch("/api/submitFranchiseForm", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.error || "Something went wrong");
+    // Validation
+    if (
+      !name ||
+      !email ||
+      !phone ||
+      !city ||
+      !investment ||
+      !profession ||
+      !timeline ||
+      !locationStatus
+    ) {
+      toast.error("Please fill all required fields");
+      return;
     }
 
-    reportGoogleAdsConversion()
-    toast.success("Form submitted successfully!");
+    const payload = {
+      name,
+      email,
+      phone,
+      city,
+      investment,
+      profession,
+      timeline,
+      locationStatus,
+    };
 
-    setFormData({
-      name: "",
-      email:"",
-      phone: "",
-      city: "",
-      investment: "",
-      profession: "",
-      timeline: "",
-      locationStatus: "",
-    });
+    try {
+      setIsSubmitting(true);
 
-    router.push("/franchise/success");
-  } catch (err) {
-    toast.error(err.message);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+      const res = await fetch("/api/submitFranchiseForm", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      toast.success("Form submitted successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        investment: "",
+        profession: "",
+        timeline: "",
+        locationStatus: "",
+      });
+
+      reportGoogleAdsConversion("/franchise/success")
+
+      // router.push("/franchise/success");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
 
   useEffect(() => {
@@ -271,17 +272,16 @@ const [isSubmitting, setIsSubmitting] = useState(false);
                           variant="dark"
                         />
                       </div>
-                     <div
-  className={`w-full sm:w-[55%] transition-opacity ${
-    isSubmitting ? "pointer-events-none opacity-50" : ""
-  }`}
->
-  <ArrowButton
-    type="submit"
-    label={isSubmitting ? "Submitting..." : "Submit"}
-    variant="dark"
-  />
-</div>
+                      <div
+                        className={`w-full sm:w-[55%] transition-opacity ${isSubmitting ? "pointer-events-none opacity-50" : ""
+                          }`}
+                      >
+                        <ArrowButton
+                          type="submit"
+                          label={isSubmitting ? "Submitting..." : "Submit"}
+                          variant="dark"
+                        />
+                      </div>
 
                     </div>
                   </>

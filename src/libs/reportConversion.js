@@ -21,17 +21,24 @@ export const whatsappReportConversion = (url) => {
 };
 
 
-export const reportGoogleAdsConversion = () => {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+export const reportGoogleAdsConversion = (url) => {
+  if (typeof window === 'undefined') return;
+
+  const callback = () => {
+    if (url) {
+      window.location.href = url;
+    }
+  };
+
+  if (typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', {
-      send_to: 'AW-17387356943/nv18CNPfp-0cEI-G-OJA',
+      send_to: 'AW-17387356943/nv18CNPfp-0cEIG-OJA',
       value: 1.0,
       currency: 'INR',
+      event_callback: callback,
     });
-
-    console.log('Google Ads conversion triggered');
-  } else {
-    console.warn('Google gtag is not available');
+  } else if (url) {
+    window.location.href = url;
   }
 };
 
