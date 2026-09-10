@@ -8,7 +8,7 @@ import Link from "next/link";
 import InputField from "@/components/common/InputField";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { franchiseReportConversion } from "@/libs/reportConversion";
+import { reportGoogleAdsConversion } from "@/libs/reportConversion";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -108,6 +108,7 @@ const [isSubmitting, setIsSubmitting] = useState(false);
       throw new Error(data.error || "Something went wrong");
     }
 
+    reportGoogleAdsConversion()
     toast.success("Form submitted successfully!");
 
     setFormData({
@@ -121,7 +122,6 @@ const [isSubmitting, setIsSubmitting] = useState(false);
       locationStatus: "",
     });
 
-    franchiseReportConversion();
     router.push("/franchise/success");
   } catch (err) {
     toast.error(err.message);

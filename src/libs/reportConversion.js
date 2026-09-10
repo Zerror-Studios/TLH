@@ -21,35 +21,27 @@ export const whatsappReportConversion = (url) => {
 };
 
 
-export const franchiseReportConversion = (url) => {
-  if (typeof window === "undefined") return false;
+export const reportGoogleAdsConversion = (url) => {
+  if (typeof window === 'undefined') {
+    return;
+  }
 
-  const callback = function () {
-    if (typeof url === "string" && url.trim() !== "") {
+  const callback = () => {
+    if (url) {
       window.location.href = url;
     }
   };
 
-  if (typeof window.gtag === "function") {
-    window.gtag("event", "conversion", {
-      send_to: "AW-17387356943/nv18CNPfp-0cEI-G-OJA",
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-17387356943/nv18CNPfp-0cEI-G-OJA',
       value: 1.0,
-      currency: "INR",
-      transport: "beacon",
+      currency: 'INR',
       event_callback: callback,
     });
-  } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
-    window.dataLayer.push("event", "conversion", {
-      send_to: "AW-17387356943/nv18CNPfp-0cEI-G-OJA",
-      value: 1.0,
-      currency: "INR",
-      transport: "beacon",
-      event_callback: callback,
-    });
-  } else {
-    callback();
+  } else if (url) {
+    window.location.href = url;
   }
-  return false;
 };
 
 
