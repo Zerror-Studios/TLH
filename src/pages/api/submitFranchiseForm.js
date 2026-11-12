@@ -1,6 +1,7 @@
 import { GoogleAuth } from "google-auth-library";
 import { sheets_v4 } from "@googleapis/sheets";
 import nodemailer from "nodemailer";
+import { sendCapiEvent, splitName, stableEventId, safeSourceUrl, normalizeIndianMobile, escapeHtml, str, browserMatchKeys } from "@/libs/meta/capi";
 
 async function getSheetsClient() {
   const auth = new GoogleAuth({
@@ -56,8 +57,8 @@ export default async function handler(req, res) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID,
-      range: "Franchise Form!A:H",
-      valueInputOption: "USER_ENTERED",
+      range: "Franchise Form!A:I",
+      valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
@@ -115,14 +116,14 @@ export default async function handler(req, res) {
         <tr>
           <td style="padding:24px;">
             <table width="100%" style="font-size:14px;">
-              <tr><td style="color:#6b7280;width:40%;">Name</td><td><b>${name}</b></td></tr>
-              <tr><td style="color:#6b7280;width:40%;">Name</td><td><b>${email}</b></td></tr>
-              <tr><td style="color:#6b7280;">Phone</td><td><b>${phone}</b></td></tr>
-              <tr><td style="color:#6b7280;">City</td><td><b>${city}</b></td></tr>
-              <tr><td style="color:#6b7280;">Profession</td><td><b>${profession}</b></td></tr>
-              <tr><td style="color:#6b7280;">Investment Capacity</td><td><b>${investment}</b></td></tr>
-              <tr><td style="color:#6b7280;">Timeline</td><td><b>${timeline}</b></td></tr>
-              <tr><td style="color:#6b7280;">Location Status</td><td><b>${locationStatus}</b></td></tr>
+              <tr><td style="color:#6b7280;width:40%;">Name</td><td><b>${escapeHtml(name)}</b></td></tr>
+              <tr><td style="color:#6b7280;width:40%;">Email</td><td><b>${escapeHtml(email)}</b></td></tr>
+              <tr><td style="color:#6b7280;">Phone</td><td><b>${escapeHtml(phone)}</b></td></tr>
+              <tr><td style="color:#6b7280;">City</td><td><b>${escapeHtml(city)}</b></td></tr>
+              <tr><td style="color:#6b7280;">Profession</td><td><b>${escapeHtml(profession)}</b></td></tr>
+              <tr><td style="color:#6b7280;">Investment Capacity</td><td><b>${escapeHtml(investment)}</b></td></tr>
+              <tr><td style="color:#6b7280;">Timeline</td><td><b>${escapeHtml(timeline)}</b></td></tr>
+              <tr><td style="color:#6b7280;">Location Status</td><td><b>${escapeHtml(locationStatus)}</b></td></tr>
             </table>
           </td>
         </tr>
@@ -141,8 +142,26 @@ export default async function handler(req, res) {
       `,
     });
 
+    /* ---------- Meta Conversions API (after the enquiry is saved) ---------- */
+    const mobile = normalizeIndianMobile(phone);
+    const eventId = stableEventId("franchise", mobile || String(email).toLowerCase());
+    const n = splitName(name);
+    const user = { phone: mobile || undefined, email, firstName: n.first, lastName: n.last, city };
+    await sendCapiEvent({
+      req,
+      eventName: "SubmitApplication",
+      eventId,
+      eventSourceUrl: safeSourceUrl(req.body.pageUrl),
+      user,
+      fbp: str(req.body.fbp, 200),
+      fbc: str(req.body.fbc, 500),
+      customData: { content_name: "Franchise", content_category: str(investment, 60) },
+    });
+
     return res.status(200).json({
       message: "Franchise form submitted successfully",
+      eventId,
+      matchKeys: browserMatchKeys(user),
     });
   } catch (error) {
     console.error("❌ Franchise API Error:", error);

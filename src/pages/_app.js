@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Script from "next/script";
 
 import { ToastContainer, Zoom } from "react-toastify";
+import { captureAttribution, exposeGlobal } from "@/libs/meta/attribution";
 import "react-toastify/dist/ReactToastify.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -34,7 +35,18 @@ export default function App({ Component, pageProps }) {
 
 
 
-   useEffect(() => {
+  // Campaign attribution (utm_* / fbclid / gclid) — first load + every client-side navigation.
+  useEffect(() => {
+    captureAttribution();
+    exposeGlobal();
+    const onRoute = () => captureAttribution();
+    router.events.on("routeChangeComplete", onRoute);
+    return () => router.events.off("routeChangeComplete", onRoute);
+  }, [router.events]);
+
+  // Meta PageView on client-side navigation (the base code below sends the first one).
+  // Do NOT add the pixel base code anywhere else (e.g. _document <head>) — it would double-count.
+  useEffect(() => {
     const handleRouteChange = () => {
       window.fbq && window.fbq("track", "PageView");
     };

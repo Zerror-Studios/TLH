@@ -7,6 +7,7 @@ import SplitText from "gsap/dist/SplitText";
 import CustomEase from "gsap/dist/CustomEase";
 import SeoHeader from "@/components/seo/SeoHeader";
 import Image from "next/image";
+import { trackMeta } from "@/libs/meta/client";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
@@ -147,6 +148,11 @@ const index = () => {
 
   useEffect(() => {
     introAnimation();
+  }, []);
+
+  // Meta: services page viewed (retargeting audiences). Throttle covers StrictMode / back-forward.
+  useEffect(() => {
+    trackMeta("ViewContent", { content_name: "Services", content_category: "services_page" }, { relay: true, dedupeKey: "vc:services", throttleMs: 10000 });
   }, []);
 
   return (
