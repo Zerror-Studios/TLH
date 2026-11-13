@@ -91,9 +91,9 @@ export const escapeHtml = (v) =>
  * @param {object} [e.customData]
  */
 export async function sendCapiEvent(e) {
-  const token = process.env.META_CAPI_ACCESS_TOKEN;
+  const token = process.env.NEXT_PUBLIC_META_CAPI_ACCESS_TOKEN;
   if (!token) {
-    console.warn("[meta-capi] META_CAPI_ACCESS_TOKEN not set — skipped", e.eventName);
+    console.warn("[meta-capi] NEXT_PUBLIC_META_CAPI_ACCESS_TOKEN not set — skipped", e.eventName);
     return false;
   }
 
