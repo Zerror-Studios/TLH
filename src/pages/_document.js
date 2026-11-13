@@ -10,6 +10,25 @@ export default function Document() {
         />
       </Head>
       <body className="antialiased">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WBQ4GD3X"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* Meta Pixel (noscript) */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=756441694101905&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <Main />
         <NextScript />
       </body>
