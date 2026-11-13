@@ -1,6 +1,7 @@
 import { GoogleAuth } from "google-auth-library";
 import { sheets_v4 } from "@googleapis/sheets";
 import nodemailer from "nodemailer";
+import { sendCapiEvent, splitName, stableEventId, safeSourceUrl, isValidEmail, escapeHtml, str, browserMatchKeys } from "@/libs/meta/capi";
 
 async function getSheetsClient() {
   const auth = new GoogleAuth({
@@ -21,6 +22,7 @@ export default async function handler(req, res) {
 
   try {
     const { fullName, email, city, service, message } = req.body;
+    const attr = req.body.attribution && typeof req.body.attribution === "object" ? req.body.attribution : {};
 
     if (!fullName || !email || !city || !service || !message) {
       return res.status(400).json({ error: "All fields are required" });
@@ -35,8 +37,8 @@ export default async function handler(req, res) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID,
-      range: "Contact Form!A:F",
-      valueInputOption: "USER_ENTERED",
+      range: "Contact Form!A:I",
+      valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
@@ -46,6 +48,9 @@ export default async function handler(req, res) {
           city,
           service,
           message,
+          str(attr.utm_source),
+          str(attr.utm_campaign),
+          str(attr.fbclid, 300),
         ]],
       },
     });
@@ -65,16 +70,33 @@ export default async function handler(req, res) {
       subject: "New Contact Form Submission",
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><b>Name:</b> ${fullName}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>City:</b> ${city}</p>
-        <p><b>Service:</b> ${service}</p>
-        <p><b>Message:</b><br/>${message}</p>
+        <p><b>Name:</b> ${escapeHtml(fullName)}</p>
+        <p><b>Email:</b> ${escapeHtml(email)}</p>
+        <p><b>City:</b> ${escapeHtml(city)}</p>
+        <p><b>Service:</b> ${escapeHtml(service)}</p>
+        <p><b>Message:</b><br/>${escapeHtml(message)}</p>
       `,
+    });
+
+    // ✅ Meta Conversions API (after the enquiry is saved)
+    const eventId = stableEventId("contact", String(email).toLowerCase(), String(service));
+    const n = splitName(fullName);
+    const user = { email: isValidEmail(email) ? email : undefined, firstName: n.first, lastName: n.last, city };
+    await sendCapiEvent({
+      req,
+      eventName: "Contact",
+      eventId,
+      eventSourceUrl: safeSourceUrl(req.body.pageUrl),
+      user,
+      fbp: str(req.body.fbp, 200),
+      fbc: str(req.body.fbc, 500),
+      customData: { content_name: str(service, 100), content_category: "contact_form" },
     });
 
     return res.status(200).json({
       message: "Form submitted successfully",
+      eventId,
+      matchKeys: browserMatchKeys(user),
     });
   } catch (error) {
     console.error("❌ Contact API Error:", error);

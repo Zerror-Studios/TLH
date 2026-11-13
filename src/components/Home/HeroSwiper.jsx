@@ -14,7 +14,7 @@ import { CustomEase } from 'gsap/dist/CustomEase';
 import { RiArrowLeftSFill, RiArrowLeftSLine, RiArrowRightSFill, RiArrowRightSLine } from "@remixicon/react";
 import ArrowButton from "../Buttons/ArrowButton";
 import Image from "next/image";
-import { whatsappReportConversion } from "@/libs/reportConversion.js";
+import { useBookDrawer } from "@/store/useBookDrawer";
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 const swiperData = [
@@ -37,6 +37,7 @@ const swiperData = [
 ];
 
 const HeroSwiper = () => {
+  const openDrawer = useBookDrawer((state) => state.openDrawer);
   const swiperRef = useRef(null);
   const swiperParentRef = useRef(null);
   const parallexContainerRef = useRef(null);
@@ -269,7 +270,7 @@ const HeroSwiper = () => {
           <h1 className=" text-2xl leading-none capitalize lg:text-6xl ">Premium garment care. Doorstep pickup & delivery.</h1>
           <p className="text-sm leading-tight lg:text-xl lg:w-[60%]">Dry cleaning, restoration, wedding wear, sneakers & bags — handled with expert care.</p>
           <div className="  w-[55%]  lg:w-[22%]">
-            <div onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo")} target='_blank'>
+            <div onClick={() => openDrawer("hero")}>
               <ArrowButton variant="light" label="Book a Pickup" />
             </div>
           </div>

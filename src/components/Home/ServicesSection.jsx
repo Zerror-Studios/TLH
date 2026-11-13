@@ -1,5 +1,4 @@
 import ServiceBtn from '@/components/Buttons/ServiceBtn';
-import { whatsappReportConversion } from '@/libs/reportConversion.js';
 import { useBookDrawer } from '@/store/useBookDrawer';
 import { useGSAP } from '@gsap/react';
 import { RiMapPinFill } from '@remixicon/react';
@@ -97,7 +96,7 @@ const ServicesSection = () => {
                             <div className=" border_anim  w-full origin-left  border mt-4 mb-20 border-dashed rounded-full border-black/30"></div>
 
                             <p className='text-xl '>{card.desc}</p>
-                            <div onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo")} target='_blank'>
+                            <div onClick={() => openDrawer("service_card")}>
                                 <div className="w-[30%] mt-10 ">
                                     <ServiceBtn />
                                 </div>

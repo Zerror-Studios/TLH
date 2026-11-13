@@ -8,6 +8,8 @@ import { RiFacebookLine, RiGithubLine, RiInstagramLine, RiWhatsappLine, RiYoutub
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { trackMeta } from "@/libs/meta/client";
+import { getAttribution, getFbp, getFbc } from "@/libs/meta/attribution";
 
 export default function ContactPage() {
 
@@ -59,6 +61,10 @@ export default function ContactPage() {
             city,
             service,
             message,
+            fbp: getFbp(),
+            fbc: getFbc(),
+            attribution: getAttribution(),
+            pageUrl: window.location.href,
         };
 
         try {
@@ -74,6 +80,11 @@ export default function ContactPage() {
 
             if (!res.ok) {
                 throw new Error(data.error || "Something went wrong");
+            }
+
+            // Meta: an enquiry is "Contact" — "Lead" is reserved for pickup bookings.
+            if (data.eventId) {
+                trackMeta("Contact", { content_name: service, content_category: "contact_form" }, { eventId: data.eventId, matchKeys: data.matchKeys });
             }
 
             toast.success("Form submitted successfully!");
@@ -126,7 +137,7 @@ export default function ContactPage() {
                                 </a>
                             </div>
                             <div className=" size-12 lg:size-14 hover:bg-[#0e1111] hover:text-[#fffaf0] cursor-pointer center rounded-full border border-[#0e1111] transition-all duration-300">
-                                <button onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo")} target="_blank" >
+                                <button onClick={() => whatsappReportConversion("https://wa.aisensy.com/aabkdo", "contact_page")} target="_blank" >
                                     <RiWhatsappLine />
                                 </button>
                             </div>

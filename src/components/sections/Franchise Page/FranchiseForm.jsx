@@ -8,6 +8,8 @@ import Link from "next/link";
 import InputField from "@/components/common/InputField";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { trackMeta } from "@/libs/meta/client";
+import { getAttribution, getFbp, getFbc } from "@/libs/meta/attribution";
 import { reportGoogleAdsConversion } from "@/libs/reportConversion";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -91,6 +93,10 @@ const FranchiseForm = () => {
       profession,
       timeline,
       locationStatus,
+      fbp: getFbp(),
+      fbc: getFbc(),
+      attribution: getAttribution(),
+      pageUrl: window.location.href,
     };
 
     try {
@@ -106,6 +112,12 @@ const FranchiseForm = () => {
 
       if (!res.ok) {
         throw new Error(data.error || "Something went wrong");
+      }
+
+      // Meta: franchise enquiries are "SubmitApplication", never "Lead",
+      // so customer campaigns don't learn to find investors (and vice versa).
+      if (data.eventId) {
+        trackMeta("SubmitApplication", { content_name: "Franchise", content_category: investment }, { eventId: data.eventId, matchKeys: data.matchKeys });
       }
 
       toast.success("Form submitted successfully!");

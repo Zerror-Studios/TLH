@@ -7,6 +7,9 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from 'gsap/dist/SplitText';
 import { motion, AnimatePresence } from "framer-motion";
 import SeoHeader from '@/components/seo/SeoHeader';
+import { trackMeta } from '@/libs/meta/client';
+
+const telHref = (n) => `tel:${String(n || '').replace(/[^\d+]/g, '')}`;
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -120,7 +123,11 @@ const Index = () => {
                                             <RiPhoneFill size={14} />
                                         </AnimatedText>
                                         <AnimatedText uniqueKey={shop.contact} className="fixy1">
-                                            <a href="tel:{shop.contact}" className="fixy1 underline">
+                                            <a
+                                                href={telHref(shop.contact)}
+                                                onClick={() => trackMeta("Contact", { content_name: shop.name, content_category: "store_call" }, { relay: true, dedupeKey: `call:${shop.name}`, throttleMs: 30000 })}
+                                                className="fixy1 underline"
+                                            >
                                                 {shop.contact}
                                             </a>
                                         </AnimatedText>
@@ -135,6 +142,7 @@ const Index = () => {
                                                     href={shop.location}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
+                                                    onClick={() => trackMeta("FindLocation", { content_name: shop.name, content_category: "store_directions" }, { relay: true, dedupeKey: `dir:${shop.name}`, throttleMs: 30000 })}
                                                     className="fixy1 underline"
                                                 >
                                                     <AnimatedText uniqueKey={shop.location} className="fixy1">Location</AnimatedText>
