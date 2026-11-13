@@ -76,7 +76,7 @@ export default async function handler(req, res) {
         <p><b>Service:</b> ${escapeHtml(service)}</p>
         <p><b>Message:</b><br/>${escapeHtml(message)}</p>
       `,
-    });
+    }).catch((err) => console.error("⚠️ Contact email failed (enquiry was saved):", err?.message));
 
     // ✅ Meta Conversions API (after the enquiry is saved)
     const eventId = stableEventId("contact", String(email).toLowerCase(), String(service));

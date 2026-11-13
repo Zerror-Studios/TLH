@@ -41,8 +41,9 @@ export default async function handler(req, res) {
     /* ---------- GOOGLE SHEET ---------- */
     const sheets = await getSheetsClient();
 
+    // The leads sheet has no "Data Deletion Form" tab — these requests stay in the old sheet.
     await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID,
+      spreadsheetId: process.env.DATA_DELETION_SHEET_ID || process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID,
       range: "Data Deletion Form!A:H",
       valueInputOption: "USER_ENTERED",
       insertDataOption: "INSERT_ROWS",
@@ -81,7 +82,7 @@ export default async function handler(req, res) {
       <p><b>Reason:</b> ${reasonForDeletion}</p>
       <p><b>Comments:</b> ${additionalComments}</p>
       `,
-    });
+    }).catch((err) => console.error("⚠️ Data deletion email failed (request was saved):", err?.message));
 
     return res.status(200).json({
       message: "Data deletion form submitted successfully",

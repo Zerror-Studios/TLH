@@ -140,7 +140,7 @@ export default async function handler(req, res) {
   </tr>
 </table>
       `,
-    });
+    }).catch((err) => console.error("⚠️ Franchise email failed (enquiry was saved):", err?.message));
 
     /* ---------- Meta Conversions API (after the enquiry is saved) ---------- */
     const mobile = normalizeIndianMobile(phone);
