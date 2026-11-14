@@ -106,7 +106,7 @@ const BookNowDrawer = () => {
         aria-modal="true"
         aria-labelledby="book-drawer-title"
         aria-hidden={!isOpen}
-        className={`fixed z-[999] bg-[#FFFAF0] shadow-xl transition-transform duration-300
+        className={`fixed z-[99999] bg-[#FFFAF0] shadow-xl transition-transform duration-300
           w-full md:w-[50vw] lg:w-[30vw]
           h-[100dvh] md:h-full
           top-0 right-0
