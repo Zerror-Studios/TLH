@@ -34,7 +34,7 @@ CTAs: **Book a Pickup / Book Now** (header, hero, service cards, about page) ope
 
 1. Google Sheet: use "TLH Website Leads" (`NEXT_PUBLIC_GOOGLE_SHEET_ID`). Data deletion requests stay in the old sheet via `NEXT_PUBLIC_DATA_DELETION_SHEET_ID`.
 2. Vercel env vars (server-only, no `NEXT_PUBLIC_` prefix):
-   - `NEXT_PUBLIC_META_CAPI_ACCESS_TOKEN` — Events Manager → TLH Pixel → Settings → Conversions API → Generate access token
+   - `META_CAPI_ACCESS_TOKEN` — Events Manager → TLH Pixel → Settings → Conversions API → Generate access token
    - `NEXT_PUBLIC_DATA_DELETION_SHEET_ID` — the old "TLH Form Submissions" sheet (has the Data Deletion Form tab)
    - `META_TEST_EVENT_CODE` — preview env only, while testing
 3. Fill pincodes in `SERVICE_AREAS` (empty list = whole city accepted).
